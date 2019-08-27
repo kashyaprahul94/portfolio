@@ -1,0 +1,16 @@
+{
+  "env": {
+    "development": {
+      "plugins": ["emotion"],
+      "presets": [["next/babel"], "@emotion/babel-preset-css-prop"]
+    },
+    "test": {
+      "plugins": ["emotion"],
+      "presets": [["next/babel"], "@emotion/babel-preset-css-prop"]
+    },
+    "production": {
+      "plugins": ["emotion"],
+      "presets": [["next/babel"], "@emotion/babel-preset-css-prop"]
+    }
+  }
+}

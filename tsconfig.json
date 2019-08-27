@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "resolveJsonModule": true,
+    "baseUrl": "./src",
+    "paths": {
+      "app/*": ["./*"]
+    },
+    "outDir": "./build/src",
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/*.ts"]
+}
