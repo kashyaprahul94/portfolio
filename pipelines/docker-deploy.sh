@@ -10,7 +10,10 @@ TAG=$(echo "$TAG" | tr / _)
 
 echo "Will be using TAG ---------> $TAG";
 
+
 IMAGE_NAME="kashyaprahul94/portfolio"
+
+echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
 
 docker build --tag $IMAGE_NAME .
 
