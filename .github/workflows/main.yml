@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -11,3 +12,6 @@ jobs:
 
       - name: Install 'yarn'
         run: sudo npm install -g yarn
+
+      - name: Install dependencies
+        run: sudo yarn
