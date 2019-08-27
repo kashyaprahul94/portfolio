@@ -10,6 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - uses: ./.github/actions/build
+      - name: Install 'yarn'
+        run: sudo npm install -g yarn
 
-      - uses: ./.github/actions/docker=push
+      - name: Install dependencies
+        run: sudo yarn
+
+      - name: Build Docker Image
+        run: sh ./pipelines/docker-build.sh
+
+      - name: Push to Docker Hub
+        run: sh ./pipelines/docker-deploy.sh
