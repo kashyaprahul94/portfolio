@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TAG=$CIRCLE_BRANCH;
+TAG=$GITHUB_REF;
 
 if [ $TAG = "master" ]; then 
   TAG="latest"; 
