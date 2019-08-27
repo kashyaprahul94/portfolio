@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
-TAG=$CIRCLE_BRANCH;
+TAG=$GITHUB_REF;
 
-if [ $TAG = "master" ]; then 
+if [ $TAG = "master" ] || [ $TAG = "refs_heads_master" ]; then 
   TAG="latest"; 
 fi;
 
 TAG=$(echo "$TAG" | tr / _)
 
 echo "Will be using TAG ---------> $TAG";
+
 
 IMAGE_NAME="kashyaprahul94/portfolio"
 
