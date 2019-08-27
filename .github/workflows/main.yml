@@ -1,14 +1,13 @@
 name: CI
 
-pull_request:
+on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v1
-    
-    - name: Install 'yarn'
-      run: sudo npm install -g yarn
+      - uses: actions/checkout@v1
+
+      - name: Install 'yarn'
+        run: sudo npm install -g yarn
