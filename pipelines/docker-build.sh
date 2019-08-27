@@ -2,6 +2,6 @@
 set -x
 set -e
 
-yarn
+sudo yarn
 
-yarn build
+sudo yarn build
