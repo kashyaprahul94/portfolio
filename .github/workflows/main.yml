@@ -5,10 +5,13 @@ on: [push]
 jobs:
   build:
     name: Build | Push to Docker Hub | Deploy To Heroku
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
 
     steps:
       - uses: actions/checkout@v1
+
+      - name: Install 'Node 10'
+        run: sudo npm install -g n && sudo n 10
 
       - name: Install 'yarn'
         run: sudo npm install -g yarn
@@ -17,15 +20,15 @@ jobs:
         run: sudo yarn
 
       - name: Build Docker Image
-        run: sh ./pipelines/docker-build.sh
+        run: bash ./pipelines/docker-build.sh
 
       - name: Push to Docker Hub
-        run: sh ./pipelines/docker-deploy.sh
+        run: bash ./pipelines/docker-deploy.sh
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Deploy to Heroku
-        run: sh ./pipelines/heroku-deploy.sh
+        run: bash ./pipelines/heroku-deploy.sh
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
