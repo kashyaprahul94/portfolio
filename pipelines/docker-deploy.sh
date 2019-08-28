@@ -2,7 +2,7 @@
 
 TAG=$GITHUB_REF;
 
-if [ $TAG = "master" ] || [ $TAG = "refs_heads_master" ]; then 
+if [ $TAG = "master" ] || [ $TAG = "refs/heads/master" ]; then 
   TAG="latest"; 
 fi;
 

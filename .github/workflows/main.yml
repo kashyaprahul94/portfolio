@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    name: Build & Push to Docker Hub
+    name: Build | Push to Docker Hub | Deploy To Heroku
     runs-on: ubuntu-latest
 
     steps:
@@ -29,4 +29,3 @@ jobs:
         run: sh ./pipelines/heroku-deploy.sh
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        if: github.event_name == 'push'
