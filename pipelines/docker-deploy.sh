@@ -2,11 +2,12 @@
 
 TAG=$GITHUB_REF;
 
-if [ $TAG = "master" ] || [ $TAG = "refs/heads/master" ]; then 
+TAG=$(echo "$TAG" | tr / _)
+TAG=$(echo "${TAG/'refs_heads_'}")
+
+if [ $TAG = "master" ]; then 
   TAG="latest"; 
 fi;
-
-TAG=$(echo "$TAG" | tr / _)
 
 echo "Will be using TAG ---------> $TAG";
 
