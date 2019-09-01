@@ -21,11 +21,8 @@ const Container: StyledComponent<SheetProps, SheetProps, {}> = styled.section`
   background-size: contain;
   background-repeat: no-repeat;
 
-  box-shadow: 0 0 10px 0 ${color.lightGrey};
-
-  &:last-child {
-    box-shadow: 0 -11px 10px 0 ${color.lightGrey};
-  }
+  box-shadow: ${props =>
+    props.printMode ? undefined : `0 0 10px 0 ${color.lightGrey}`};
 `;
 
 const Sheet: FunctionComponent<SheetProps> = ({ printMode, children }) => {

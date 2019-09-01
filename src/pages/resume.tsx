@@ -78,7 +78,7 @@ class Resume extends Component<PageProps> {
     ];
 
     return (
-      <>
+      <section>
         <Sheet printMode={printMode}>
           <Card padding={true} transparent={true}>
             <p>{personal.firstName}</p>
@@ -124,9 +124,9 @@ class Resume extends Component<PageProps> {
             <Timeline color={color.pumpkin}>
               {experience.map((experienceItem: IExperience, _index: number) => (
                 <TimelineItem
-                  key={_index}
                   company={experienceItem.company}
                   logo={experienceItem.logo}
+                  key={_index}
                 >
                   {experienceItem.roles.map(
                     (roleItem: IExperienceRole, __index: number) => (
@@ -159,7 +159,7 @@ class Resume extends Component<PageProps> {
             </Timeline>
           </Card>
         </Sheet>
-      </>
+      </section>
     );
   }
 }

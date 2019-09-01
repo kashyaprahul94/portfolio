@@ -11,6 +11,11 @@ import { fonts } from "../../style/typography";
 
 const TimelineItemContainer: StyledComponent<{}, {}, {}> = styled.div`
   position: relative;
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 //
@@ -20,7 +25,6 @@ const TimelineItemHeaderContainer: StyledComponent<{}, {}, {}> = styled.header`
   align-items: center;
 
   p.Content {
-    padding-left: 10px;
     font-size: 26px;
     font-weight: 600;
     font-family: ${fonts.secondary};
@@ -40,6 +44,7 @@ const TimelineItemHeaderLogo: StyledComponent<{}, {}, {}> = styled.div`
     position: absolute;
     top: 0;
     bottom: 0;
+    left: 0;
     margin: auto;
     filter: grayscale(100%);
     width: 90%;
@@ -50,16 +55,20 @@ const TimelineItemHeaderLogo: StyledComponent<{}, {}, {}> = styled.div`
 //
 
 const TimelineItemBody: StyledComponent<any, any, any> = styled.div`
-  border-left: 4px solid ${colors.transparent};
+  border-left: 2px solid ${colors.lightGrey};
   position: relative;
 
-  margin-left: 20px;
+  margin-left: 15px;
   padding-left: 20px;
 `;
 
 const TimelineItemBodySection1: StyledComponent<any, any, any> = styled.div`
   margin-bottom: 15px;
   position: relative;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   .Section1-Title {
     font-size: 22px;
@@ -69,11 +78,11 @@ const TimelineItemBodySection1: StyledComponent<any, any, any> = styled.div`
   &:before {
     border-radius: 100%;
     background-color: ${colors.transparent};
-    box-shadow: 0 0 2px 10px ${colors.white};
+    box-shadow: 0 0 3px 10px ${colors.white};
 
     display: block;
     position: absolute;
-    left: -30px;
+    left: -29.5px;
     top: 3px;
     width: 15px;
     height: 15px;
@@ -83,6 +92,10 @@ const TimelineItemBodySection1: StyledComponent<any, any, any> = styled.div`
 
 const TimelineItemBodySection2: StyledComponent<{}, {}, {}> = styled.div`
   margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   .Section2-Title {
     font-size: 16px;
@@ -100,6 +113,10 @@ const TimelineItemText: StyledComponent<{}, {}, {}> = styled.p`
   font-size: 17px;
   line-height: 130%;
   padding-bottom: 10px;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
 `;
 
 //
@@ -110,10 +127,6 @@ const Container: StyledComponent<
   {}
 > = styled.section`
   position: relative;
-
-  ${TimelineItemBody} {
-    border-left-color: ${props => props.color};
-  }
 
   ${TimelineItemBodySection1}:before {
     background-color: ${props => props.color};
