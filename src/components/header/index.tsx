@@ -17,7 +17,7 @@ import animation from "../../style/animation";
 
 const _headerHeight = parseInt(headerHeight, 10);
 
-const _Header: StyledComponent<Props, Props, {}> = styled.header`
+const Container: StyledComponent<Props, Props, {}> = styled.header`
   padding: ${dimensions.l} ${dimensions.xl};
   position: ${position.sticky};
   width: ${full};
@@ -43,7 +43,7 @@ const _Header: StyledComponent<Props, Props, {}> = styled.header`
   }
 `;
 
-const _HeaderContent: StyledComponent<{}, {}, {}> = styled.div`
+const Content: StyledComponent<{}, {}, {}> = styled.div`
   height: ${full};
   width: ${full};
   display: ${display.flex};
@@ -64,18 +64,18 @@ const Brand = styled(P)`
 const Header: FunctionComponent<Props> = ({ children, ...props }) => {
   const theme = useContext(ThemeContext);
   return (
-    <_Header
+    <Container
       {...props}
       theme={theme}
       className={`Header ${props.className || ""}`}
     >
-      <_HeaderContent>
+      <Content>
         <Brand onClick={gotoHome}>Rahul Kashyap</Brand>
         <OutlineButton size={"s"} onClick={theme.toggleDarkMode}>
           Toggle Dark Mode
         </OutlineButton>
-      </_HeaderContent>
-    </_Header>
+      </Content>
+    </Container>
   );
 };
 

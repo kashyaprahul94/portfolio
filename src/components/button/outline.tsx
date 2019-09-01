@@ -8,7 +8,9 @@ import { VariantProps } from "./types";
 
 import colors from "../../style/color";
 
-const _Button: StyledComponent<VariantProps, VariantProps, {}> = styled(Button)`
+const Container: StyledComponent<VariantProps, VariantProps, {}> = styled(
+  Button,
+)`
   background-color: ${colors.transparent};
   color: ${props => props.theme.styles.colors.textPrimary};
   border-color: ${props =>
@@ -24,7 +26,7 @@ const OutlineButton: FunctionComponent<VariantProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   return (
-    <_Button
+    <Container
       {...props}
       theme={theme}
       block={block}
@@ -33,13 +35,13 @@ const OutlineButton: FunctionComponent<VariantProps> = ({
       className="OutlineButton"
     >
       {children}
-    </_Button>
+    </Container>
   );
 };
 
 OutlineButton.propTypes = {
   ...Button.propTypes,
-  variant: PropTypes.oneOf(["primary", "secondary"])
+  variant: PropTypes.oneOf(["primary", "secondary"]),
 };
 
 export { OutlineButton };

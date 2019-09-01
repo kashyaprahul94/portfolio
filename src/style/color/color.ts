@@ -29,6 +29,7 @@ const transparent = "transparent";
 const grey = "#202020";
 const offWhite = "#f7f7f7";
 const darkGrey = "#2d2d2d";
+const lightGrey = "#dddddd";
 
 const turquoise = "#1abc9c";
 const emerland = "#2ecc71";
@@ -53,7 +54,7 @@ const asbestos = "#7f8c8d";
 const teal = "#009688";
 
 //
-const primary = turquoise;
+const primary = teal;
 const secondary = belizehole;
 
 export {
@@ -67,10 +68,33 @@ export {
   //
   offWhite,
   darkGrey,
+  lightGrey,
   //
   //
   primary,
   secondary,
+  //
+  //
+  turquoise,
+  emerland,
+  peterriver,
+  amethyst,
+  wetasphalt,
+  greensea,
+  nephritis,
+  belizehole,
+  wisteria,
+  midnightblue,
+  sunflower,
+  carrot,
+  alizarin,
+  clouds,
+  concrete,
+  orange,
+  pumpkin,
+  pomegranate,
+  silver,
+  asbestos,
   //
   //
   //

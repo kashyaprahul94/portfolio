@@ -1,3 +1,5 @@
-import { HTMLAttributes } from "react";
+import { IBaseProps, IPartialBaseProps } from "../types";
 
-export interface Props extends HTMLAttributes<any> {}
+export interface Props extends IBaseProps {}
+
+export type PartialProps = IPartialBaseProps<Props>;

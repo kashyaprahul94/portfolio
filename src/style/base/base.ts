@@ -1,3 +1,6 @@
+import { fonts, sizes } from "../typography";
+import color from "../color";
+
 export const base = ({ colors }) => `
 
   * {
@@ -9,6 +12,11 @@ export const base = ({ colors }) => `
   *:after,
   *:before {
     box-sizing: border-box;
+  }
+
+  html {
+    font-family: ${fonts.primary};
+    font-size: ${sizes.default};
   }
 
   html, body {
@@ -32,5 +40,6 @@ export const base = ({ colors }) => `
 
   a {
     text-decoration: none;
+    color: ${color.primary};
   }
 `;

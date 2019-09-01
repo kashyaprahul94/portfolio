@@ -3,21 +3,19 @@ import styled, { StyledComponent } from "@emotion/styled";
 
 import { Props } from "./types";
 
-import { headerHeight, dimensions } from "../../style/dimension";
+import dimension, { headerHeight, dimensions } from "../../style/dimension";
 
-const _Main: StyledComponent<Props, Props, {}> = styled.main`
-  min-height: 100%;
+const Container: StyledComponent<Props, Props, {}> = styled.main`
+  height: ${dimension.full};
   padding-top: ${props =>
-    props.hasHeader
-      ? `calc(${headerHeight} + ${dimensions.xxl})`
-      : dimensions.xxl};
+    props.hasHeader && `calc(${headerHeight} + ${dimensions.xxl})`};
 `;
 
 const Main: FunctionComponent<Props> = ({ hasHeader, children, ...props }) => {
   return (
-    <_Main hasHeader={false} className="Main" {...props}>
+    <Container hasHeader={false} className="Main" {...props}>
       {children}
-    </_Main>
+    </Container>
   );
 };
 

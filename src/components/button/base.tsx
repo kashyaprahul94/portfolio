@@ -9,7 +9,7 @@ import { border } from "../../style/layout";
 import typography from "../../style/typography";
 import dimension from "../../style/dimension";
 
-const _Button: StyledComponent<BaseProps, BaseProps, {}> = styled.button`
+const Container: StyledComponent<BaseProps, BaseProps, {}> = styled.button`
   background-color: ${colors.transparent};
   color: ${colors.transparent};
   border: ${border.width.m} ${border.style.default} ${colors.transparent};
@@ -40,20 +40,20 @@ const Button: FunctionComponent<BaseProps> = ({
   ...props
 }) => {
   return (
-    <_Button
+    <Container
       {...props}
       block={block}
       size={size}
       className={`Button ${className}`}
     >
       {children}
-    </_Button>
+    </Container>
   );
 };
 
 Button.propTypes = {
   block: PropTypes.bool,
-  size: PropTypes.oneOf(["xs", "s", "m", "l", "xl", "xxl", "jumbo", "hero"])
+  size: PropTypes.oneOf(["xs", "s", "m", "l", "xl", "xxl", "jumbo", "hero"]),
 };
 
 export { Button };

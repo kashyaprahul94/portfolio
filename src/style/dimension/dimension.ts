@@ -6,7 +6,12 @@ const dimensions = {
   l: "12px",
   xl: "15px",
   xxl: "25px",
-  xxxl: "35px"
+  xxxl: "35px",
+
+  a4: {
+    width: "1150px",
+    height: "1700px",
+  },
 };
 
 const full = "100%";
@@ -16,7 +21,7 @@ const depth = {
   xs: "0.05",
   s: "0.1",
   m: "0.3",
-  l: "0.5"
+  l: "0.5",
 };
 
 export { full, headerHeight, dimensions, depth };

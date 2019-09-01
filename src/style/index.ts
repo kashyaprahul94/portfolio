@@ -1,3 +1,3 @@
-import { reset, base, fonts } from "./base";
+import { reset, base } from "./base";
 
-export { reset, base, fonts };
+export { reset, base };

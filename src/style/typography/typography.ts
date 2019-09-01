@@ -1,8 +1,7 @@
 const fonts = {
-  primary: "Roboto-Regular, sans-serif",
-  strong: "Roboto-Medium, sans-serif",
-  heading: "Roboto-Bold, sans-serif",
-  headingLight: "Roboto-Regular, sans-serif"
+  primary: "'Poppins', sans-serif",
+  secondary: "'Dosis', sans-serif",
+  text: "'PT Sans Narrow', sans-serif",
 };
 
 const sizes = {
@@ -14,20 +13,20 @@ const sizes = {
   xxl: "30px",
   jumbo: "36px",
   hero: "48px",
-  default: "14px"
+  default: "14px",
 };
 
 const weights = {
   lighter: "lighter",
   normal: "normal",
   bolder: "bolder",
-  default: "normal"
+  default: "normal",
 };
 
 const text = {
   lowercase: "lowercase",
   uppercase: "uppercase",
-  capitalize: "capitalize"
+  capitalize: "capitalize",
 };
 
 export { fonts, sizes, weights, text };

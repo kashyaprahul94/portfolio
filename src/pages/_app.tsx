@@ -6,14 +6,10 @@ import { Global } from "@emotion/core";
 import { IAppContext, IPageProps, IComponent } from "../types";
 
 // Styles
-import {
-  reset as cssReset,
-  base as cssBase,
-  fonts as cssFonts,
-} from "../style";
+import { reset as cssReset, base as cssBase } from "../style";
 import { dark as themeDark, light as themeLight } from "../style/themes";
 
-// Component s
+// Components
 import Document from "../components/document";
 import { ScrollAwareHeader as Header } from "../components/header";
 import Main from "../components/main";
@@ -100,9 +96,7 @@ export default class App extends NextApp<{}, {}> {
 
         {loaded && (
           <ThemeContext.Provider value={themeContext}>
-            <Global
-              styles={[cssReset, cssBase(themeContext.styles), cssFonts]}
-            />
+            <Global styles={[cssReset, cssBase(themeContext.styles)]} />
             <Document>
               {showHeader && <Header children={null} />}
               <Main hasHeader={showHeader}>

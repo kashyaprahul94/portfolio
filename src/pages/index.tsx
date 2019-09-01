@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Router from "next/router";
-
 import Typist from "react-typist";
 
 import { IPageProps } from "../types";
@@ -22,10 +21,6 @@ class Home extends Component<PageProps> {
         "Developer Avocado",
       ],
     };
-  }
-
-  constructor(props: PageProps) {
-    super(props);
   }
 
   private gotoResume() {
@@ -50,13 +45,7 @@ class Home extends Component<PageProps> {
             fontSize: "24px",
           }}
         >
-          <Typist
-            style={{
-              ".Cursor": {
-                display: "none",
-              },
-            }}
-          >
+          <Typist>
             <span>I am </span>
             {titles.map((title: string) => {
               return (
