@@ -3,12 +3,12 @@ import styled, { StyledComponent } from "@emotion/styled";
 
 import { Props } from "./types";
 
-import { primary } from "../../style/color";
+import colors from "../../style/color";
 import { fonts } from "../../style/typography";
 
 const Container: StyledComponent<Props, Props, {}> = styled.div`
   padding: 8px 12px;
-  background: ${primary};
+  background-color: ${props => colors[props.variant]};
   color: #fff;
   border-radius: 20px;
   display: inline-block;
@@ -16,10 +16,15 @@ const Container: StyledComponent<Props, Props, {}> = styled.div`
 
   font-family: ${fonts.primary};
   margin: 5px;
+  cursor: default;
 `;
 
-const Chip: FunctionComponent<Props> = ({ children, ...props }) => {
-  return <Container {...props}>{children}</Container>;
+const Chip: FunctionComponent<Props> = ({ variant, children, ...props }) => {
+  return (
+    <Container variant={variant} {...props}>
+      {children}
+    </Container>
+  );
 };
 
 export { Chip };

@@ -51,29 +51,44 @@ class Resume extends Component<PageProps> {
       "GraphQL",
       "Docker",
       "Kubernetes",
-      "Cloud Native Architecture",
+      "Microservices",
+      "Message Brokers",
+      "12 Factor Cloud Apps",
+    ];
+
+    const other = [
+      "MongoDB",
+      "React",
+      "Angular",
+      "Jest/Mocha",
+      "Cypress",
+      "Babel/Webpack",
+      "PWA",
+      "Redis",
+      "Apache Kafka",
+      "CloudFoundry",
+      "SAP Cloud Platform",
+      "Google Cloud Platform",
+      "OAuth 2",
+      "Jenkins",
+      "Swift",
     ];
 
     const areaOfExpertise = [
       {
-        title: "Cloud Native Architecture",
-        value: 40,
+        title: "Cloud Native Engineering",
+        value: 60,
         color: teal,
       },
       {
-        title: "Full Stack Engineering",
+        title: "DevOps",
         value: 30,
         color: midnightblue,
       },
       {
-        title: "DevOps",
-        value: 20,
-        color: pumpkin,
-      },
-      {
         title: "Mobile Dvelopment",
         value: 10,
-        color: concrete,
+        color: pumpkin,
       },
     ];
 
@@ -108,11 +123,23 @@ class Resume extends Component<PageProps> {
                 width: "100%",
               }}
             >
-              {skills.map(skill => (
-                <Chips key={skill} variant="primary">
-                  {skill}
-                </Chips>
-              ))}
+              <div>
+                <h1>Expertise:</h1>
+                {skills.map(skill => (
+                  <Chips key={skill} variant="primary">
+                    {skill}
+                  </Chips>
+                ))}
+              </div>
+
+              <div>
+                <h1>Other skills:</h1>
+                {other.map(skill => (
+                  <Chips key={skill} variant="secondary">
+                    {skill}
+                  </Chips>
+                ))}
+              </div>
             </div>
           </Card>
 

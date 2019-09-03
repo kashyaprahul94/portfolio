@@ -12,4 +12,5 @@ export interface TimelineProps extends IBaseProps {
 export interface TimelineItemProps extends IPartialBaseProps<any> {
   company: string;
   logo: string;
+  showLogo?: boolean;
 }

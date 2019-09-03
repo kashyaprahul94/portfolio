@@ -6,7 +6,7 @@ const projectHybrisLoyaltyOnYaaS: IProject = {
   title: "SAP Hybris Loyalty on YaaS Cloud Platform",
   description: [
     "The solution was a cloud offering by SAP which helped customers to identify Loyal customers to the business, connect & benefit them from Loyalty program, retain them into business & convert them into Brand Advocate. It helped them to increase the engagement and retention of their end consumers by treating them special, give them rewards and exclusive benefits, etc.",
-    "SAP Hybris Loyalty as a Cloud Product was built using next generation cloud technologies, designed with Micro-Service Architecture in mind, deployed on Hybris as a Service (YaaS) cloud platform, harnessing CloudFoundry.",
+    "SAP Hybris Loyalty as a Cloud Product was built using next generation cloud technologies, designed with Micro-Service Architecture in mind, deployed on Hybris as a Service (YaaS) cloud platform, leveraging CloudFoundry.",
   ],
   link: "http://bit.ly/2LahFnw",
 };
@@ -43,7 +43,7 @@ const projectSAPLoyaltyMarketingOnSCP: IProject = {
   title: "SAP Loyalty Marketing on SAP Cloud Platform",
   description: [
     "The solution was a cloud offering by SAP which helped customers to identify Loyal customers to the business, connect & benefit them from Loyalty program, retain them into business & convert them into Brand Advocate. It helped them to increase the engagement and retention of their end consumers by treating them special, give them rewards and exclusive benefits, etc.",
-    "SAP Loyalty Marketing as a Cloud Product was built using next generation cloud technologies, designed with Micro-Service Architecture in mind, deployed on SAP Cloud Platform harnessing CloudFoundry. Infrastructure wise, it was partnered with Google, Azure, & AWS for their respective cloud hosting.",
+    "SAP Loyalty Marketing as a Cloud Product was built using next generation cloud technologies, designed with Micro-Service Architecture in mind, deployed on SAP Cloud Platform leveraging CloudFoundry. Infrastructure wise, it was partnered with Google, Azure, & AWS for their respective cloud hosting.",
   ],
   link: "http://bit.ly/32kgxn3",
 };

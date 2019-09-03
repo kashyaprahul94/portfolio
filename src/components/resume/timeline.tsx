@@ -9,9 +9,13 @@ import { fonts } from "../../style/typography";
 //
 //
 
-const TimelineItemContainer: StyledComponent<{}, {}, {}> = styled.div`
+const TimelineItemContainer: StyledComponent<
+  Partial<TimelineItemProps>,
+  any,
+  {}
+> = styled.div`
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: ${props => (props.showLogo ? "10px" : "20px")};
 
   &:last-child {
     margin-bottom: 0;
@@ -20,9 +24,14 @@ const TimelineItemContainer: StyledComponent<{}, {}, {}> = styled.div`
 
 //
 
-const TimelineItemHeaderContainer: StyledComponent<{}, {}, {}> = styled.header`
+const TimelineItemHeaderContainer: StyledComponent<
+  Partial<TimelineItemProps>,
+  any,
+  {}
+> = styled.header`
   display: flex;
   align-items: center;
+  margin-bottom: ${props => (props.showLogo ? "0" : "10px")};
 
   p.Content {
     font-size: 26px;
@@ -36,8 +45,7 @@ const TimelineItemHeaderLogo: StyledComponent<{}, {}, {}> = styled.div`
   width: 0;
   height: 0;
   position: relative;
-
-  padding: 5px;
+  left: 5px;
 
   img.Logo {
     max-width: 100%;
@@ -45,6 +53,7 @@ const TimelineItemHeaderLogo: StyledComponent<{}, {}, {}> = styled.div`
     top: 0;
     bottom: 0;
     left: 0;
+    right: 0;
     margin: auto;
     filter: grayscale(100%);
     width: 90%;
@@ -58,7 +67,7 @@ const TimelineItemBody: StyledComponent<any, any, any> = styled.div`
   border-left: 2px solid ${colors.lightGrey};
   position: relative;
 
-  margin-left: 15px;
+  margin-left: 10px;
   padding-left: 20px;
 `;
 
@@ -174,12 +183,15 @@ const TimelineItemContentSection2: FunctionComponent<any> = ({
 const TimelineItemHeader: FunctionComponent<TimelineItemProps> = ({
   company,
   logo,
+  showLogo,
 }) => (
-  <TimelineItemHeaderContainer>
-    <TimelineItemHeaderLogo>
-      <img src={logo} className="Logo" />
-    </TimelineItemHeaderLogo>
+  <TimelineItemHeaderContainer showLogo={showLogo}>
     <p className="Content">{company}</p>
+    {showLogo && (
+      <TimelineItemHeaderLogo>
+        <img src={logo} className="Logo" />
+      </TimelineItemHeaderLogo>
+    )}
   </TimelineItemHeaderContainer>
 );
 
@@ -190,10 +202,11 @@ const TimelineItemContent: FunctionComponent<any> = ({ children }) => (
 const TimelineItem: FunctionComponent<TimelineItemProps> = ({
   company,
   logo,
+  showLogo = true,
   children,
 }) => (
-  <TimelineItemContainer>
-    <TimelineItemHeader company={company} logo={logo} />
+  <TimelineItemContainer showLogo={showLogo}>
+    <TimelineItemHeader company={company} logo={logo} showLogo={showLogo} />
     <TimelineItemContent>{children}</TimelineItemContent>
   </TimelineItemContainer>
 );
