@@ -1,7 +1,8 @@
-import React, { Component, FunctionComponent } from "react";
+import React, { Component } from "react";
 
 import { Chip as Chips } from "../components/chips";
 import { Card } from "../components/card";
+import { Location, Mobile, Email, LinkedIn, GitHub } from "../components/icons";
 import { Donut } from "../components/charts/donut";
 import { Sheet } from "../components/resume/sheet";
 import {
@@ -25,6 +26,16 @@ import color, { teal, midnightblue, pumpkin, concrete } from "../style/color";
 
 import { IPageProps } from "../types";
 
+const InfoItem = ({ title, Icon = null }) => (
+  <p
+    style={{
+      marginBottom: "5px",
+    }}
+  >
+    {Icon && <Icon size={24} color={teal} />}
+    <span>{title}</span>
+  </p>
+);
 class Resume extends Component<PageProps> {
   public static readonly title = "Rahul Kashyap : Resume";
   public static readonly showHeader = false;
@@ -96,10 +107,16 @@ class Resume extends Component<PageProps> {
       <section>
         <Sheet printMode={printMode}>
           <Card padding={true} transparent={true}>
-            <p>{personal.firstName}</p>
-            <p>{personal.lastName}</p>
-            <p>{personal.country}</p>
-            <p>{personal.city}</p>
+            <InfoItem title={personal.firstName} />
+            <InfoItem title={personal.lastName} />
+            <InfoItem
+              title={`${personal.city}, ${personal.country}`}
+              Icon={Location}
+            />
+            <InfoItem title={personal.mobile} Icon={Mobile} />
+            <InfoItem title={personal.email} Icon={Email} />
+            <InfoItem title={personal.linkedIn} Icon={LinkedIn} />
+            <InfoItem title={personal.gitHub} Icon={GitHub} />
           </Card>
           <Card padding={true} transparent={true} title="Education" />
           <Card padding={true} transparent={true} title="Experience" />

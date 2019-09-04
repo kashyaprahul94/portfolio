@@ -25,8 +25,18 @@ const Container: StyledComponent<SheetProps, SheetProps, {}> = styled.section`
     props.printMode ? undefined : `0 0 10px 0 ${color.lightGrey}`};
 `;
 
-const Sheet: FunctionComponent<SheetProps> = ({ printMode, children }) => {
-  return <Container printMode={printMode}>{children}</Container>;
+const Sheet: FunctionComponent<SheetProps> = ({
+  printMode,
+  hidden,
+  children,
+}) => {
+  return (
+    !hidden && (
+      <Container printMode={printMode} hidden={hidden}>
+        {children}
+      </Container>
+    )
+  );
 };
 
 export default Sheet;
