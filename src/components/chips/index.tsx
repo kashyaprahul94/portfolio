@@ -1,8 +1,11 @@
 import { FunctionComponent } from "react";
+import PropTypes from "prop-types";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import * as colors from "../../style/color";
 import { fonts } from "../../style/typography";
+
+import { ColorVariants, DefaultColorVariant } from "../common/variants";
 
 import { Props } from "./types";
 
@@ -25,6 +28,10 @@ const Chip: FunctionComponent<Props> = ({ variant, children, ...props }) => {
       {children}
     </Container>
   );
+};
+
+Chip.propTypes = {
+  variant: PropTypes.oneOf(ColorVariants),
 };
 
 export { Chip };

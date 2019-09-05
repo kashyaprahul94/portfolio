@@ -1,14 +1,28 @@
 import React, { FunctionComponent } from "react";
+import styled, { StyledComponent } from "@emotion/styled";
 
 import { Card } from "../../card";
 import { Chip } from "../../chips";
 import { Donut } from "../../charts/donut";
+
+import { sizes } from "../../../style/typography";
 
 import {
   IAreaOfExpertise,
   IExpertSkills,
   IOtherSkills,
 } from "../../../data/types";
+
+const Title: StyledComponent<{}, {}, {}> = styled.h1`
+  font-size: ${sizes.m};
+`;
+
+const SectionContainer: StyledComponent<{}, {}, {}> = styled.div`
+  display: flex;
+`;
+const Section: StyledComponent<{}, {}, {}> = styled.div`
+  width: 100%;
+`;
 
 const Skills: FunctionComponent<PageProps> = ({
   areaOfExpertise,
@@ -21,25 +35,25 @@ const Skills: FunctionComponent<PageProps> = ({
         <Donut size={150} stroke={10} items={areaOfExpertise} legend={true} />
       </div>
 
-      <div>
-        <div>
-          <h1>Daily Driver:</h1>
+      <SectionContainer>
+        <Section>
+          <Title>Daily Driver:</Title>
           {expertise.map(skill => (
             <Chip key={skill} variant="primary">
               {skill}
             </Chip>
           ))}
-        </div>
+        </Section>
 
-        <div>
-          <h1>Others:</h1>
+        <Section>
+          <Title>Others:</Title>
           {others.map(skill => (
-            <Chip key={skill} variant="midnightblue">
+            <Chip key={skill} variant="secondary">
               {skill}
             </Chip>
           ))}
-        </div>
-      </div>
+        </Section>
+      </SectionContainer>
     </Card>
   );
 };

@@ -3,8 +3,8 @@ import { teal, midnightblue, pumpkin } from "../style/color";
 import { IAreaOfExpertise, IExpertSkills, IOtherSkills } from "./types";
 
 const expertSkills: IExpertSkills = [
-  "TypeScript",
   "Node.JS",
+  "TypeScript",
   "GraphQL",
   "Docker",
   "Kubernetes",
@@ -14,17 +14,17 @@ const expertSkills: IExpertSkills = [
 ];
 
 const otherSkills: IOtherSkills = [
-  "MongoDB",
+  "OAuth 2",
+  "Swift",
   "React",
   "Angular",
   "Redis",
+  "MongoDB",
   "Apache Kafka",
   "Jenkins",
   "CloudFoundry",
   "SAP Cloud Platform",
   "Google Cloud Platform",
-  "OAuth 2",
-  "Swift",
 ];
 
 const areaOfExpertise: IAreaOfExpertise[] = [
