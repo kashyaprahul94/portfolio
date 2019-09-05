@@ -2,7 +2,16 @@ import React, { Component } from "react";
 
 import { Chip as Chips } from "../components/chips";
 import { Card } from "../components/card";
-import { Location, Mobile, Email, LinkedIn, GitHub } from "../components/icons";
+import {
+  Location,
+  Mobile,
+  Email,
+  LinkedIn,
+  GitHub,
+  Badge,
+  Star,
+  Trophy,
+} from "../components/icons";
 import { Donut } from "../components/charts/donut";
 import { Sheet } from "../components/resume/sheet";
 import {
@@ -117,6 +126,10 @@ class Resume extends Component<PageProps> {
             <InfoItem title={personal.email} Icon={Email} />
             <InfoItem title={personal.linkedIn} Icon={LinkedIn} />
             <InfoItem title={personal.gitHub} Icon={GitHub} />
+
+            <InfoItem title={personal.gitHub} Icon={Trophy} />
+            <InfoItem title={personal.gitHub} Icon={Star} />
+            <InfoItem title={personal.gitHub} Icon={Badge} />
           </Card>
           <Card padding={true} transparent={true} title="Education" />
           <Card padding={true} transparent={true} title="Experience" />
