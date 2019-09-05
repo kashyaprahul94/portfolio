@@ -7,6 +7,8 @@ import ThemeContext from "../../contexts/theme";
 import * as colors from "../../style/color";
 import { border } from "../../style/layout";
 
+import { ColorVariants, DefaultColorVariant } from "../common/variants";
+
 import { Button } from "./base";
 import { VariantProps } from "./types";
 
@@ -30,7 +32,7 @@ const Container: StyledComponent<VariantProps, VariantProps, {}> = styled(
 const AccentButton: FunctionComponent<VariantProps> = ({
   block,
   size,
-  variant = "primary",
+  variant = DefaultColorVariant,
   children,
   ...props
 }) => {
@@ -52,7 +54,7 @@ const AccentButton: FunctionComponent<VariantProps> = ({
 
 AccentButton.propTypes = {
   ...Button.propTypes,
-  variant: PropTypes.oneOf(["primary", "secondary"]),
+  variant: PropTypes.oneOf(ColorVariants),
 };
 
 export { AccentButton };

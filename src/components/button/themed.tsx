@@ -6,17 +6,15 @@ import ThemeContext from "../../contexts/theme";
 import { transparent } from "../../style/color";
 
 import { Button } from "./base";
-import { VariantProps } from "./types";
+import { BaseProps } from "./types";
 
-const Container: StyledComponent<VariantProps, VariantProps, {}> = styled(
-  Button,
-)`
+const Container: StyledComponent<BaseProps, BaseProps, {}> = styled(Button)`
   background-color: ${transparent};
   color: ${props => props.theme.styles.colors.textPrimary};
   border-color: ${props => props.theme.styles.colors.textPrimary};
 `;
 
-const ThemedButton: FunctionComponent<VariantProps> = ({
+const ThemedButton: FunctionComponent<BaseProps> = ({
   block,
   size,
   children,

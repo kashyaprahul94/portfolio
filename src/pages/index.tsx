@@ -5,7 +5,7 @@ import Typist from "react-typist";
 import { IPageProps } from "../types";
 
 import { H1 } from "../components/heading";
-import { OutlineButton } from "../components/button";
+import { OutlineButton, AccentButton } from "../components/button";
 
 class Home extends Component<PageProps> {
   public static readonly title = "Rahul Kashyap : Home";
@@ -58,9 +58,13 @@ class Home extends Component<PageProps> {
             <span>{name}</span>
           </Typist>
 
-          <OutlineButton color="primary" size="l" onClick={this.gotoResume}>
+          <OutlineButton variant="primary" size="l" onClick={this.gotoResume}>
             Resume
           </OutlineButton>
+
+          <AccentButton size={"l"} variant="danger">
+            Hello
+          </AccentButton>
 
           {Array(100)
             .fill(0)

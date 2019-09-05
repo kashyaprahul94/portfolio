@@ -55,7 +55,8 @@ const teal = "#009688";
 
 //
 const primary = teal;
-const secondary = belizehole;
+const secondary = midnightblue;
+const danger = pumpkin;
 
 export {
   //
@@ -73,6 +74,7 @@ export {
   //
   primary,
   secondary,
+  danger,
   //
   //
   turquoise,
