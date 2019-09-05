@@ -34,3 +34,11 @@ export interface IExperience {
   logo: string;
   roles: IExperienceRole[];
 }
+
+export type IExpertSkills = string[];
+export type IOtherSkills = string[];
+export interface IAreaOfExpertise {
+  title: string;
+  value: number;
+  color: string;
+}

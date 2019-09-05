@@ -1,61 +1,43 @@
 import React, { Component } from "react";
 
-import { Chip as Chips } from "../components/chips";
-import { Card } from "../components/card";
-import {
-  Location,
-  Mobile,
-  Email,
-  LinkedIn,
-  GitHub,
-  Badge,
-  Star,
-  Trophy,
-} from "../components/icons";
-import { Donut } from "../components/charts/donut";
 import { Sheet } from "../components/resume/sheet";
-import {
-  Timeline,
-  TimelineItem,
-  TimelineItemContentSection1,
-  TimelineItemContentSection2,
-  TimelineItemText,
-} from "../components/resume/timeline";
+import { Personal as PersonalInfoSection } from "../components/resume/sections/personal";
+import { Experience as ExperienceSection } from "../components/resume/sections/experience";
+import { Education as EducationSection } from "../components/resume/sections/education";
+import { Skills as SkillsSection } from "../components/resume/sections/skills";
+import { Achievements as AchievementsSection } from "../components/resume/sections/achievements";
+import { Projects as ProjectSection } from "../components/resume/sections/projects";
 
 import {
   personalInfo,
   experienceInfo,
   IPersonalInfo,
   IExperience,
-  IExperienceRole,
-  IProject,
+  areaOfExpertise,
+  expertSkills,
+  otherSkills,
+  IAreaOfExpertise,
+  IExpertSkills,
+  IOtherSkills,
 } from "../data";
-
-import { teal, midnightblue, pumpkin } from "../style/color";
-import { fonts, sizes } from "../style/typography";
 
 import { IPageProps } from "../types";
 
-const InfoItem = ({ title, Icon = null }) => (
-  <p
-    style={{
-      marginBottom: "5px",
-    }}
-  >
-    {Icon && <Icon size={24} color={midnightblue} />}
-    <span>{title}</span>
-  </p>
-);
 class Resume extends Component<PageProps> {
   public static readonly title = "Rahul Kashyap : Resume";
   public static readonly showHeader = false;
 
-  public static async getInitialProps({ query }) {
+  public static async getInitialProps({ query }): Promise<Partial<PageProps>> {
     return {
       printMode: query.print || false,
       data: {
         personal: personalInfo,
         experience: experienceInfo,
+        skills: {
+          areaOfExpertise,
+          expertise: expertSkills,
+          others: otherSkills,
+        },
       },
     };
   }
@@ -63,162 +45,28 @@ class Resume extends Component<PageProps> {
   public render() {
     const {
       printMode,
-      data: { personal, experience },
+      data: { personal, experience, skills },
     } = this.props;
-
-    const skills = [
-      "TypeScript",
-      "Node.JS",
-      "GraphQL",
-      "Docker",
-      "Kubernetes",
-      "Microservices",
-      "Message Brokers",
-      "Cloud Architecture",
-    ];
-
-    const other = [
-      "MongoDB",
-      "React",
-      "Angular",
-      "Redis",
-      "Apache Kafka",
-      "Jenkins",
-      "CloudFoundry",
-      "SAP Cloud Platform",
-      "Google Cloud Platform",
-      "OAuth 2",
-      "Swift",
-    ];
-
-    const areaOfExpertise = [
-      {
-        title: "Cloud Native Engineering",
-        value: 60,
-        color: teal,
-      },
-      {
-        title: "DevOps",
-        value: 30,
-        color: midnightblue,
-      },
-      {
-        title: "Mobile Dvelopment",
-        value: 10,
-        color: pumpkin,
-      },
-    ];
 
     return (
       <section>
         <Sheet printMode={printMode}>
-          <Card padding={true} transparent={true}>
-            <h1
-              style={{
-                fontSize: sizes.hero,
-              }}
-            >
-              {personal.firstName} {personal.lastName}
-            </h1>
-            <h2
-              style={{
-                fontSize: sizes.jumbo,
-                fontFamily: fonts.text,
-                marginBottom: "20px",
-              }}
-            >
-              {personal.title}
-            </h2>
+          <PersonalInfoSection info={personal} />
 
-            <InfoItem
-              title={`${personal.city}, ${personal.country}`}
-              Icon={Location}
-            />
-            <InfoItem title={personal.mobile} Icon={Mobile} />
-            <InfoItem title={personal.email} Icon={Email} />
-            <InfoItem title={personal.linkedIn} Icon={LinkedIn} />
-            <InfoItem title={personal.gitHub} Icon={GitHub} />
+          <ExperienceSection />
+          <EducationSection />
 
-            <InfoItem title={personal.gitHub} Icon={Trophy} />
-            <InfoItem title={personal.gitHub} Icon={Star} />
-            <InfoItem title={personal.gitHub} Icon={Badge} />
-          </Card>
-          <Card padding={true} transparent={true} title="Education" />
-          <Card padding={true} transparent={true} title="Experience" />
+          <SkillsSection
+            areaOfExpertise={skills.areaOfExpertise}
+            expertise={skills.expertise}
+            others={skills.others}
+          />
 
-          <Card padding={true} transparent={true}>
-            <div>
-              <Donut
-                size={150}
-                stroke={10}
-                items={areaOfExpertise}
-                legend={true}
-              />
-            </div>
-
-            <div>
-              <div>
-                <h1>Daily Driver:</h1>
-                {skills.map(skill => (
-                  <Chips key={skill} variant="primary">
-                    {skill}
-                  </Chips>
-                ))}
-              </div>
-
-              <div>
-                <h1>Others:</h1>
-                {other.map(skill => (
-                  <Chips key={skill} variant="midnightblue">
-                    {skill}
-                  </Chips>
-                ))}
-              </div>
-            </div>
-          </Card>
-
-          <Card padding={true} transparent={true} title="Achievements" />
+          <AchievementsSection />
         </Sheet>
 
         <Sheet printMode={printMode}>
-          <Card padding={true} transparent={true} title="Projects">
-            <Timeline color={color.pumpkin}>
-              {experience.map((experienceItem: IExperience, _index: number) => (
-                <TimelineItem
-                  company={experienceItem.company}
-                  logo={experienceItem.logo}
-                  key={_index}
-                >
-                  {experienceItem.roles.map(
-                    (roleItem: IExperienceRole, __index: number) => (
-                      <TimelineItemContentSection1
-                        title={roleItem.title}
-                        key={__index}
-                      >
-                        {roleItem.projects.map(
-                          (projectItem: IProject, ___index: number) => (
-                            <TimelineItemContentSection2
-                              title={projectItem.title}
-                              link={projectItem.link}
-                              key={___index}
-                            >
-                              {projectItem.description.map(
-                                (description: string, ____index: number) => (
-                                  <TimelineItemText key={____index}>
-                                    {description}
-                                  </TimelineItemText>
-                                ),
-                              )}
-                            </TimelineItemContentSection2>
-                          ),
-                        )}
-                      </TimelineItemContentSection1>
-                    ),
-                  )}
-                </TimelineItem>
-              ))}
-            </Timeline>
-          </Card>
+          <ProjectSection experience={experience} />
         </Sheet>
       </section>
     );
@@ -231,6 +79,11 @@ export interface PageProps extends IPageProps {
   data: {
     personal: IPersonalInfo;
     experience: IExperience[];
+    skills: {
+      areaOfExpertise: IAreaOfExpertise[];
+      expertise: IExpertSkills;
+      others: IOtherSkills;
+    };
   };
 }
 
