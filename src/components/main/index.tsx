@@ -1,12 +1,12 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
+import { headerHeight, dimensions } from "../../style/dimension";
+
 import { Props } from "./types";
 
-import dimension, { headerHeight, dimensions } from "../../style/dimension";
-
 const Container: StyledComponent<Props, Props, {}> = styled.main`
-  height: ${dimension.full};
+  height: ${dimensions.full};
   padding-top: ${props =>
     props.hasHeader && `calc(${headerHeight} + ${dimensions.xxl})`};
 `;

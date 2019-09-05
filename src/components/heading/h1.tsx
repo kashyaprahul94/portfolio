@@ -1,15 +1,15 @@
 import { useContext, FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Props } from "./types";
-
 import ThemeContext from "../../contexts/theme";
 
-import typography from "../../style/typography";
+import { sizes } from "../../style/typography";
 import { dimensions } from "../../style/dimension";
 
+import { Props } from "./types";
+
 const Container: StyledComponent<Props, Props, {}> = styled.h1`
-  font-size: ${typography.sizes.hero};
+  font-size: ${sizes.hero};
   color: ${props => props.theme.styles.colors.textPrimary};
 
   margin-top: ${dimensions.s};

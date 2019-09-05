@@ -1,10 +1,10 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { TimelineProps, TimelineItemProps } from "./types";
-
-import colors from "../../style/color";
+import { white, transparent, pumpkin, lightGrey } from "../../style/color";
 import { fonts } from "../../style/typography";
+
+import { TimelineProps, TimelineItemProps } from "./types";
 
 //
 //
@@ -64,7 +64,7 @@ const TimelineItemHeaderLogo: StyledComponent<{}, {}, {}> = styled.div`
 //
 
 const TimelineItemBody: StyledComponent<any, any, any> = styled.div`
-  border-left: 2px solid ${colors.lightGrey};
+  border-left: 2px solid ${lightGrey};
   position: relative;
 
   margin-left: 10px;
@@ -86,8 +86,8 @@ const TimelineItemBodySection1: StyledComponent<any, any, any> = styled.div`
 
   &:before {
     border-radius: 100%;
-    background-color: ${colors.transparent};
-    box-shadow: 0 0 3px 10px ${colors.white};
+    background-color: ${transparent};
+    box-shadow: 0 0 3px 10px ${white};
 
     display: block;
     position: absolute;
@@ -224,7 +224,7 @@ const Timeline: FunctionComponent<TimelineProps> = ({
 };
 
 Timeline.defaultProps = {
-  color: colors.pumpkin,
+  color: pumpkin,
   logoSize: "64px",
 };
 

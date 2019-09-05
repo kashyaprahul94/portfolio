@@ -12,9 +12,10 @@ const dimensions = {
     width: "1150px",
     height: "1700px",
   },
+
+  full: "100%",
 };
 
-const full = "100%";
 const headerHeight = "80px";
 
 const depth = {
@@ -24,4 +25,4 @@ const depth = {
   l: "0.5",
 };
 
-export { full, headerHeight, dimensions, depth };
+export { headerHeight, dimensions, depth };

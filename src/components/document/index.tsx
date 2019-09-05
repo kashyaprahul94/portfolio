@@ -3,20 +3,20 @@ import styled, { StyledComponent } from "@emotion/styled";
 
 import ThemeContext from "../../contexts/theme";
 
+import { dimensions } from "../../style/dimension";
+import { durations, transition } from "../../style/animation";
+
 import { Props } from "./types";
 
-import dimension from "../../style/dimension";
-import animation from "../../style/animation";
-
 const Container: StyledComponent<Props, Props, {}> = styled.div`
-  height: ${dimension.full};
+  height: ${dimensions.full};
 
   color: ${props => props.theme.styles.colors.textPrimary};
   background-color: ${props => props.theme.styles.colors.backgroundPrimary};
 
-  transition: ${animation.transition({
+  transition: ${transition({
     property: "background",
-    duration: animation.durations.medium,
+    duration: durations.medium,
   })};
 `;
 

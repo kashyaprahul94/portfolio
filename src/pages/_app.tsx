@@ -6,16 +6,17 @@ import { Global } from "@emotion/core";
 import { IAppContext, IPageProps, IComponent } from "../types";
 
 // Styles
-import { reset as cssReset, base as cssBase } from "../style";
+import { base as cssBase } from "../style/base";
+import { reset as cssReset } from "../style/reset";
 import { dark as themeDark, light as themeLight } from "../style/themes";
+
+// Context
+import ThemeContext from "../contexts/theme";
 
 // Components
 import Document from "../components/document";
 import { ScrollAwareHeader as Header } from "../components/header";
 import Main from "../components/main";
-
-// Context
-import ThemeContext from "../contexts/theme";
 
 interface AppState {
   loaded: boolean;

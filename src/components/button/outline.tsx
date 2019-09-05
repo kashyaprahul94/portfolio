@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import ThemeContext from "../../contexts/theme";
+
+import * as colors from "../../style/color";
+
 import { Button } from "./base";
 import { VariantProps } from "./types";
-
-import colors from "../../style/color";
 
 const Container: StyledComponent<VariantProps, VariantProps, {}> = styled(
   Button,

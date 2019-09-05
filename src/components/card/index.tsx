@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import color from "../../style/color";
+import { teal } from "../../style/color";
 import { fonts } from "../../style/typography";
 
 import { Props, PartialProps } from "./types";
@@ -26,7 +26,7 @@ const Title: StyledComponent<PartialProps, PartialProps, {}> = styled.header`
   margin-top: 5px;
   margin-bottom: 5px;
   font-size: 28px;
-  color: ${color.teal};
+  color: ${teal};
   text-transform: uppercase;
   font-family: ${fonts.secondary};
   padding: 8px;

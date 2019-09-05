@@ -1,10 +1,10 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Props } from "./types";
-
-import colors from "../../style/color";
+import * as colors from "../../style/color";
 import { fonts } from "../../style/typography";
+
+import { Props } from "./types";
 
 const Container: StyledComponent<Props, Props, {}> = styled.div`
   padding: 8px 12px;

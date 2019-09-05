@@ -1,18 +1,18 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { SheetProps } from "./types";
+import { white, lightGrey } from "../../style/color";
+import { dimensions } from "../../style/dimension";
 
-import color from "../../style/color";
-import dimension, { dimensions } from "../../style/dimension";
+import { SheetProps } from "./types";
 
 const Container: StyledComponent<SheetProps, SheetProps, {}> = styled.section`
   margin: ${props => (props.printMode ? 0 : 10)}px auto;
-  background-color: ${color.white};
+  background-color: ${white};
   padding: 10px;
 
-  width: ${dimension.full};
-  min-height: ${dimension.full};
+  width: ${dimensions.full};
+  min-height: ${dimensions.full};
 
   max-width: ${dimensions.a4.width};
   // max-height: ${dimensions.a4.height};
@@ -22,7 +22,7 @@ const Container: StyledComponent<SheetProps, SheetProps, {}> = styled.section`
   background-repeat: no-repeat;
 
   box-shadow: ${props =>
-    props.printMode ? undefined : `0 0 10px 0 ${color.lightGrey}`};
+    props.printMode ? undefined : `0 0 10px 0 ${lightGrey}`};
 `;
 
 const Sheet: FunctionComponent<SheetProps> = ({

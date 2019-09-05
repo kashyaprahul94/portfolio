@@ -31,7 +31,8 @@ import {
   IProject,
 } from "../data";
 
-import color, { teal, midnightblue, pumpkin, concrete } from "../style/color";
+import { teal, midnightblue, pumpkin } from "../style/color";
+import { fonts, sizes } from "../style/typography";
 
 import { IPageProps } from "../types";
 
@@ -41,7 +42,7 @@ const InfoItem = ({ title, Icon = null }) => (
       marginBottom: "5px",
     }}
   >
-    {Icon && <Icon size={24} color={teal} />}
+    {Icon && <Icon size={24} color={midnightblue} />}
     <span>{title}</span>
   </p>
 );
@@ -73,24 +74,20 @@ class Resume extends Component<PageProps> {
       "Kubernetes",
       "Microservices",
       "Message Brokers",
-      "12 Factor Cloud Apps",
+      "Cloud Architecture",
     ];
 
     const other = [
       "MongoDB",
       "React",
       "Angular",
-      "Jest/Mocha",
-      "Cypress",
-      "Babel/Webpack",
-      "PWA",
       "Redis",
       "Apache Kafka",
+      "Jenkins",
       "CloudFoundry",
       "SAP Cloud Platform",
       "Google Cloud Platform",
       "OAuth 2",
-      "Jenkins",
       "Swift",
     ];
 
@@ -116,8 +113,23 @@ class Resume extends Component<PageProps> {
       <section>
         <Sheet printMode={printMode}>
           <Card padding={true} transparent={true}>
-            <InfoItem title={personal.firstName} />
-            <InfoItem title={personal.lastName} />
+            <h1
+              style={{
+                fontSize: sizes.hero,
+              }}
+            >
+              {personal.firstName} {personal.lastName}
+            </h1>
+            <h2
+              style={{
+                fontSize: sizes.jumbo,
+                fontFamily: fonts.text,
+                marginBottom: "20px",
+              }}
+            >
+              {personal.title}
+            </h2>
+
             <InfoItem
               title={`${personal.city}, ${personal.country}`}
               Icon={Location}
@@ -135,26 +147,18 @@ class Resume extends Component<PageProps> {
           <Card padding={true} transparent={true} title="Experience" />
 
           <Card padding={true} transparent={true}>
-            <div
-              style={{
-                margin: "auto",
-              }}
-            >
+            <div>
               <Donut
-                size={200}
-                stroke={15}
+                size={150}
+                stroke={10}
                 items={areaOfExpertise}
                 legend={true}
               />
             </div>
 
-            <div
-              style={{
-                width: "100%",
-              }}
-            >
+            <div>
               <div>
-                <h1>Expertise:</h1>
+                <h1>Daily Driver:</h1>
                 {skills.map(skill => (
                   <Chips key={skill} variant="primary">
                     {skill}
@@ -163,9 +167,9 @@ class Resume extends Component<PageProps> {
               </div>
 
               <div>
-                <h1>Other skills:</h1>
+                <h1>Others:</h1>
                 {other.map(skill => (
-                  <Chips key={skill} variant="secondary">
+                  <Chips key={skill} variant="midnightblue">
                     {skill}
                   </Chips>
                 ))}

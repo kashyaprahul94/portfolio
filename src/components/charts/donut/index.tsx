@@ -1,13 +1,13 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
+import { dimensions } from "../../../style/dimension";
+
 import { Props, SegmentProps, DonutItem, LegendItemProps } from "./types";
 
-import dimension from "../../../style/dimension";
-
 const Container: StyledComponent<{}, {}, {}> = styled.div`
-  width: ${dimension.full};
-  height: ${dimension.full};
+  width: ${dimensions.full};
+  height: ${dimensions.full};
 
   position: relative;
   display: flex;
@@ -33,8 +33,8 @@ const DonutWrapper: FunctionComponent<Pick<Props, "size">> = ({
 };
 
 const SegmentContainer: StyledComponent<{}, {}, {}> = styled.g`
-  width: ${dimension.full};
-  height: ${dimension.full};
+  width: ${dimensions.full};
+  height: ${dimensions.full};
 
   position: relative;
   display: flex;

@@ -2,15 +2,16 @@ import { useContext, FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import ThemeContext from "../../contexts/theme";
+
+import { transparent } from "../../style/color";
+
 import { Button } from "./base";
 import { VariantProps } from "./types";
-
-import colors from "../../style/color";
 
 const Container: StyledComponent<VariantProps, VariantProps, {}> = styled(
   Button,
 )`
-  background-color: ${colors.transparent};
+  background-color: ${transparent};
   color: ${props => props.theme.styles.colors.textPrimary};
   border-color: ${props => props.theme.styles.colors.textPrimary};
 `;

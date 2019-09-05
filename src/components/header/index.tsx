@@ -1,34 +1,37 @@
-import { useContext, FunctionComponent, ReactNode } from "react";
+import { useContext, FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 import Router from "next/router";
 
 import ThemeContext from "../../contexts/theme";
 import { useScrollPosition } from "../../hooks/scroll";
 
-import { Props, ScrollSpiedHeaderProps } from "./types";
-
 import P from "../paragraph";
 import { OutlineButton } from "../button";
 
-import color from "../../style/color";
+import { transparent } from "../../style/color";
 import { display, position, alignment } from "../../style/layout";
-import { dimensions, headerHeight, full, depth } from "../../style/dimension";
-import animation from "../../style/animation";
+import { dimensions, headerHeight, depth } from "../../style/dimension";
+import { transition, durations } from "../../style/animation";
+
+import { Props, ScrollSpiedHeaderProps } from "./types";
+
+//
+//
 
 const _headerHeight = parseInt(headerHeight, 10);
 
 const Container: StyledComponent<Props, Props, {}> = styled.header`
   padding: ${dimensions.l} ${dimensions.xl};
   position: ${position.sticky};
-  width: ${full};
+  width: ${dimensions.full};
   top: ${dimensions.zero};
   height: ${headerHeight};
 
-  background-color: ${color.transparent};
+  background-color: ${transparent};
   box-shadow: none;
 
-  transition: ${animation.transition({
-    duration: animation.durations.short,
+  transition: ${transition({
+    duration: durations.short,
   })};
 
   &.HeaderSpy__Activate {
@@ -44,8 +47,8 @@ const Container: StyledComponent<Props, Props, {}> = styled.header`
 `;
 
 const Content: StyledComponent<{}, {}, {}> = styled.div`
-  height: ${full};
-  width: ${full};
+  height: ${dimensions.full};
+  width: ${dimensions.full};
   display: ${display.flex};
   align-items: ${alignment.center};
   justify-content: ${alignment.spaceBetween};

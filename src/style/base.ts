@@ -1,5 +1,5 @@
-import { fonts, sizes } from "../typography";
-import color from "../color";
+import { fonts, sizes } from "./typography";
+import { primary as primaryColor } from "./color";
 
 export const base = ({ colors }) => `
 
@@ -40,6 +40,6 @@ export const base = ({ colors }) => `
 
   a {
     text-decoration: none;
-    color: ${color.primary};
+    color: ${primaryColor};
   }
 `;
