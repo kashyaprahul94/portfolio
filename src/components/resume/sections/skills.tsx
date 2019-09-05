@@ -14,11 +14,13 @@ import {
 } from "../../../data/types";
 
 const Title: StyledComponent<{}, {}, {}> = styled.h1`
-  font-size: ${sizes.m};
+  font-size: ${sizes.l};
+  margin: 5px 0;
 `;
 
 const SectionContainer: StyledComponent<{}, {}, {}> = styled.div`
   display: flex;
+  align-items: center;
 `;
 const Section: StyledComponent<{}, {}, {}> = styled.div`
   width: 100%;
@@ -31,27 +33,31 @@ const Skills: FunctionComponent<PageProps> = ({
 }) => {
   return (
     <Card padding={true} transparent={true} title="Skills">
-      <div>
-        <Donut size={150} stroke={10} items={areaOfExpertise} legend={true} />
-      </div>
-
       <SectionContainer>
         <Section>
-          <Title>Daily Driver:</Title>
+          <Title>Daily Driver</Title>
           {expertise.map(skill => (
             <Chip key={skill} variant="primary">
+              {skill}
+            </Chip>
+          ))}
+          <Title>Others</Title>
+          {others.map(skill => (
+            <Chip key={skill} variant="secondary">
               {skill}
             </Chip>
           ))}
         </Section>
 
         <Section>
-          <Title>Others:</Title>
-          {others.map(skill => (
-            <Chip key={skill} variant="secondary">
-              {skill}
-            </Chip>
-          ))}
+          <div>
+            <Donut
+              size={230}
+              stroke={15}
+              items={areaOfExpertise}
+              legend={true}
+            />
+          </div>
         </Section>
       </SectionContainer>
     </Card>
