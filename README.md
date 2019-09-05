@@ -14,24 +14,3 @@ Porfolio for Rahul Kashyap
 * [x] GitHub Actions ?
 * Add resume
 * Use state management
-
-
-# WF
-## Senior Software Engineer
-
-# SAP
-
-## Cloud Architect
-SAP Loyalty Marketing
-
-## DevOps
-SAP Loyalty Marketing
-
-## Mobile Dev
-Mobile Channel
-IoT App
-
-## Full Stack Engineer
-Loyalty
-CJM
-
