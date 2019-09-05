@@ -42,3 +42,5 @@ export interface IAreaOfExpertise {
   value: number;
   color: string;
 }
+
+export type IAchievements = string[];

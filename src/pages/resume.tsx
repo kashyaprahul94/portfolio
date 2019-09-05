@@ -19,6 +19,8 @@ import {
   IAreaOfExpertise,
   IExpertSkills,
   IOtherSkills,
+  achievements,
+  IAchievements,
 } from "../data";
 
 import { IPageProps } from "../types";
@@ -38,6 +40,7 @@ class Resume extends Component<PageProps> {
           expertise: expertSkills,
           others: otherSkills,
         },
+        achievements,
       },
     };
   }
@@ -62,7 +65,7 @@ class Resume extends Component<PageProps> {
             others={skills.others}
           />
 
-          <AchievementsSection />
+          <AchievementsSection achievements={achievements} />
         </Sheet>
 
         <Sheet printMode={printMode}>
@@ -84,6 +87,7 @@ export interface PageProps extends IPageProps {
       expertise: IExpertSkills;
       others: IOtherSkills;
     };
+    achievements: IAchievements;
   };
 }
 

@@ -42,4 +42,8 @@ export const base = ({ colors }) => `
     text-decoration: none;
     color: ${primaryColor};
   }
+
+  b, strong {
+    font-weight: 700;
+  }
 `;
