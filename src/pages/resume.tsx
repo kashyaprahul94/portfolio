@@ -57,7 +57,15 @@ class Resume extends Component<PageProps> {
           <PersonalInfoSection info={personal} />
 
           <ExperienceSection />
+          <br />
+          <br />
+          <br />
+          <br />
           <EducationSection />
+          <br />
+          <br />
+          <br />
+          <br />
 
           <SkillsSection
             areaOfExpertise={skills.areaOfExpertise}

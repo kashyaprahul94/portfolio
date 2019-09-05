@@ -12,10 +12,11 @@ const Container: StyledComponent<SheetProps, SheetProps, {}> = styled.section`
   padding: 10px;
 
   width: ${dimensions.full};
-  min-height: ${dimensions.full};
+  min-height: ${props =>
+    props.printMode ? dimensions.a4.sclaedHeight : dimensions.full};
 
   max-width: ${dimensions.a4.width};
-  // max-height: ${dimensions.a4.height};
+  max-height: ${dimensions.a4.height};
 
   background-image: url("/static/images/back.png");
   background-size: contain;

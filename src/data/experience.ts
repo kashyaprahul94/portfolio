@@ -24,7 +24,6 @@ const projectHybrisLoyaltyIoTMobileApp: IProject = {
   description: [
     "SAP Hybris Loyalty being a Cloud solution was very easy to integrate with edge devices, such as POS devices, Mobile, etc. It offered various public APIs for different business objects. GeoMarketing was one of the eye candy feature the product had. It abstracted all the convoluted processes into simple MicroServices such as Offers, iBeacon, Geofences, to name a few.",
     "The business use case was to demonstrate an end to end story where, a Marketeer would setup some iBeacon & Geofence related Master Data, create some offers & attach those iBeacons and/or iBeacons to it. Then on the end user side, there would be a mobile application, which would be polling one of the Micro-Service to get the offers based on the current geo vicinity, the person in. That would contain current lat & long of the location, iBeacons in range. The API would return all the offers relevant to those inputs.",
-    "So let's say, a person enters a shop, and as soon as she/he enters, they receive a push notification saying that they got a 10% discount coupon as a welcome gift ^_^",
   ],
   link: "http://bit.ly/32hpZaD",
 };
