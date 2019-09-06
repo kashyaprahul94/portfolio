@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { white, transparent, pumpkin, lightGrey } from "../../style/color";
+import { white, transparent, danger, lightGrey } from "../../style/color";
 import { fonts } from "../../style/typography";
 
 import { TimelineProps, TimelineItemProps } from "./types";
@@ -224,7 +224,7 @@ const Timeline: FunctionComponent<TimelineProps> = ({
 };
 
 Timeline.defaultProps = {
-  color: pumpkin,
+  color: danger,
   logoSize: "64px",
 };
 

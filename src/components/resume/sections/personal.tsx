@@ -12,14 +12,14 @@ import { IPersonalInfo } from "../../../data/types";
 //
 
 const Title: StyledComponent<{}, {}, {}> = styled.h1`
-  font-size: ${sizes.hero};
-  margin-bottom: 5px;
+  font-size: 52px;
+  margin-bottom: 10px;
 `;
 
 const SubTitle: StyledComponent<{}, {}, {}> = styled.h2`
-  font-size: ${sizes.jumbo};
+  font-size: 42px;
   font-family: ${fonts.text};
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 const InfoItemContainer: StyledComponent<{}, {}, {}> = styled.div`
@@ -33,6 +33,15 @@ const InfoItem = ({ title, Icon = null }) => (
   </InfoItemContainer>
 );
 
+const Row: StyledComponent<{}, {}, {}> = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Column: StyledComponent<{}, {}, {}> = styled.div``;
+
 const InfoRow: StyledComponent<{}, {}, {}> = styled.div`
   display: flex;
   width: 100%;
@@ -40,21 +49,21 @@ const InfoRow: StyledComponent<{}, {}, {}> = styled.div`
 `;
 
 const InfoColumn: StyledComponent<{}, {}, {}> = styled.div`
-  width: 50%;
+  padding-left: 20px;
 `;
 
 const Personal: FunctionComponent<PageProps> = ({ info }) => {
   return (
     <Card padding={true} transparent={true}>
-      <InfoRow>
-        <InfoColumn>
+      <Row>
+        <Column>
           <Title>
             {info.firstName} {info.lastName}
           </Title>
           <SubTitle>{info.title}</SubTitle>
-        </InfoColumn>
+        </Column>
 
-        <InfoColumn>
+        <Column>
           <InfoRow>
             <InfoColumn>
               <InfoItem
@@ -70,8 +79,8 @@ const Personal: FunctionComponent<PageProps> = ({ info }) => {
               <InfoItem title={info.linkedIn} Icon={LinkedIn} />
             </InfoColumn>
           </InfoRow>
-        </InfoColumn>
-      </InfoRow>
+        </Column>
+      </Row>
     </Card>
   );
 };

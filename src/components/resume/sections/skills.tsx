@@ -13,9 +13,14 @@ import {
   IOtherSkills,
 } from "../../../data/types";
 
-const Title: StyledComponent<{}, {}, {}> = styled.h1`
+const Title: StyledComponent<
+  { center?: boolean },
+  { center?: boolean },
+  {}
+> = styled.h1`
   font-size: ${sizes.l};
   margin: 5px 0;
+  text-align: ${props => (props.center ? "center" : "left")};
 `;
 
 const SectionContainer: StyledComponent<{}, {}, {}> = styled.div`
@@ -50,6 +55,7 @@ const Skills: FunctionComponent<PageProps> = ({
         </Section>
 
         <Section>
+          <Title center={true}>Area of interest</Title>
           <div>
             <Donut
               size={230}

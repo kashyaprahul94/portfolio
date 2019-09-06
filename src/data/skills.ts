@@ -1,10 +1,10 @@
-import { teal, midnightblue, pumpkin } from "../style/color";
+import { primary, secondary, danger } from "../style/color";
 
 import { IAreaOfExpertise, IExpertSkills, IOtherSkills } from "./types";
 
 const expertSkills: IExpertSkills = [
   "Node.JS",
-  "TypeScript",
+  "TypeScript/JavaScript (ESNext)",
   "GraphQL",
   "Docker",
   "Kubernetes",
@@ -31,17 +31,17 @@ const areaOfExpertise: IAreaOfExpertise[] = [
   {
     title: "Cloud Native Engineering",
     value: 60,
-    color: teal,
+    color: primary,
   },
   {
     title: "DevOps",
     value: 30,
-    color: midnightblue,
+    color: secondary,
   },
   {
     title: "Mobile Dvelopment",
     value: 10,
-    color: pumpkin,
+    color: danger,
   },
 ];
 
