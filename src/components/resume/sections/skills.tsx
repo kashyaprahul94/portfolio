@@ -11,8 +11,8 @@ import { dimensions } from "../../../style/dimension";
 
 import {
   IAreaOfExpertise,
-  IExpertSkills,
-  IOtherSkills,
+  IExpertSkill,
+  IOtherSkill,
 } from "../../../data/types";
 
 const Title: StyledComponent<TitleProps, TitleProps, {}> = styled.h1`
@@ -86,8 +86,8 @@ interface TitleProps {
 
 export interface PageProps {
   areaOfExpertise: IAreaOfExpertise[];
-  expertise: IExpertSkills;
-  others: IOtherSkills;
+  expertise: IExpertSkill[];
+  others: IOtherSkill[];
 }
 
 export default Skills;

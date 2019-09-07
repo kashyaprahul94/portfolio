@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import styled, { StyledComponent } from "@emotion/styled";
 
 import { Card } from "../../card";
 import { Location, Mobile, Email, LinkedIn, GitHub } from "../../icons";
@@ -10,15 +11,37 @@ import { dimensions } from "../../../style/dimension";
 
 import { IEducation } from "../../../data/types";
 
+const Row: StyledComponent<{}, {}, {}> = styled.div`
+  display: ${display.flex};
+  width: ${dimensions.full};
+  align-items: ${alignment.center};
+  // justify-content: ${alignment.spaceBetween};
+
+  ${layout.belowM(`
+    flex-direction: ${display.column};
+  `)}
+`;
+
+const Column: StyledComponent<{}, {}, {}> = styled.div``;
+
 const Education: FunctionComponent<PageProps> = ({ education }) => {
   return (
     <Card padding={true} transparent={true} title="Education">
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <Row>
+        {education.map((educationItem: IEducation, index: number) => {
+          return (
+            <Column key={index}>
+              <p>{educationItem.title}</p>
+              <p>{educationItem.institute}</p>
+              <p>
+                {educationItem.city}, {educationItem.country}
+              </p>
+              <p>{educationItem.score}</p>
+              <p>{educationItem.title}</p>
+            </Column>
+          );
+        })}
+      </Row>
     </Card>
   );
 };

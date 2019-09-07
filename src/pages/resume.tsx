@@ -22,11 +22,11 @@ import {
   expertSkills,
   otherSkills,
   IAreaOfExpertise,
-  IExpertSkills,
-  IOtherSkills,
+  IExpertSkill,
+  IOtherSkill,
   //
   achievementInfo,
-  IAchievements,
+  IAchievement,
 } from "../data";
 
 import { IPageProps } from "../types";
@@ -93,10 +93,10 @@ export interface PageProps extends IPageProps {
     experience: IExperience[];
     skills: {
       areaOfExpertise: IAreaOfExpertise[];
-      expertise: IExpertSkills;
-      others: IOtherSkills;
+      expertise: IExpertSkill[];
+      others: IOtherSkill[];
     };
-    achievements: IAchievements;
+    achievements: IAchievement[];
   };
 }
 

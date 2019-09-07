@@ -15,13 +15,13 @@ const common: IPersonalInfo = {
   gitHub: "github.com/kashyaprahul94",
 };
 
-const bangaloreInfo = {
+const bangaloreInfo: IPersonalInfo = {
   ...common,
 
   city: "Bangalore",
 };
 
-const germanyBerlinInfo = {
+const germanyBerlinInfo: IPersonalInfo = {
   ...common,
 
   city: "Berlin",
@@ -29,4 +29,7 @@ const germanyBerlinInfo = {
   mobile: "+49 0175 3491806",
 };
 
-export const personalInfo = { ...germanyBerlinInfo };
+const personalInfo: IPersonalInfo = { ...germanyBerlinInfo };
+
+export { personalInfo };
+export default personalInfo;

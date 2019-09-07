@@ -46,12 +46,12 @@ export interface IExperience {
   roles: IExperienceRole[];
 }
 
-export type IExpertSkills = string[];
-export type IOtherSkills = string[];
+export type IExpertSkill = string;
+export type IOtherSkill = string;
 export interface IAreaOfExpertise {
   title: string;
   value: number;
   color: string;
 }
 
-export type IAchievements = string[];
+export type IAchievement = string;

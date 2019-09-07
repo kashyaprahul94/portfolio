@@ -9,7 +9,7 @@ import { fonts, sizes, weights } from "../../../style/typography";
 import { dimensions } from "../../../style/dimension";
 import { display, alignment } from "../../../style/layout";
 
-import { IAchievements } from "../../../data/types";
+import { IAchievement } from "../../../data/types";
 
 const AchievementItemContainer: StyledComponent<{}, {}, {}> = styled.div`
   margin-bottom: ${dimensions.m};
@@ -50,7 +50,7 @@ const Achievements: FunctionComponent<PageProps> = ({ achievements }) => {
 };
 
 export interface PageProps {
-  achievements: IAchievements;
+  achievements: IAchievement[];
 }
 
 export default Achievements;

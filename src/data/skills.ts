@@ -1,8 +1,8 @@
 import { primary, secondary, danger } from "../style/color";
 
-import { IAreaOfExpertise, IExpertSkills, IOtherSkills } from "./types";
+import { IAreaOfExpertise, IExpertSkill, IOtherSkill } from "./types";
 
-const expertSkills: IExpertSkills = [
+const expertSkills: IExpertSkill[] = [
   "Node.JS",
   "TypeScript/JavaScript (ESNext)",
   "GraphQL",
@@ -13,7 +13,7 @@ const expertSkills: IExpertSkills = [
   "Cloud Architecture",
 ];
 
-const otherSkills: IOtherSkills = [
+const otherSkills: IOtherSkill[] = [
   "OAuth 2",
   "Swift",
   "React",

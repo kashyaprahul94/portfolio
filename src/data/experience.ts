@@ -1,7 +1,5 @@
 import { IExperience, IProject, IExperienceRole } from "./types";
 
-const experience = [];
-
 const projectHybrisLoyaltyOnYaaS: IProject = {
   title: "SAP Hybris Loyalty on YaaS Cloud Platform",
   description: [
@@ -125,13 +123,10 @@ const experienceWunderflats: IExperience = {
 //
 //
 
-experience.push(experienceSAPLabsIndia);
-experience.push(experienceWunderflats);
-
-//
-//
-
-const experienceInfo = experience
+const experienceInfo: IExperience[] = [
+  experienceSAPLabsIndia,
+  experienceWunderflats,
+]
   .map((experienceItem: IExperience) => ({
     ...experienceItem,
     roles: experienceItem.roles

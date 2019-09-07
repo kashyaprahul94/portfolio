@@ -21,6 +21,7 @@ const master: IEducation = {
   score: "9.23 / 10 CGPA",
 };
 
-const educationInfo = [bachelor, master];
+const educationInfo = [bachelor, master].reverse();
 
 export { educationInfo };
+export default educationInfo;
