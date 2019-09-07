@@ -14,7 +14,7 @@ const dimensions = {
   a4: {
     width: "1150px",
     height: "1700px",
-    sclaedHeight: "1450px",
+    sclaedHeight: "1400px",
   },
 
   full: "100%",

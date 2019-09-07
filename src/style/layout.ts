@@ -57,7 +57,7 @@ const alignment = {
 const breakPoints = {
   xl: "1200px",
   l: "992px",
-  m: "768px",
+  m: "670px",
   s: "576px",
 };
 
