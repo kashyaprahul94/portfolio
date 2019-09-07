@@ -19,6 +19,10 @@ const Title: StyledComponent<TitleProps, TitleProps, {}> = styled.h1`
   font-size: ${sizes.l};
   margin: ${dimensions.m} ${dimensions.zero};
   text-align: ${props => (props.center ? alignment.center : alignment.left)};
+
+  ${layout.belowM(`
+    text-align: ${alignment.center};
+  `)}
 `;
 
 const SectionContainer: StyledComponent<{}, {}, {}> = styled.div`

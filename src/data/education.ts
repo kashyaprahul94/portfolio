@@ -19,6 +19,7 @@ const master: IEducation = {
   from: 2014,
   to: 2018,
   score: "9.23 / 10 CGPA",
+  achievements: [],
 };
 
 const educationInfo = [bachelor, master].reverse();

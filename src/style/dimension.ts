@@ -1,3 +1,5 @@
+const fromUnit = (unitValue: string) => parseInt(unitValue, 10);
+
 const dimensions = {
   zero: 0,
   xxs: "1px",
@@ -28,4 +30,4 @@ const depth = {
   l: "0.5",
 };
 
-export { headerHeight, dimensions, depth };
+export { headerHeight, dimensions, depth, fromUnit };

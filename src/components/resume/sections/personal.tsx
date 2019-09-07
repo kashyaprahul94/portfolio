@@ -7,7 +7,7 @@ import { Location, Mobile, Email, LinkedIn, GitHub } from "../../icons";
 import { secondary, darkGrey } from "../../../style/color";
 import { fonts, sizes } from "../../../style/typography";
 import { layout, alignment, display } from "../../../style/layout";
-import { dimensions } from "../../../style/dimension";
+import { dimensions, fromUnit } from "../../../style/dimension";
 
 import { IPersonalInfo } from "../../../data/types";
 
@@ -42,7 +42,7 @@ const Text: StyledComponent<{}, {}, {}> = styled.span`
 
 const InfoItem = ({ title, Icon = null }) => (
   <InfoItemContainer>
-    {Icon && <Icon size={24} color={secondary} />}
+    {Icon && <Icon size={fromUnit(dimensions.xxl)} color={secondary} />}
     <Text>{title}</Text>
   </InfoItemContainer>
 );

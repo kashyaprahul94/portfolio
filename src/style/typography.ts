@@ -12,7 +12,7 @@ const sizes = {
   xxl: "36px",
   xxxl: "42px",
   jumbo: "50px",
-  hero: "56px",
+  hero: "64px",
   default: "14px",
 };
 
@@ -27,6 +27,7 @@ const text = {
   lowercase: "lowercase",
   uppercase: "uppercase",
   capitalize: "capitalize",
+  italic: "italic",
 };
 
 const lineHeight = {

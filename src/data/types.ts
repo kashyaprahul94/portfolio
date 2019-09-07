@@ -22,7 +22,7 @@ export interface IEducation {
   from: number;
   to?: number;
   score: string;
-  achievements?: string[];
+  achievements: string[];
 }
 
 export interface IProject {

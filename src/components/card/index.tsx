@@ -10,7 +10,7 @@ import {
   lightGrey,
 } from "../../style/color";
 import { fonts, sizes, text } from "../../style/typography";
-import { border } from "../../style/layout";
+import { border, layout, alignment } from "../../style/layout";
 import { dimensions } from "../../style/dimension";
 
 import { Props, PartialProps } from "./types";
@@ -42,6 +42,10 @@ const Title: StyledComponent<PartialProps, PartialProps, {}> = styled.header`
   border-bottom: ${border.width.s} ${border.style.solid} ${lightGrey};
   text-transform: ${text.uppercase};
   letter-spacing: 1px;
+
+  ${layout.belowM(`
+    text-align: ${alignment.center};
+  `)}
 `;
 
 const Content: StyledComponent<PartialProps, PartialProps, {}> = styled.div`
