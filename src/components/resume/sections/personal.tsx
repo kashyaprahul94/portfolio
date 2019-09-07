@@ -4,7 +4,7 @@ import styled, { StyledComponent } from "@emotion/styled";
 import { Card } from "../../card";
 import { Location, Mobile, Email, LinkedIn, GitHub } from "../../icons";
 
-import { midnightblue } from "../../../style/color";
+import { secondary, darkGrey } from "../../../style/color";
 import { fonts, sizes } from "../../../style/typography";
 import { layout, alignment, display } from "../../../style/layout";
 import { dimensions } from "../../../style/dimension";
@@ -36,10 +36,14 @@ const InfoItemContainer: StyledComponent<{}, {}, {}> = styled.div`
   margin-bottom: ${dimensions.m};
 `;
 
+const Text: StyledComponent<{}, {}, {}> = styled.span`
+  color: ${darkGrey};
+`;
+
 const InfoItem = ({ title, Icon = null }) => (
   <InfoItemContainer>
-    {Icon && <Icon size={24} color={midnightblue} />}
-    <span>{title}</span>
+    {Icon && <Icon size={24} color={secondary} />}
+    <Text>{title}</Text>
   </InfoItemContainer>
 );
 

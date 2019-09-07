@@ -56,16 +56,9 @@ class Resume extends Component<PageProps> {
         <Sheet printMode={printMode}>
           <PersonalInfoSection info={personal} />
 
-          <ExperienceSection />
-          <br />
-          <br />
-          <br />
-          <br />
           <EducationSection />
-          <br />
-          <br />
-          <br />
-          <br />
+
+          <ExperienceSection />
 
           <SkillsSection
             areaOfExpertise={skills.areaOfExpertise}
