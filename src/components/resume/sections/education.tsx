@@ -1,8 +1,16 @@
 import React, { FunctionComponent } from "react";
 
 import { Card } from "../../card";
+import { Location, Mobile, Email, LinkedIn, GitHub } from "../../icons";
 
-const Education: FunctionComponent<PageProps> = ({}) => {
+import { secondary, darkGrey } from "../../../style/color";
+import { fonts, sizes } from "../../../style/typography";
+import { layout, alignment, display } from "../../../style/layout";
+import { dimensions } from "../../../style/dimension";
+
+import { IEducation } from "../../../data/types";
+
+const Education: FunctionComponent<PageProps> = ({ education }) => {
   return (
     <Card padding={true} transparent={true} title="Education">
       <br />
@@ -15,7 +23,9 @@ const Education: FunctionComponent<PageProps> = ({}) => {
   );
 };
 
-export interface PageProps {}
+export interface PageProps {
+  education: IEducation[];
+}
 
 export default Education;
 export { Education };

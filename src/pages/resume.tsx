@@ -10,16 +10,22 @@ import { Projects as ProjectSection } from "../components/resume/sections/projec
 
 import {
   personalInfo,
-  experienceInfo,
   IPersonalInfo,
+  //
+  educationInfo,
+  IEducation,
+  //
+  experienceInfo,
   IExperience,
+  //
   areaOfExpertise,
   expertSkills,
   otherSkills,
   IAreaOfExpertise,
   IExpertSkills,
   IOtherSkills,
-  achievements,
+  //
+  achievementInfo,
   IAchievements,
 } from "../data";
 
@@ -34,13 +40,14 @@ class Resume extends Component<PageProps> {
       printMode: query.print || false,
       data: {
         personal: personalInfo,
+        education: educationInfo,
         experience: experienceInfo,
         skills: {
           areaOfExpertise,
           expertise: expertSkills,
           others: otherSkills,
         },
-        achievements,
+        achievements: achievementInfo,
       },
     };
   }
@@ -48,7 +55,7 @@ class Resume extends Component<PageProps> {
   public render() {
     const {
       printMode,
-      data: { personal, experience, skills },
+      data: { personal, education, experience, skills, achievements },
     } = this.props;
 
     return (
@@ -56,9 +63,9 @@ class Resume extends Component<PageProps> {
         <Sheet printMode={printMode}>
           <PersonalInfoSection info={personal} />
 
-          <EducationSection />
+          <EducationSection education={education} />
 
-          <ExperienceSection />
+          <ExperienceSection experience={experience} />
 
           <SkillsSection
             areaOfExpertise={skills.areaOfExpertise}
@@ -82,6 +89,7 @@ export interface PageProps extends IPageProps {
 
   data: {
     personal: IPersonalInfo;
+    education: IEducation[];
     experience: IExperience[];
     skills: {
       areaOfExpertise: IAreaOfExpertise[];

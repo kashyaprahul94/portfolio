@@ -29,4 +29,4 @@ const germanyBerlinInfo = {
   mobile: "+49 0175 3491806",
 };
 
-export const personalInfo = germanyBerlinInfo;
+export const personalInfo = { ...germanyBerlinInfo };

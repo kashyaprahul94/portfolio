@@ -1,6 +1,6 @@
 import { IAchievements } from "./types";
 
-const achievements: IAchievements = [
+const achievementInfo: IAchievements = [
   "Patent : <b>Visualizer</b> - A visualization tool for SAP Hybris as a Service cloud platform.",
   "Patent : <b>FaaS on SAP CF</b> - Function as a Service for SAP Cloud Platform Cloud Foundry.",
   "Winner of <b>CEC Cloud Bootcamp 2015</b> at SAP Labs India.",
@@ -8,4 +8,4 @@ const achievements: IAchievements = [
   "Recognized for initiating innovative ideas and leading them.",
 ];
 
-export { achievements };
+export { achievementInfo };

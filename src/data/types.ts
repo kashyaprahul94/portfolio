@@ -14,6 +14,17 @@ export interface IPersonalInfo {
   website?: string;
 }
 
+export interface IEducation {
+  title: string;
+  institute: string;
+  city: string;
+  country: string;
+  from: number;
+  to?: number;
+  score: string;
+  achievements?: string[];
+}
+
 export interface IProject {
   title: string;
   description: string[];
