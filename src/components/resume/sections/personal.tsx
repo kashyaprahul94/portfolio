@@ -6,24 +6,34 @@ import { Location, Mobile, Email, LinkedIn, GitHub } from "../../icons";
 
 import { midnightblue } from "../../../style/color";
 import { fonts, sizes } from "../../../style/typography";
+import { layout, alignment, display } from "../../../style/layout";
+import { dimensions } from "../../../style/dimension";
 
 import { IPersonalInfo } from "../../../data/types";
 
 //
 
 const Title: StyledComponent<{}, {}, {}> = styled.h1`
-  font-size: 52px;
-  margin-bottom: 10px;
+  font-size: ${sizes.jumbo};
+  margin-bottom: ${dimensions.m};
+
+  ${layout.belowM(`
+    text-align: ${alignment.center};
+  `)}
 `;
 
 const SubTitle: StyledComponent<{}, {}, {}> = styled.h2`
-  font-size: 42px;
+  font-size: ${sizes.xxxl};
   font-family: ${fonts.text};
-  margin-bottom: 10px;
+  margin-bottom: ${dimensions.m};
+
+  ${layout.belowM(`
+    text-align: ${alignment.center};
+  `)}
 `;
 
 const InfoItemContainer: StyledComponent<{}, {}, {}> = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: ${dimensions.m};
 `;
 
 const InfoItem = ({ title, Icon = null }) => (
@@ -34,22 +44,31 @@ const InfoItem = ({ title, Icon = null }) => (
 );
 
 const Row: StyledComponent<{}, {}, {}> = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
+  display: ${display.flex};
+  width: ${dimensions.full};
+  align-items: ${alignment.center};
+  justify-content: ${alignment.spaceBetween};
+
+  ${layout.belowM(`
+    flex-direction: ${display.column};
+  `)}
 `;
 
 const Column: StyledComponent<{}, {}, {}> = styled.div``;
 
 const InfoRow: StyledComponent<{}, {}, {}> = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
+  display: ${display.flex};
+  width: ${dimensions.full};
+  align-items: ${alignment.center};
+
+  ${layout.belowM(`
+  flex-direction: ${display.column};
+    text-align: ${alignment.center};
+  `)}
 `;
 
 const InfoColumn: StyledComponent<{}, {}, {}> = styled.div`
-  padding-left: 20px;
+  padding-left: ${dimensions.xl};
 `;
 
 const Personal: FunctionComponent<PageProps> = ({ info }) => {

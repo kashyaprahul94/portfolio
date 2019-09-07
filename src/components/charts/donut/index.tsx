@@ -2,6 +2,8 @@ import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import { dimensions } from "../../../style/dimension";
+import { display, position, alignment } from "../../../style/layout";
+import { lineHeight } from "../../../style/typography";
 
 import { Props, SegmentProps, DonutItem, LegendItemProps } from "./types";
 
@@ -9,11 +11,10 @@ const Container: StyledComponent<{}, {}, {}> = styled.div`
   width: ${dimensions.full};
   height: ${dimensions.full};
 
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  justify-content: center;
+  position: ${position.relative};
+  display: ${display.flex};
+  align-items: ${alignment.center};
+  justify-content: ${alignment.center};
 `;
 
 const DonutWrapper: FunctionComponent<Pick<Props, "size">> = ({
@@ -36,48 +37,45 @@ const SegmentContainer: StyledComponent<{}, {}, {}> = styled.g`
   width: ${dimensions.full};
   height: ${dimensions.full};
 
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  justify-content: center;
+  position: ${position.relative};
+  display: ${display.flex};
+  align-items: ${alignment.center};
+  justify-content: ${alignment.center};
+
+  padding: ${dimensions.m};
 
   .Donut-Segment {
-    transform-origin: center;
+    transform-origin: ${alignment.center};
   }
 `;
 
 const LegendContainer: StyledComponent<any, any, any> = styled.figcaption``;
 
 const LegendItems: StyledComponent<any, any, any> = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  margin: ${dimensions.zero};
+  padding: ${dimensions.zero};
+  list-style: ${display.none};
 `;
 
-const LegendItem: StyledComponent<
+const LegendItem: StyledComponent<any, any, {}> = styled.li`
+  margin-bottom: ${dimensions.m};
+  display: ${display.flex};
+  align-items: ${alignment.center};
+`;
+
+const LegendItemColorIndicator: StyledComponent<
   LegendItemProps,
   LegendItemProps,
   {}
-> = styled.li`
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 10px;
-  padding: 0;
+> = styled.div`
+  background: ${props => props.background};
+  border-radius: ${dimensions.full};
+  margin-right: ${dimensions.s};
 
-  &:before {
-    content: "";
-    width: 15px;
-    height: 15px;
-    background: ${props => props.background};
-    top: 0;
-    left: 0;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-    border-radius: 100%;
-  }
+  width: ${dimensions.xl};
+  min-width: ${dimensions.xl};
+  height: ${dimensions.xl};
+  min-height: ${dimensions.xl};
 `;
 
 const Segment: FunctionComponent<SegmentProps> = ({
@@ -173,12 +171,9 @@ const Donut: FunctionComponent<Props> = ({ size, stroke, items, legend }) => {
         <LegendContainer className="Donut-Legend">
           <LegendItems className="Donut-Legend-items">
             {donutItems.map((item: DonutItem) => (
-              <LegendItem
-                key={item.id}
-                className="Donut-Legend-item"
-                background={item.color}
-              >
-                {item.title}
+              <LegendItem key={item.id} className="Donut-Legend-item">
+                <LegendItemColorIndicator background={item.color} />
+                <p>{item.title}</p>
               </LegendItem>
             ))}
           </LegendItems>

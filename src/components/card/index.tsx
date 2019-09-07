@@ -1,42 +1,48 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { teal } from "../../style/color";
-import { fonts } from "../../style/typography";
+import {
+  teal,
+  offWhite,
+  white,
+  borderGrey,
+  transparent as transparentColor,
+  lightGrey,
+} from "../../style/color";
+import { fonts, sizes, text } from "../../style/typography";
+import { border } from "../../style/layout";
+import { dimensions } from "../../style/dimension";
 
 import { Props, PartialProps } from "./types";
 
 const Container: StyledComponent<PartialProps, PartialProps, {}> = styled.div`
-  background-color: #fff;
-  border: 1px solid #f5f5f5;
-  margin-bottom: 15px;
-  box-shadow: 0px 2px 4px 0px #bbb;
+  background-color: ${props => (props.transparent ? transparentColor : white)};
+  border: ${border.width.s} ${border.style.solid}
+    ${props => (props.transparent ? transparentColor : offWhite)};
+  margin-bottom: ${dimensions.xl};
+  box-shadow: ${dimensions.zero} 2px 4px ${dimensions.zero}
+    ${props => (props.transparent ? transparentColor : borderGrey)};
 
-  ${props =>
-    props.transparent
-      ? `
-  background-color: transparent !important;
-    border-color: transparent !important;
-    box-shadow: 0px 2px 4px 0px transparent !important;
-  `
-      : ""}
+  &:last-of-type {
+    margin-bottom: ${dimensions.zero};
+  }
 `;
 
 const Title: StyledComponent<PartialProps, PartialProps, {}> = styled.header`
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-size: 28px;
+  margin-top: ${dimensions.s};
+  margin-bottom: ${dimensions.s};
+  font-size: ${sizes.xl};
   color: ${teal};
-  text-transform: uppercase;
   font-family: ${fonts.secondary};
-  padding: 8px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
+  padding: ${dimensions.m};
+  padding-bottom: calc(${dimensions.m} + ${dimensions.xs});
+  border-bottom: ${border.width.s} ${border.style.solid} ${lightGrey};
+  text-transform: ${text.uppercase};
   letter-spacing: 1px;
 `;
 
 const Content: StyledComponent<PartialProps, PartialProps, {}> = styled.div`
-  padding: ${props => (props.padding ? "8px" : 0)};
+  padding: ${props => (props.padding ? dimensions.m : dimensions.zero)};
 `;
 
 const Card: FunctionComponent<Props> = ({

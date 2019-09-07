@@ -5,22 +5,22 @@ const fonts = {
 };
 
 const sizes = {
-  xs: "10px",
-  s: "12px",
-  m: "18px",
-  l: "20px",
-  xl: "24px",
-  xxl: "30px",
-  jumbo: "36px",
-  hero: "48px",
+  s: "16px",
+  m: "20px",
+  l: "24px",
+  xl: "28px",
+  xxl: "36px",
+  xxxl: "42px",
+  jumbo: "50px",
+  hero: "56px",
   default: "14px",
 };
 
 const weights = {
-  lighter: "lighter",
-  normal: "normal",
-  bolder: "bolder",
-  default: "normal",
+  lighter: "200",
+  normal: "400",
+  bolder: "600",
+  default: "200",
 };
 
 const text = {
@@ -29,4 +29,10 @@ const text = {
   capitalize: "capitalize",
 };
 
-export { fonts, sizes, weights, text };
+const lineHeight = {
+  normal: "100%",
+  medium: "120%",
+  large: "150%",
+};
+
+export { fonts, sizes, weights, text, lineHeight };

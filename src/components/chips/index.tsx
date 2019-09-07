@@ -3,29 +3,36 @@ import PropTypes from "prop-types";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import * as colors from "../../style/color";
-import { fonts } from "../../style/typography";
+import { fonts, lineHeight, sizes } from "../../style/typography";
+import { display, border, alignment } from "../../style/layout";
+import { dimensions } from "../../style/dimension";
 
-import { ColorVariants, DefaultColorVariant } from "../common/variants";
+import { ColorVariants } from "../common/variants";
 
 import { Props } from "./types";
 
 const Container: StyledComponent<Props, Props, {}> = styled.div`
-  padding: 8px 12px;
+  padding: ${dimensions.s} ${dimensions.m};
   background-color: ${props => colors[props.variant]};
-  color: #fff;
-  border-radius: 20px;
-  display: inline-block;
-  vertical-align: top;
+  color: ${colors.white};
+  border-radius: ${border.radius.xxl};
+  display: ${display.inlineBlock};
+  vertical-align: ${alignment.top};
 
-  font-family: ${fonts.primary};
-  margin: 5px;
+  margin: ${dimensions.xs};
   cursor: default;
+`;
+
+const Content: StyledComponent<{}, {}, {}> = styled.p`
+  font-family: ${fonts.primary};
+  line-height: ${lineHeight.medium};
+  font-size: ${sizes.default};
 `;
 
 const Chip: FunctionComponent<Props> = ({ variant, children, ...props }) => {
   return (
     <Container variant={variant} {...props}>
-      {children}
+      <Content>{children}</Content>
     </Container>
   );
 };

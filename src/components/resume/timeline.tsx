@@ -2,9 +2,17 @@ import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import { white, transparent, danger, lightGrey } from "../../style/color";
-import { fonts } from "../../style/typography";
+import { fonts, sizes, weights, lineHeight } from "../../style/typography";
 
 import { TimelineProps, TimelineItemProps } from "./types";
+import {
+  position,
+  display,
+  alignment,
+  border,
+  layout,
+} from "../../style/layout";
+import { dimensions } from "../../style/dimension";
 
 //
 //
@@ -14,11 +22,11 @@ const TimelineItemContainer: StyledComponent<
   any,
   {}
 > = styled.div`
-  position: relative;
-  margin-bottom: ${props => (props.showLogo ? "10px" : "20px")};
+  position: ${position.relative};
+  margin-bottom: ${props => (props.showLogo ? dimensions.m : dimensions.xxl)};
 
-  &:last-child {
-    margin-bottom: 0;
+  &:last-of-type {
+    margin-bottom: ${dimensions.zero};
   }
 `;
 
@@ -29,34 +37,38 @@ const TimelineItemHeaderContainer: StyledComponent<
   any,
   {}
 > = styled.header`
-  display: flex;
-  align-items: center;
-  margin-bottom: ${props => (props.showLogo ? "0" : "10px")};
+  display: ${display.flex};
+  align-items: ${alignment.center};
+  margin-bottom: ${props => (props.showLogo ? dimensions.zero : dimensions.m)};
+
+  ${layout.belowM(`
+    justify-content: ${alignment.center};
+  `)}
 
   p.Content {
-    font-size: 26px;
-    font-weight: 600;
+    font-size: ${sizes.xl};
+    font-weight: ${weights.bolder};
     font-family: ${fonts.secondary};
   }
 `;
 
 const TimelineItemHeaderLogo: StyledComponent<{}, {}, {}> = styled.div`
-  display: block;
-  width: 0;
-  height: 0;
-  position: relative;
-  left: 5px;
+  display: ${display.block};
+  width: ${dimensions.zero};
+  height: ${dimensions.zero};
+  position: ${position.relative};
+  left: ${dimensions.s};
 
   img.Logo {
-    max-width: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    filter: grayscale(100%);
-    width: 90%;
+    max-width: ${dimensions.full};
+    position: ${position.absolute};
+    top: ${dimensions.zero};
+    bottom: ${dimensions.zero};
+    left: ${dimensions.zero};
+    right: ${dimensions.zero};
+    margin: ${dimensions.auto};
+    filter: grayscale(${dimensions.full});
+    width: calc(${dimensions.full} - 10%);
   }
 `;
 
@@ -64,67 +76,68 @@ const TimelineItemHeaderLogo: StyledComponent<{}, {}, {}> = styled.div`
 //
 
 const TimelineItemBody: StyledComponent<any, any, any> = styled.div`
-  border-left: 2px solid ${lightGrey};
-  position: relative;
+  border-left: ${border.width.m} ${border.style.solid} ${lightGrey};
+  position: ${position.relative};
 
-  margin-left: 10px;
-  padding-left: 20px;
+  margin-left: ${dimensions.m};
+  padding-left: ${dimensions.xxl};
 `;
 
 const TimelineItemBodySection1: StyledComponent<any, any, any> = styled.div`
-  margin-bottom: 15px;
-  position: relative;
+  margin-bottom: ${dimensions.xl};
+  position: ${position.relative};
 
-  &:last-child {
-    margin-bottom: 0;
+  &:last-of-type {
+    margin-bottom: ${dimensions.zero};
   }
 
   .Section1-Title {
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: ${sizes.l};
+    margin-bottom: ${dimensions.xl};
   }
 
   &:before {
-    border-radius: 100%;
+    border-radius: ${dimensions.full};
     background-color: ${transparent};
-    box-shadow: 0 0 3px 10px ${white};
+    box-shadow: ${dimensions.zero} ${dimensions.zero} ${dimensions.xs}
+      ${dimensions.m} ${white};
 
-    display: block;
-    position: absolute;
-    left: -29.5px;
-    top: 3px;
-    width: 15px;
-    height: 15px;
+    display: ${display.block};
+    position: ${position.absolute};
+    left: calc(-${dimensions.xxxl} + 1.25px);
+    top: ${dimensions.xs};
+    width: ${dimensions.xl};
+    height: ${dimensions.xl};
     content: "";
   }
 `;
 
 const TimelineItemBodySection2: StyledComponent<{}, {}, {}> = styled.div`
-  margin-bottom: 15px;
+  margin-bottom: ${dimensions.xl};
 
-  &:last-child {
-    margin-bottom: 0;
+  &:last-of-type {
+    margin-bottom: ${dimensions.zero};
   }
 
   .Section2-Title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 10px;
+    font-size: ${sizes.s};
+    font-weight: ${weights.bolder};
+    margin-bottom: ${dimensions.m};
 
     .Link {
-      font-size: 14px;
+      font-size: ${sizes.default};
     }
   }
 `;
 
 const TimelineItemText: StyledComponent<{}, {}, {}> = styled.p`
   font-family: ${fonts.text};
-  font-size: 17px;
-  line-height: 130%;
-  padding-bottom: 10px;
+  font-size: ${sizes.s};
+  line-height: ${lineHeight.medium};
+  padding-bottom: ${dimensions.m};
 
-  &:last-child {
-    padding-bottom: 0;
+  &:last-of-type {
+    padding-bottom: ${dimensions.zero};
   }
 `;
 
@@ -135,7 +148,7 @@ const Container: StyledComponent<
   TimelineProps,
   {}
 > = styled.section`
-  position: relative;
+  position: ${position.relative};
 
   ${TimelineItemBodySection1}:before {
     background-color: ${props => props.color};

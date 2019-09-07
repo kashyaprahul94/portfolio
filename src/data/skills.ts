@@ -21,7 +21,7 @@ const otherSkills: IOtherSkills = [
   "Redis",
   "MongoDB",
   "Apache Kafka",
-  "Jenkins",
+  "CI/CD",
   "CloudFoundry",
   "SAP Cloud Platform",
   "Google Cloud Platform",

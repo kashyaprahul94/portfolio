@@ -5,8 +5,8 @@ const dimensions = {
   m: "8px",
   l: "12px",
   xl: "15px",
-  xxl: "25px",
-  xxxl: "35px",
+  xxl: "20px",
+  xxxl: "30px",
 
   a4: {
     width: "1150px",
@@ -15,6 +15,7 @@ const dimensions = {
   },
 
   full: "100%",
+  auto: "auto",
 };
 
 const headerHeight = "80px";

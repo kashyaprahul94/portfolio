@@ -5,26 +5,36 @@ import { Card } from "../../card";
 import { Badge } from "../../icons";
 
 import { primary } from "../../../style/color";
-import { fonts, sizes } from "../../../style/typography";
+import { fonts, sizes, weights } from "../../../style/typography";
+import { dimensions } from "../../../style/dimension";
+import { display, alignment } from "../../../style/layout";
 
 import { IAchievements } from "../../../data/types";
 
-const AchievementItemContainer: StyledComponent<{}, {}, {}> = styled.p`
-  font-size: 20px;
-  font-family: ${fonts.text};
-  font-weight: 300;
-  margin-bottom: 8px;
+const AchievementItemContainer: StyledComponent<{}, {}, {}> = styled.div`
+  margin-bottom: ${dimensions.m};
 
-  &:last-child {
-    marginb-bottom: 0;
+  &:last-of-type {
+    marginb-bottom: ${dimensions.zero};
   }
+`;
+
+const AchievementItemContent: StyledComponent<{}, {}, {}> = styled.p`
+  display: ${display.flex};
+  align-items: ${alignment.center};
+
+  font-size: ${sizes.m};
+  font-family: ${fonts.text};
+  font-weight: ${weights.normal};
 `;
 
 const AchievementItem: FunctionComponent<any> = ({ children }) => {
   return (
     <AchievementItemContainer>
-      <Badge size={24} color={primary} />
-      <span dangerouslySetInnerHTML={{ __html: children }} />
+      <AchievementItemContent>
+        <Badge size={24} color={primary} />
+        <span dangerouslySetInnerHTML={{ __html: children }} />
+      </AchievementItemContent>
     </AchievementItemContainer>
   );
 };

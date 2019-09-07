@@ -30,6 +30,7 @@ const grey = "#202020";
 const offWhite = "#f7f7f7";
 const darkGrey = "#2d2d2d";
 const lightGrey = "#dddddd";
+const borderGrey = "#bbbbbb";
 
 const turquoise = "#1abc9c";
 const emerland = "#2ecc71";
@@ -65,11 +66,10 @@ export {
   transparent,
   //
   grey,
-  teal,
-  //
   offWhite,
   darkGrey,
   lightGrey,
+  borderGrey,
   //
   //
   primary,
@@ -77,6 +77,7 @@ export {
   danger,
   //
   //
+  teal,
   turquoise,
   emerland,
   peterriver,

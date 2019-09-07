@@ -21,7 +21,7 @@ const Container: StyledComponent<BaseProps, BaseProps, {}> = styled.button`
   font-weight: ${weights.lighter};
   font-family: ${fonts.primary};
 
-  width: ${props => (props.block ? dimensions.full : "auto")};
+  width: ${props => (props.block ? dimensions.full : dimensions.auto)};
 
   border-radius: ${border.radius.s};
 

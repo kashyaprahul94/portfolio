@@ -5,7 +5,7 @@ import Router from "next/router";
 import ThemeContext from "../../contexts/theme";
 import { useScrollPosition } from "../../hooks/scroll";
 
-import P from "../paragraph";
+import { P } from "../paragraph";
 import { OutlineButton } from "../button";
 
 import { transparent } from "../../style/color";
@@ -54,8 +54,6 @@ const Content: StyledComponent<{}, {}, {}> = styled.div`
   justify-content: ${alignment.spaceBetween};
 `;
 
-const gotoHome = () => Router.push("/");
-
 const Brand = styled(P)`
   cursor: pointer;
 
@@ -63,6 +61,10 @@ const Brand = styled(P)`
     opacity: 0.8;
   }
 `;
+
+//
+
+const gotoHome = () => Router.push("/");
 
 const Header: FunctionComponent<Props> = ({ children, ...props }) => {
   const theme = useContext(ThemeContext);
