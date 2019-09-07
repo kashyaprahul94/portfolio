@@ -1,5 +1,6 @@
 const dimensions = {
   zero: 0,
+  xxs: "1px",
   xs: "3px",
   s: "5px",
   m: "8px",

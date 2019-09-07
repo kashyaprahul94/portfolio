@@ -20,8 +20,11 @@ const Container: StyledComponent<PartialProps, PartialProps, {}> = styled.div`
   border: ${border.width.s} ${border.style.solid}
     ${props => (props.transparent ? transparentColor : offWhite)};
   margin-bottom: ${dimensions.xl};
-  box-shadow: ${dimensions.zero} 2px 4px ${dimensions.zero}
+  box-shadow: ${dimensions.zero} ${dimensions.xxs} ${dimensions.xs}
+    ${dimensions.zero}
     ${props => (props.transparent ? transparentColor : borderGrey)};
+
+  border-radius: ${dimensions.xs};
 
   &:last-of-type {
     margin-bottom: ${dimensions.zero};
