@@ -89,8 +89,8 @@ const Spacer: FunctionComponent<any> = ({}) => {
   return <GraduationCap size={fromUnit(sizes.hero)} color={darkGrey} />;
 };
 
-const Education: FunctionComponent<PageProps> = ({ education }) => {
-  const [master, bachelor] = education;
+const addSpacers = (education: IEducation[]) => {
+  const input = [...education];
 
   const spacer: IEducation = {
     achievements: [],
@@ -102,47 +102,58 @@ const Education: FunctionComponent<PageProps> = ({ education }) => {
     title: "_SPACER_",
   };
 
-  education = [master, spacer, bachelor];
+  const totalEducationItems = education.length;
+  const spacersNeeded = Math.ceil(totalEducationItems / 2);
 
+  const totalItems = totalEducationItems + spacersNeeded;
+
+  return new Array(totalItems)
+    .fill(null)
+    .map((_: any, index: number) => (index % 2 === 0 ? input.shift() : spacer));
+};
+
+const Education: FunctionComponent<PageProps> = ({ education }) => {
   return (
     <Card padding={true} transparent={true} title="Education">
       <Row>
-        {education.map((educationItem: IEducation, index: number) => {
-          return (
-            <Column key={index}>
-              {educationItem.title === "_SPACER_" ? (
-                <Spacer />
-              ) : (
-                <>
-                  <Title>{educationItem.title}</Title>
-                  <Institute>{educationItem.institute}</Institute>
-                  <InfoContainer>
-                    <InfoItem>
-                      {educationItem.from} - {educationItem.to || "Present"}
-                    </InfoItem>
-                    <InfoItem>
-                      {educationItem.city}, {educationItem.country}
-                    </InfoItem>
-                  </InfoContainer>
-                  <ScoreContainer>
-                    <Star size={fromUnit(sizes.m)} color={primary} />
-                    <Score>{educationItem.score}</Score>
-                  </ScoreContainer>
-                  {educationItem.achievements.map(
-                    (achievement: IAchievement, _index: number) => {
-                      return (
-                        <AchivementContainer key={_index}>
-                          <Trophy size={fromUnit(sizes.m)} color={primary} />
-                          <Achivement>{achievement}</Achivement>
-                        </AchivementContainer>
-                      );
-                    },
-                  )}
-                </>
-              )}
-            </Column>
-          );
-        })}
+        {addSpacers(education).map(
+          (educationItem: IEducation, index: number) => {
+            return (
+              <Column key={index}>
+                {educationItem.title === "_SPACER_" ? (
+                  <Spacer />
+                ) : (
+                  <>
+                    <Title>{educationItem.title}</Title>
+                    <Institute>{educationItem.institute}</Institute>
+                    <InfoContainer>
+                      <InfoItem>
+                        {educationItem.from} - {educationItem.to || "Present"}
+                      </InfoItem>
+                      <InfoItem>
+                        {educationItem.city}, {educationItem.country}
+                      </InfoItem>
+                    </InfoContainer>
+                    <ScoreContainer>
+                      <Star size={fromUnit(sizes.m)} color={primary} />
+                      <Score>{educationItem.score}</Score>
+                    </ScoreContainer>
+                    {educationItem.achievements.map(
+                      (achievement: IAchievement, _index: number) => {
+                        return (
+                          <AchivementContainer key={_index}>
+                            <Trophy size={fromUnit(sizes.m)} color={primary} />
+                            <Achivement>{achievement}</Achivement>
+                          </AchivementContainer>
+                        );
+                      },
+                    )}
+                  </>
+                )}
+              </Column>
+            );
+          },
+        )}
       </Row>
     </Card>
   );
