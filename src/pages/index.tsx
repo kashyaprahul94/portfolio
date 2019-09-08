@@ -5,7 +5,6 @@ import Typist from "react-typist";
 import { IPageProps } from "../types";
 
 import { H1 } from "../components/heading";
-import { OutlineButton, AccentButton } from "../components/button";
 
 class Home extends Component<PageProps> {
   public static readonly title = "Rahul Kashyap : Home";
@@ -15,12 +14,17 @@ class Home extends Component<PageProps> {
     return {
       name: "Rahul Kashyap",
       titles: [
-        "Full Stack Engineer",
+        "Cloud Native Engineer",
         "Open-Source Enthusiast",
         "Technology Evengelist",
         "Developer Avocado",
       ],
     };
+  }
+
+  public async componentDidMount() {
+    Router.prefetch("/resume");
+    this.gotoResume();
   }
 
   private gotoResume() {
@@ -57,25 +61,6 @@ class Home extends Component<PageProps> {
             })}
             <span>{name}</span>
           </Typist>
-
-          <OutlineButton variant="primary" size="l" onClick={this.gotoResume}>
-            Resume
-          </OutlineButton>
-
-          <AccentButton size={"l"} variant="danger">
-            Hello
-          </AccentButton>
-
-          {Array(100)
-            .fill(0)
-            .map((_, index) => index)
-            .map(number => {
-              return (
-                <div key={number}>
-                  <h1>{number}</h1>
-                </div>
-              );
-            })}
         </div>
       </section>
     );

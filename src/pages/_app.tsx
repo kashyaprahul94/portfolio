@@ -44,7 +44,7 @@ export default class App extends NextApp<{}, {}> {
     this.state = {
       loaded: false,
       title: Component.title || "Welcome",
-      showHeader: Component.showHeader,
+      showHeader: false && Component.showHeader,
       darkMode: {
         enabled: false,
       },
@@ -88,10 +88,6 @@ export default class App extends NextApp<{}, {}> {
     return (
       <Container>
         <Head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1"
-          />
           <title>{title}</title>
         </Head>
 
