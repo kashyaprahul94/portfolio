@@ -43,6 +43,10 @@ const SubSection: StyledComponent<{}, {}, {}> = styled.div`
   &:first-of-type {
     margin-top: ${dimensions.zero};
   }
+
+  ${layout.belowM(`
+    text-align: ${alignment.center};
+  `)}
 `;
 
 const DonutTitle: StyledComponent<TitleProps, TitleProps, {}> = styled(Title)`
