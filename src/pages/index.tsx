@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Router from "next/router";
 import Typist from "react-typist";
 
 import { IPageProps } from "../types";
@@ -10,7 +9,9 @@ class Home extends Component<PageProps> {
   public static readonly title = "Rahul Kashyap : Home";
   public static readonly showHeader = true;
 
-  public static async getInitialProps({}) {
+  public static async getInitialProps({ server, res}) {
+    res.redirect("/resume");
+    
     return {
       name: "Rahul Kashyap",
       titles: [
@@ -20,15 +21,6 @@ class Home extends Component<PageProps> {
         "Developer Avocado",
       ],
     };
-  }
-
-  public async componentDidMount() {
-    Router.prefetch("/resume");
-    this.gotoResume();
-  }
-
-  private gotoResume() {
-    Router.push("/resume");
   }
 
   public render() {

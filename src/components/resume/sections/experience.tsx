@@ -11,7 +11,13 @@ import {
   white,
   lighterGrey,
 } from "../../../style/color";
-import { fonts, sizes, weights, text } from "../../../style/typography";
+import {
+  fonts,
+  sizes,
+  weights,
+  text,
+  lineHeight,
+} from "../../../style/typography";
 import {
   position,
   display,
@@ -29,7 +35,7 @@ const Container: StyledComponent<{}, {}, {}> = styled.div`
   justify-content: ${alignment.spaceEvenly};
   flex-wrap: ${display.wrap};
 
-  padding-top: ${dimensions.xl};
+  padding-top: ${dimensions.l};
   width: ${dimensions.full};
 
   ${layout.belowM(`
@@ -40,6 +46,13 @@ const Container: StyledComponent<{}, {}, {}> = styled.div`
 const ItemContainer: StyledComponent<{}, {}, {}> = styled.div`
   margin-top: ${dimensions.xxl};
   margin-bottom: ${dimensions.xxl};
+  padding: ${dimensions.m};
+
+  max-width: ${dimensions.half};
+
+  ${layout.belowM(`
+    max-width: ${dimensions.full};
+  `)}
 `;
 
 const Item: StyledComponent<{}, {}, {}> = styled.div`
@@ -60,7 +73,9 @@ const Logo: StyledComponent<
   position: ${position.relative};
 
   width: ${dimensions.icon.xl};
+  min-width: ${dimensions.icon.xl};
   height: ${dimensions.icon.xl};
+  min-height: ${dimensions.icon.xl};
 
   background: ${white};
 
@@ -113,6 +128,7 @@ const Duration: StyledComponent<{}, {}, {}> = styled.span`
 const Description: StyledComponent<{}, {}, {}> = styled.p`
   margin-top: ${dimensions.m};
   font-size: ${sizes.s};
+  line-height: ${lineHeight.medium};
 `;
 
 const Experience: FunctionComponent<PageProps> = ({ experience }) => {

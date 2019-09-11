@@ -56,8 +56,8 @@ const projectSAPLoyaltyMarketingDemoStoreFront: IProject = {
 const projectWunderflats: IProject = {
   title: "Wunderflats",
   description: [
-    "Wunderflats product serves as Housing as a Service solution which is composed of different building blocks, Frontend, Backend, Integration services etc; to name a few.",
-    "I joined as a Senior Software Engineer and responsible to develop new features for the product, get involved in architecture related changes, to build tools & utilities which can increase the productivity of the teams.",
+    "Wunderflats is a Housing as a Service cloud platform which offers furnished apartments for stays of 1 month or longer. It serves for both B2C & B2B scenarios.",
+    "The product is using next-gen technologies surrounded with JavaScript somewhere. It has various Frontend applications catering different requirements to the End Users (Main Website), Landlords (Landlord Dashboard), Internal Business People (CRM). I am working as a Senior Software Engineer in an Agile team, responsible for Product Development, Developer Productivity, Mentorship to Junior colleagues, etc.",
   ],
   link: "http://bit.ly/2zB18Cq",
 };
@@ -105,7 +105,7 @@ const experienceSAPLabsIndia: IExperience = {
   country: "India",
   logo: "static/images/logo-sap.png",
   description:
-    "Worked in different roles such as Cloud Architect, Full Stack Enginer,",
+    "Joined after gradution and pursued Master's alongside. Journey was challenging, mostly required self learning. Played different roles such as Cloud Architect, DevOps Engineer, Full Stack Enginer, & Mobile Developer",
   roles: [
     roleSAPFullStackEngineer,
     roleSAPMobileDeveloper,
@@ -119,7 +119,8 @@ const experienceWunderflats: IExperience = {
   city: "Berlin",
   country: "Germany",
   logo: "static/images/logo-wf.png",
-  description: "Working as a senior software engineer",
+  description:
+    "Currently working as a Senior Software Engineer on the core product, in a small Agile team of 2-Pizza size generally.",
   roles: [roleWunderflats],
 };
 
