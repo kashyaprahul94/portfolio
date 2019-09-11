@@ -14,9 +14,11 @@ class Service {
 
   public async generatePDFFromURL(url: string) {
     const browser = await puppeteer.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
       headless: true,
       devtools: false,
     });
+
     const page = await browser.newPage();
 
     await page.goto(url);

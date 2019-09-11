@@ -30,7 +30,10 @@ const nextAppRequestHandler = nextApp.getRequestHandler();
 serverRouter
   .route("/health")
   .get((_: Express.Request, res: Express.Response) => {
-    service.getSystemHealth().then((data: any) => res.send(data));
+    service
+      .getSystemHealth()
+      .then((data: any) => res.send(data))
+      .catch((error: Error) => res.send(error));
   });
 
 serverRouter
@@ -42,7 +45,7 @@ serverRouter
         res.setHeader("Content-Type", "application/pdf");
         pdfStream.pipe(res);
       })
-      .catch(res.send);
+      .catch((error: Error) => res.send(error));
   });
 
 //
