@@ -4,7 +4,7 @@ import styled, { StyledComponent } from "@emotion/styled";
 import { white, transparent, danger, lightGrey } from "../../style/color";
 import { fonts, sizes, weights, lineHeight } from "../../style/typography";
 
-import { TimelineProps, TimelineItemProps } from "./types";
+import { VerticalTimelineProps, VerticalTimelineItemProps } from "./types";
 import {
   position,
   display,
@@ -17,9 +17,9 @@ import { dimensions } from "../../style/dimension";
 //
 //
 
-const TimelineItemContainer: StyledComponent<
-  Partial<TimelineItemProps>,
-  any,
+const VerticalTimelineItemContainer: StyledComponent<
+  Partial<VerticalTimelineItemProps>,
+  Partial<VerticalTimelineItemProps>,
   {}
 > = styled.div`
   position: ${position.relative};
@@ -32,9 +32,9 @@ const TimelineItemContainer: StyledComponent<
 
 //
 
-const TimelineItemHeaderContainer: StyledComponent<
-  Partial<TimelineItemProps>,
-  any,
+const VerticalTimelineItemHeaderContainer: StyledComponent<
+  Partial<VerticalTimelineItemProps>,
+  Partial<VerticalTimelineItemProps>,
   {}
 > = styled.header`
   display: ${display.flex};
@@ -52,12 +52,19 @@ const TimelineItemHeaderContainer: StyledComponent<
   }
 `;
 
-const TimelineItemHeaderLogo: StyledComponent<{}, {}, {}> = styled.div`
+const VerticalTimelineItemHeaderLogo: StyledComponent<
+  Partial<VerticalTimelineItemProps>,
+  Partial<VerticalTimelineItemProps>,
+  {}
+> = styled.div`
   display: ${display.block};
   width: ${dimensions.zero};
   height: ${dimensions.zero};
   position: ${position.relative};
   left: ${dimensions.s};
+
+  width: ${props => props.logoSize};
+  height: ${props => props.logoSize};
 
   img.Logo {
     max-width: ${dimensions.full};
@@ -75,7 +82,7 @@ const TimelineItemHeaderLogo: StyledComponent<{}, {}, {}> = styled.div`
 //
 //
 
-const TimelineItemBody: StyledComponent<any, any, any> = styled.div`
+const VerticalTimelineItemBody: StyledComponent<any, any, any> = styled.div`
   border-left: ${border.width.m} ${border.style.solid} ${lightGrey};
   position: ${position.relative};
 
@@ -83,7 +90,11 @@ const TimelineItemBody: StyledComponent<any, any, any> = styled.div`
   padding-left: ${dimensions.xxl};
 `;
 
-const TimelineItemBodySection1: StyledComponent<any, any, any> = styled.div`
+const VerticalTimelineItemBodySection1: StyledComponent<
+  any,
+  any,
+  any
+> = styled.div`
   margin-bottom: ${dimensions.xl};
   position: ${position.relative};
 
@@ -112,7 +123,11 @@ const TimelineItemBodySection1: StyledComponent<any, any, any> = styled.div`
   }
 `;
 
-const TimelineItemBodySection2: StyledComponent<{}, {}, {}> = styled.div`
+const VerticalTimelineItemBodySection2: StyledComponent<
+  {},
+  {},
+  {}
+> = styled.div`
   margin-bottom: ${dimensions.xl};
 
   &:last-of-type {
@@ -130,7 +145,7 @@ const TimelineItemBodySection2: StyledComponent<{}, {}, {}> = styled.div`
   }
 `;
 
-const TimelineItemText: StyledComponent<{}, {}, {}> = styled.p`
+const VerticalTimelineItemText: StyledComponent<{}, {}, {}> = styled.p`
   font-family: ${fonts.text};
   font-size: ${sizes.s};
   line-height: ${lineHeight.medium};
@@ -144,40 +159,35 @@ const TimelineItemText: StyledComponent<{}, {}, {}> = styled.p`
 //
 
 const Container: StyledComponent<
-  TimelineProps,
-  TimelineProps,
+  VerticalTimelineProps,
+  VerticalTimelineProps,
   {}
 > = styled.section`
   position: ${position.relative};
 
-  ${TimelineItemBodySection1}:before {
+  ${VerticalTimelineItemBodySection1}:before {
     background-color: ${props => props.color};
-  }
-
-  ${TimelineItemHeaderLogo} {
-    width: ${props => props.logoSize};
-    height: ${props => props.logoSize};
   }
 `;
 
 //
 
-const TimelineItemContentSection1: FunctionComponent<any> = ({
+const VerticalTimelineItemContentSection1: FunctionComponent<any> = ({
   title,
   children,
 }) => (
-  <TimelineItemBodySection1>
+  <VerticalTimelineItemBodySection1>
     <header className="Section1-Title">{title}</header>
     {children}
-  </TimelineItemBodySection1>
+  </VerticalTimelineItemBodySection1>
 );
 
-const TimelineItemContentSection2: FunctionComponent<any> = ({
+const VerticalTimelineItemContentSection2: FunctionComponent<any> = ({
   title,
   link,
   children,
 }) => (
-  <TimelineItemBodySection2>
+  <VerticalTimelineItemBodySection2>
     <header className="Section2-Title">
       {title}
       {link && (
@@ -190,61 +200,68 @@ const TimelineItemContentSection2: FunctionComponent<any> = ({
       )}
     </header>
     {children}
-  </TimelineItemBodySection2>
+  </VerticalTimelineItemBodySection2>
 );
 
-const TimelineItemHeader: FunctionComponent<TimelineItemProps> = ({
-  company,
+const VerticalTimelineItemHeader: FunctionComponent<
+  VerticalTimelineItemProps
+> = ({ title, logo, showLogo, logoSize }) => (
+  <VerticalTimelineItemHeaderContainer showLogo={showLogo}>
+    <p className="Content">{title}</p>
+    {showLogo && (
+      <VerticalTimelineItemHeaderLogo logoSize={logoSize}>
+        <img src={logo} className="Logo" />
+      </VerticalTimelineItemHeaderLogo>
+    )}
+  </VerticalTimelineItemHeaderContainer>
+);
+
+const VerticalTimelineItemContent: FunctionComponent<any> = ({ children }) => (
+  <VerticalTimelineItemBody>{children}</VerticalTimelineItemBody>
+);
+
+const VerticalTimelineItem: FunctionComponent<VerticalTimelineItemProps> = ({
+  title,
   logo,
   showLogo,
-}) => (
-  <TimelineItemHeaderContainer showLogo={showLogo}>
-    <p className="Content">{company}</p>
-    {showLogo && (
-      <TimelineItemHeaderLogo>
-        <img src={logo} className="Logo" />
-      </TimelineItemHeaderLogo>
-    )}
-  </TimelineItemHeaderContainer>
-);
-
-const TimelineItemContent: FunctionComponent<any> = ({ children }) => (
-  <TimelineItemBody>{children}</TimelineItemBody>
-);
-
-const TimelineItem: FunctionComponent<TimelineItemProps> = ({
-  company,
-  logo,
-  showLogo = true,
+  logoSize,
   children,
 }) => (
-  <TimelineItemContainer showLogo={showLogo}>
-    <TimelineItemHeader company={company} logo={logo} showLogo={showLogo} />
-    <TimelineItemContent>{children}</TimelineItemContent>
-  </TimelineItemContainer>
+  <VerticalTimelineItemContainer showLogo={showLogo}>
+    <VerticalTimelineItemHeader
+      title={title}
+      logo={logo}
+      showLogo={showLogo}
+      logoSize={logoSize}
+    />
+    <VerticalTimelineItemContent>{children}</VerticalTimelineItemContent>
+  </VerticalTimelineItemContainer>
 );
 
-const Timeline: FunctionComponent<TimelineProps> = ({
+const VerticalTimeline: FunctionComponent<VerticalTimelineProps> = ({
   color,
-  logoSize,
   children,
 }) => {
   return (
-    <Container className="Timeline-Container" color={color} logoSize={logoSize}>
+    <Container className="VerticalTimeline-Container" color={color}>
       {children}
     </Container>
   );
 };
 
-Timeline.defaultProps = {
+VerticalTimeline.defaultProps = {
   color: danger,
-  logoSize: "64px",
+};
+
+VerticalTimelineItem.defaultProps = {
+  showLogo: true,
+  logoSize: dimensions.icon.xl,
 };
 
 export {
-  Timeline,
-  TimelineItem,
-  TimelineItemContentSection1,
-  TimelineItemContentSection2,
-  TimelineItemText,
+  VerticalTimeline,
+  VerticalTimelineItem,
+  VerticalTimelineItemContentSection1,
+  VerticalTimelineItemContentSection2,
+  VerticalTimelineItemText,
 };

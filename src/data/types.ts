@@ -43,6 +43,7 @@ export interface IExperience {
   city: string;
   country: string;
   logo: string;
+  description?: string;
   roles: IExperienceRole[];
 }
 

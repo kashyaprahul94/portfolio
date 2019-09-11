@@ -104,6 +104,8 @@ const experienceSAPLabsIndia: IExperience = {
   city: "Bangalore",
   country: "India",
   logo: "static/images/logo-sap.png",
+  description:
+    "Worked in different roles such as Cloud Architect, Full Stack Enginer,",
   roles: [
     roleSAPFullStackEngineer,
     roleSAPMobileDeveloper,
@@ -117,6 +119,7 @@ const experienceWunderflats: IExperience = {
   city: "Berlin",
   country: "Germany",
   logo: "static/images/logo-wf.png",
+  description: "Working as a senior software engineer",
   roles: [roleWunderflats],
 };
 

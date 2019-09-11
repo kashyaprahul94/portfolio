@@ -53,7 +53,7 @@ const Row: StyledComponent<{}, {}, {}> = styled.div`
   align-items: ${alignment.center};
   justify-content: ${alignment.spaceBetween};
 
-  ${layout.belowL(`
+  ${layout.belowM(`
     flex-direction: ${display.column};
   `)}
 `;

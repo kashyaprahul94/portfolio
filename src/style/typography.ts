@@ -5,6 +5,7 @@ const fonts = {
 };
 
 const sizes = {
+  xs: "12px",
   s: "16px",
   m: "20px",
   l: "24px",

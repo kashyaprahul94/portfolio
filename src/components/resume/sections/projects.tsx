@@ -4,54 +4,54 @@ import { pumpkin } from "../../../style/color";
 
 import { Card } from "../../card";
 import {
-  Timeline,
-  TimelineItem,
-  TimelineItemContentSection1,
-  TimelineItemContentSection2,
-  TimelineItemText,
-} from "../timeline";
+  VerticalTimeline,
+  VerticalTimelineItem,
+  VerticalTimelineItemContentSection1,
+  VerticalTimelineItemContentSection2,
+  VerticalTimelineItemText,
+} from "../vertical-timeline";
 
 import { IExperience, IExperienceRole, IProject } from "../../../data/types";
 
 const Projects: FunctionComponent<PageProps> = ({ experience }) => {
   return (
     <Card padding={true} transparent={true} title="Projects">
-      <Timeline color={pumpkin}>
+      <VerticalTimeline color={pumpkin}>
         {experience.map((experienceItem: IExperience, _index: number) => (
-          <TimelineItem
-            company={experienceItem.company}
+          <VerticalTimelineItem
+            title={experienceItem.company}
             logo={experienceItem.logo}
             key={_index}
           >
             {experienceItem.roles.map(
               (roleItem: IExperienceRole, __index: number) => (
-                <TimelineItemContentSection1
+                <VerticalTimelineItemContentSection1
                   title={roleItem.title}
                   key={__index}
                 >
                   {roleItem.projects.map(
                     (projectItem: IProject, ___index: number) => (
-                      <TimelineItemContentSection2
+                      <VerticalTimelineItemContentSection2
                         title={projectItem.title}
                         link={projectItem.link}
                         key={___index}
                       >
                         {projectItem.description.map(
                           (description: string, ____index: number) => (
-                            <TimelineItemText key={____index}>
+                            <VerticalTimelineItemText key={____index}>
                               {description}
-                            </TimelineItemText>
+                            </VerticalTimelineItemText>
                           ),
                         )}
-                      </TimelineItemContentSection2>
+                      </VerticalTimelineItemContentSection2>
                     ),
                   )}
-                </TimelineItemContentSection1>
+                </VerticalTimelineItemContentSection1>
               ),
             )}
-          </TimelineItem>
+          </VerticalTimelineItem>
         ))}
-      </Timeline>
+      </VerticalTimeline>
     </Card>
   );
 };

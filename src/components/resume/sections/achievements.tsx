@@ -6,7 +6,7 @@ import { Badge } from "../../icons";
 
 import { primary } from "../../../style/color";
 import { fonts, sizes, weights } from "../../../style/typography";
-import { dimensions } from "../../../style/dimension";
+import { dimensions, fromUnit } from "../../../style/dimension";
 import { display, alignment } from "../../../style/layout";
 
 import { IAchievement } from "../../../data/types";
@@ -32,7 +32,10 @@ const AchievementItem: FunctionComponent<any> = ({ children }) => {
   return (
     <AchievementItemContainer>
       <AchievementItemContent>
-        <Badge size={24} color={primary} />
+        <Badge
+          size={fromUnit(dimensions.xxl) + fromUnit(dimensions.s)}
+          color={primary}
+        />
         <span dangerouslySetInnerHTML={{ __html: children }} />
       </AchievementItemContent>
     </AchievementItemContainer>

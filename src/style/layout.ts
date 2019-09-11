@@ -37,6 +37,7 @@ const display = {
   none: "none",
   column: "column",
   row: "row",
+  wrap: "wrap",
 };
 
 const alignment = {
@@ -55,51 +56,83 @@ const alignment = {
 };
 
 const breakPoints = {
-  xl: "1200px",
-  l: "992px",
-  m: "670px",
-  s: "576px",
+  xl: {
+    max: "1199.98px",
+    min: "1200px",
+  },
+  l: {
+    max: "991.98px",
+    min: "992px",
+  },
+  m: {
+    max: "767.98px",
+    min: "768px",
+  },
+  s: {
+    max: "575.98px",
+    min: "576px",
+  },
+  xs: {
+    max: "479.98px",
+    min: "480px",
+  },
 };
 
 const layout = {
   onXL: (styles: string) => {
-    return `@media (min-width: ${breakPoints.xl}) {      
+    return `@media (min-width: ${breakPoints.xl.min}) {      
       ${styles}
     }`;
   },
   onL: (styles: string) => {
-    return `@media (min-width: ${breakPoints.l}) {      
+    return `@media (min-width: ${breakPoints.l.min}) and (max-width: ${
+      breakPoints.xl.max
+    }) {      
       ${styles}
     }`;
   },
   onM: (styles: string) => {
-    return `@media (min-width: ${breakPoints.m}) {      
+    return `@media (min-width: ${breakPoints.m.min}) and (max-width: ${
+      breakPoints.l.max
+    }) {      
       ${styles}
     }`;
   },
   onS: (styles: string) => {
-    return `@media (min-width: ${breakPoints.s}) {      
+    return `@media (min-width: ${breakPoints.s.min}) and (max-width: ${
+      breakPoints.xs.max
+    }) {      
+      ${styles}
+    }`;
+  },
+  onXS: (styles: string) => {
+    return `@media (max-width: ${breakPoints.xs.min}) {      
       ${styles}
     }`;
   },
 
   belowXL: (styles: string) => {
-    return `@media (max-width: ${breakPoints.xl}) {      
+    return `@media (max-width: ${breakPoints.xl.min}) {      
       ${styles}
     }`;
   },
   belowL: (styles: string) => {
-    return `@media (max-width: ${breakPoints.l}) {      
+    return `@media (max-width: ${breakPoints.l.min}) {      
       ${styles}
     }`;
   },
   belowM: (styles: string) => {
-    return `@media (max-width: ${breakPoints.m}) {      
+    return `@media (max-width: ${breakPoints.m.min}) {      
       ${styles}
     }`;
   },
   belowS: (styles: string) => {
-    return `@media (max-width: ${breakPoints.s}) {      
+    return `@media (max-width: ${breakPoints.s.min}) {      
+      ${styles}
+    }`;
+  },
+  belowXS: (styles: string) => {
+    return `@media (max-width: ${breakPoints.s.min}) {      
       ${styles}
     }`;
   },

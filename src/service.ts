@@ -21,10 +21,12 @@ class Service {
 
     await page.goto(url);
 
+    await page.emulateMedia("screen");
+
     const pdfBuffer = await page.pdf({
-      format: "A4",
+      format: "Letter",
       printBackground: true,
-      scale: 0.8,
+      scale: 0.77,
     });
 
     await browser.close();

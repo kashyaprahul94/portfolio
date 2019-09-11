@@ -16,6 +16,7 @@ const Row: StyledComponent<{}, {}, {}> = styled.div`
   width: ${dimensions.full};
   align-items: ${alignment.center};
   justify-content: ${alignment.spaceAround};
+  flex-wrap: ${display.wrap};
 
   ${layout.belowM(`
     flex-direction: ${display.column};
