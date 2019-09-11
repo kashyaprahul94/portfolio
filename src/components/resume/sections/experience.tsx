@@ -10,7 +10,6 @@ import {
   danger,
   white,
   lighterGrey,
-  borderGrey,
 } from "../../../style/color";
 import { fonts, sizes, weights, text } from "../../../style/typography";
 import {
@@ -69,8 +68,6 @@ const Logo: StyledComponent<
 
   border: ${border.width.m} ${border.style.dotted} ${lighterGrey};
   border-radius: ${dimensions.full};
-  box-shadow: ${dimensions.zero} ${dimensions.unit} ${dimensions.xs}
-    ${dimensions.zero} ${borderGrey};
 
   ${layout.belowM(`
     margin-bottom: ${dimensions.xl};
@@ -136,7 +133,7 @@ const Experience: FunctionComponent<PageProps> = ({ experience }) => {
                 <Content>
                   <Company>{experienceItem.company}</Company>
                   <Place>
-                    {place} ( <Duration>{duration}</Duration> )
+                    {place} <Duration>{duration}</Duration>
                   </Place>
                   <Description>{experienceItem.description}</Description>
                 </Content>

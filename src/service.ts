@@ -21,8 +21,6 @@ class Service {
 
     await page.goto(url);
 
-    await page.emulateMedia("screen");
-
     const pdfBuffer = await page.pdf({
       format: "Letter",
       printBackground: true,
