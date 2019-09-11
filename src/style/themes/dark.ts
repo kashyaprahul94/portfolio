@@ -1,11 +1,11 @@
-import colors from "../color";
+import { white, grey, darkGrey } from "../color";
 
 const theme = {
   colors: {
-    textPrimary: colors.white,
-    backgroundPrimary: colors.grey,
-    backgroundSecondary: colors.darkGrey
-  }
+    textPrimary: white,
+    backgroundPrimary: grey,
+    backgroundSecondary: darkGrey,
+  },
 };
 
 export default theme;

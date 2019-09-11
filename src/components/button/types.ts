@@ -1,10 +1,14 @@
-import { HTMLAttributes } from "react";
+import { ColorVariantsType } from "../common/variants";
 
-export interface BaseProps extends HTMLAttributes<any> {
+import { IBaseProps, IPartialBaseProps } from "../types";
+
+export interface BaseProps extends IBaseProps {
   block?: boolean;
   size?: string;
 }
 
 export interface VariantProps extends BaseProps {
-  variant?: string;
+  variant?: ColorVariantsType;
 }
+
+export type PartialProps = IPartialBaseProps<BaseProps>;

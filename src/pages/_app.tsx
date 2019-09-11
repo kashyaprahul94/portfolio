@@ -6,20 +6,17 @@ import { Global } from "@emotion/core";
 import { IAppContext, IPageProps, IComponent } from "../types";
 
 // Styles
-import {
-  reset as cssReset,
-  base as cssBase,
-  fonts as cssFonts,
-} from "../style";
+import { base as cssBase } from "../style/base";
+import { reset as cssReset } from "../style/reset";
 import { dark as themeDark, light as themeLight } from "../style/themes";
-
-// Component s
-import Document from "../components/document";
-import { ScrollAwareHeader as Header } from "../components/header";
-import Main from "../components/main";
 
 // Context
 import ThemeContext from "../contexts/theme";
+
+// Components
+import Document from "../components/document";
+import { ScrollAwareHeader as Header } from "../components/header";
+import Main from "../components/main";
 
 interface AppState {
   loaded: boolean;
@@ -47,7 +44,7 @@ export default class App extends NextApp<{}, {}> {
     this.state = {
       loaded: false,
       title: Component.title || "Welcome",
-      showHeader: Component.showHeader,
+      showHeader: false && Component.showHeader,
       darkMode: {
         enabled: false,
       },
@@ -91,18 +88,12 @@ export default class App extends NextApp<{}, {}> {
     return (
       <Container>
         <Head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1"
-          />
           <title>{title}</title>
         </Head>
 
         {loaded && (
           <ThemeContext.Provider value={themeContext}>
-            <Global
-              styles={[cssReset, cssBase(themeContext.styles), cssFonts]}
-            />
+            <Global styles={[cssReset, cssBase(themeContext.styles)]} />
             <Document>
               {showHeader && <Header children={null} />}
               <Main hasHeader={showHeader}>

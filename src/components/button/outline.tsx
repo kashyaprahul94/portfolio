@@ -3,12 +3,17 @@ import PropTypes from "prop-types";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import ThemeContext from "../../contexts/theme";
+
+import * as colors from "../../style/color";
+
+import { ColorVariants, DefaultColorVariant } from "../common/variants";
+
 import { Button } from "./base";
 import { VariantProps } from "./types";
 
-import colors from "../../style/color";
-
-const _Button: StyledComponent<VariantProps, VariantProps, {}> = styled(Button)`
+const Container: StyledComponent<VariantProps, VariantProps, {}> = styled(
+  Button,
+)`
   background-color: ${colors.transparent};
   color: ${props => props.theme.styles.colors.textPrimary};
   border-color: ${props =>
@@ -18,13 +23,13 @@ const _Button: StyledComponent<VariantProps, VariantProps, {}> = styled(Button)`
 const OutlineButton: FunctionComponent<VariantProps> = ({
   block,
   size,
-  variant = "primary",
+  variant = DefaultColorVariant,
   children,
   ...props
 }) => {
   const theme = useContext(ThemeContext);
   return (
-    <_Button
+    <Container
       {...props}
       theme={theme}
       block={block}
@@ -33,13 +38,13 @@ const OutlineButton: FunctionComponent<VariantProps> = ({
       className="OutlineButton"
     >
       {children}
-    </_Button>
+    </Container>
   );
 };
 
 OutlineButton.propTypes = {
   ...Button.propTypes,
-  variant: PropTypes.oneOf(["primary", "secondary"])
+  variant: PropTypes.oneOf(ColorVariants),
 };
 
 export { OutlineButton };

@@ -2,14 +2,9 @@ import * as http from "http";
 import Express from "express";
 import next from "next";
 
-import {
-  IS_PROD,
-  PORT,
-  API_BASE_URL,
-  APP_NAME,
-  APP_VERSION,
-  APP_DIST_DIR,
-} from "./config";
+import { IS_PROD, PORT, APP_URL, API_BASE_URL, APP_DIST_DIR } from "./config";
+
+import service from "./service";
 
 //
 
@@ -33,13 +28,21 @@ const nextAppRequestHandler = nextApp.getRequestHandler();
 //
 
 serverRouter
-  .route("/debug")
+  .route("/health")
   .get((_: Express.Request, res: Express.Response) => {
-    res.json({
-      status: "OK",
-      name: APP_NAME,
-      version: APP_VERSION,
-    });
+    service.getSystemHealth().then((data: any) => res.send(data));
+  });
+
+serverRouter
+  .route("/resume/generate")
+  .get((_: Express.Request, res: Express.Response) => {
+    service
+      .generatePDFFromURL(`${APP_URL}/resume?print=true`)
+      .then(({ pdfStream }) => {
+        res.setHeader("Content-Type", "application/pdf");
+        pdfStream.pipe(res);
+      })
+      .catch(res.send);
   });
 
 //
@@ -65,7 +68,7 @@ const start = async () => {
   await nextApp.prepare();
 
   server.listen(PORT, () => {
-    console.info(`> WebServer is listening on http://localhost:${PORT}`);
+    console.info(`> WebServer is listening on ${APP_URL}`);
   });
 };
 

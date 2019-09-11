@@ -4,13 +4,17 @@ import styled, { StyledComponent } from "@emotion/styled";
 
 import ThemeContext from "../../contexts/theme";
 
+import * as colors from "../../style/color";
+import { border } from "../../style/layout";
+
+import { ColorVariants, DefaultColorVariant } from "../common/variants";
+
 import { Button } from "./base";
 import { VariantProps } from "./types";
 
-import colors from "../../style/color";
-import { border } from "../../style/layout";
-
-const _Button: StyledComponent<VariantProps, VariantProps, {}> = styled(Button)`
+const Container: StyledComponent<VariantProps, VariantProps, {}> = styled(
+  Button,
+)`
   background-color: ${props => colors[props.variant]};
   color: ${colors.white};
   border-color: ${props =>
@@ -28,14 +32,14 @@ const _Button: StyledComponent<VariantProps, VariantProps, {}> = styled(Button)`
 const AccentButton: FunctionComponent<VariantProps> = ({
   block,
   size,
-  variant = "primary",
+  variant = DefaultColorVariant,
   children,
   ...props
 }) => {
   const theme = useContext(ThemeContext);
 
   return (
-    <_Button
+    <Container
       {...props}
       theme={theme}
       block={block}
@@ -44,13 +48,13 @@ const AccentButton: FunctionComponent<VariantProps> = ({
       className="AccentButton"
     >
       {children}
-    </_Button>
+    </Container>
   );
 };
 
 AccentButton.propTypes = {
   ...Button.propTypes,
-  variant: PropTypes.oneOf(["primary", "secondary"])
+  variant: PropTypes.oneOf(ColorVariants),
 };
 
 export { AccentButton };

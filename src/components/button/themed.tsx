@@ -2,18 +2,19 @@ import { useContext, FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import ThemeContext from "../../contexts/theme";
+
+import { transparent } from "../../style/color";
+
 import { Button } from "./base";
-import { VariantProps } from "./types";
+import { BaseProps } from "./types";
 
-import colors from "../../style/color";
-
-const _Button: StyledComponent<VariantProps, VariantProps, {}> = styled(Button)`
-  background-color: ${colors.transparent};
+const Container: StyledComponent<BaseProps, BaseProps, {}> = styled(Button)`
+  background-color: ${transparent};
   color: ${props => props.theme.styles.colors.textPrimary};
   border-color: ${props => props.theme.styles.colors.textPrimary};
 `;
 
-const ThemedButton: FunctionComponent<VariantProps> = ({
+const ThemedButton: FunctionComponent<BaseProps> = ({
   block,
   size,
   children,
@@ -21,7 +22,7 @@ const ThemedButton: FunctionComponent<VariantProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   return (
-    <_Button
+    <Container
       {...props}
       theme={theme}
       block={block}
@@ -29,12 +30,12 @@ const ThemedButton: FunctionComponent<VariantProps> = ({
       className="ThemedButton"
     >
       {children}
-    </_Button>
+    </Container>
   );
 };
 
 ThemedButton.propTypes = {
-  ...Button.propTypes
+  ...Button.propTypes,
 };
 
 export { ThemedButton };

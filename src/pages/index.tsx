@@ -1,35 +1,26 @@
 import React, { Component } from "react";
-import Router from "next/router";
-
 import Typist from "react-typist";
 
 import { IPageProps } from "../types";
 
 import { H1 } from "../components/heading";
-import { OutlineButton } from "../components/button";
 
 class Home extends Component<PageProps> {
   public static readonly title = "Rahul Kashyap : Home";
   public static readonly showHeader = true;
 
-  public static async getInitialProps({}) {
+  public static async getInitialProps({ server, res}) {
+    res.redirect("/resume");
+    
     return {
       name: "Rahul Kashyap",
       titles: [
-        "Full Stack Engineer",
+        "Cloud Native Engineer",
         "Open-Source Enthusiast",
         "Technology Evengelist",
         "Developer Avocado",
       ],
     };
-  }
-
-  constructor(props: PageProps) {
-    super(props);
-  }
-
-  private gotoResume() {
-    Router.push("/resume");
   }
 
   public render() {
@@ -50,13 +41,7 @@ class Home extends Component<PageProps> {
             fontSize: "24px",
           }}
         >
-          <Typist
-            style={{
-              ".Cursor": {
-                display: "none",
-              },
-            }}
-          >
+          <Typist>
             <span>I am </span>
             {titles.map((title: string) => {
               return (
@@ -68,21 +53,6 @@ class Home extends Component<PageProps> {
             })}
             <span>{name}</span>
           </Typist>
-
-          <OutlineButton color="primary" size="l" onClick={this.gotoResume}>
-            Resume
-          </OutlineButton>
-
-          {Array(100)
-            .fill(0)
-            .map((_, index) => index)
-            .map(number => {
-              return (
-                <div key={number}>
-                  <h1>{number}</h1>
-                </div>
-              );
-            })}
         </div>
       </section>
     );

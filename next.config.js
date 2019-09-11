@@ -1,5 +1,9 @@
 const path = require("path");
 
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
 const env = require("./src/config");
 
 const config = {
@@ -26,4 +30,4 @@ const config = {
   },
 };
 
-module.exports = config;
+module.exports = withBundleAnalyzer(config);
