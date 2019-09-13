@@ -40,7 +40,7 @@ serverRouter
   .route("/resume/generate")
   .get((_: Express.Request, res: Express.Response) => {
     service
-      .generatePDFFromURL(`${APP_URL}/resume?print=true`)
+      .generatePdfFromURL(`${APP_URL}/resume?print=true`)
       .then(({ pdfStream }) => {
         res.setHeader("Content-Type", "application/pdf");
         pdfStream.pipe(res);

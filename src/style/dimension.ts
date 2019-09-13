@@ -18,7 +18,7 @@ const dimensions = {
   a4: {
     width: "1150px",
     height: "1700px",
-    sclaedHeight: "1350px",
+    scaledHeight: "1350px",
   },
 
   icon: {
