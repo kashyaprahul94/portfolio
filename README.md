@@ -12,5 +12,5 @@ Porfolio for Rahul Kashyap
 * [x] Hooks & Context
 * [x] Style guidelines
 * [x] GitHub Actions ?
-* Add resume
+* [x] Add resume
 * Use state management

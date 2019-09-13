@@ -14,7 +14,7 @@ const Container: StyledComponent<SheetProps, SheetProps, {}> = styled.section`
 
   width: ${dimensions.full};
   min-height: ${props =>
-    props.printMode ? dimensions.a4.sclaedHeight : dimensions.full};
+    props.printMode ? dimensions.a4.scaledHeight : dimensions.full};
 
   max-width: ${dimensions.a4.width};
   max-height: ${dimensions.full};

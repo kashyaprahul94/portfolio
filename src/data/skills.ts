@@ -39,7 +39,7 @@ const areaOfExpertise: IAreaOfExpertise[] = [
     color: secondary,
   },
   {
-    title: "Mobile Dvelopment",
+    title: "Mobile Development",
     value: 10,
     color: danger,
   },

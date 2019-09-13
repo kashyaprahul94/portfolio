@@ -12,7 +12,7 @@ class Service {
     };
   }
 
-  public async generatePDFFromURL(url: string) {
+  public async generatePdfFromURL(url: string) {
     const browser = await puppeteer.launch({
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
       headless: true,
