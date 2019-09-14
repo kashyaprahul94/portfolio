@@ -1,17 +1,18 @@
 import React, { Component } from "react";
+
 import Typist from "react-typist";
 
-import { IPageProps } from "../types";
-
 import { H1 } from "../components/heading";
+
+import { IPageProps } from "../types";
 
 class Home extends Component<PageProps> {
   public static readonly title = "Rahul Kashyap : Home";
   public static readonly showHeader = true;
 
-  public static async getInitialProps({ server, res}) {
+  public static async getInitialProps({ res }) {
     res.redirect("/resume");
-    
+
     return {
       name: "Rahul Kashyap",
       titles: [
@@ -21,6 +22,12 @@ class Home extends Component<PageProps> {
         "Developer Avocado",
       ],
     };
+  }
+
+  public async componentDidMount() {}
+
+  public async componentWillUnmount() {
+    return Typist;
   }
 
   public render() {

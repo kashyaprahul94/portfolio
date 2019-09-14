@@ -86,7 +86,7 @@ const Header: FunctionComponent<Props> = ({ children, ...props }) => {
 
 const withScrollSpyHeader = (
   OriginalHeader: FunctionComponent<ScrollSpiedHeaderProps>,
-) => ({ children, ...props }) => {
+) => ({ ...props }) => {
   const currentPosition = useScrollPosition({
     throttle: 100,
   });
@@ -96,9 +96,7 @@ const withScrollSpyHeader = (
       {...props}
       offCanvas={offCanvas}
       className={offCanvas ? "HeaderSpy__Activate" : ""}
-    >
-      children
-    </OriginalHeader>
+    />
   );
 };
 

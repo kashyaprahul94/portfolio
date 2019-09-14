@@ -3,48 +3,39 @@ import NextApp, { Container } from "next/app";
 import Head from "next/head";
 import { Global } from "@emotion/core";
 
-import { IAppContext, IPageProps, IComponent } from "../types";
+import { IPageProps, IComponent } from "../types";
 
 // Styles
-import { base as cssBase } from "../style/base";
 import { reset as cssReset } from "../style/reset";
+import { fonts as cssFonts } from "../style/fonts";
+import { base as cssBase } from "../style/base";
 import { dark as themeDark, light as themeLight } from "../style/themes";
 
 // Context
 import ThemeContext from "../contexts/theme";
 
 // Components
-import Document from "../components/document";
+import { Document } from "../components/document";
 import { ScrollAwareHeader as Header } from "../components/header";
-import Main from "../components/main";
+import { Main } from "../components/main";
 
 interface AppState {
   loaded: boolean;
-  title: string;
-  showHeader: boolean;
   darkMode: {
     enabled: boolean;
   };
 }
+interface AppProps {
+  Component: IComponent;
+  pageProps: any;
+}
 //
-export default class App extends NextApp<{}, {}> {
-  public static async getInitialProps({ Component, ctx }: IAppContext) {
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {};
-
-    return { pageProps };
-  }
-
+export default class App extends NextApp<AppProps, {}> {
   constructor(props: IPageProps) {
     super(props);
 
-    const { Component }: { Component: IComponent } = props;
-
     this.state = {
       loaded: false,
-      title: Component.title || "Welcome",
-      showHeader: false && Component.showHeader,
       darkMode: {
         enabled: false,
       },
@@ -75,7 +66,8 @@ export default class App extends NextApp<{}, {}> {
   public render() {
     const { Component, pageProps } = this.props;
 
-    const { loaded, title, darkMode, showHeader } = this.state as AppState;
+    const { loaded, darkMode } = this.state as AppState;
+    const { title, showHeader } = Component;
 
     const theme = darkMode.enabled ? themeDark : themeLight;
 
@@ -93,9 +85,11 @@ export default class App extends NextApp<{}, {}> {
 
         {loaded && (
           <ThemeContext.Provider value={themeContext}>
-            <Global styles={[cssReset, cssBase(themeContext.styles)]} />
+            <Global
+              styles={[cssReset, cssFonts, cssBase(themeContext.styles)]}
+            />
             <Document>
-              {showHeader && <Header children={null} />}
+              {showHeader && <Header />}
               <Main hasHeader={showHeader}>
                 <Component {...pageProps} />
               </Main>
