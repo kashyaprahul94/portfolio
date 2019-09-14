@@ -120,7 +120,7 @@ const experienceWunderflats: IExperience = {
   country: "Germany",
   logo: "static/images/logo-wf.png",
   description:
-    "Currently working as a Senior Software Engineer on the core product, in Agile environment complemented with bit of extreme programming.",
+    "Currently working as a Senior Software Engineer on the core product in a small Agile team, focusing on one business area, delivering features as per the roadmap, mitigating manual processes as far as possible, enhancing core operations of business with technology.",
   roles: [roleWunderflats],
 };
 
