@@ -13,7 +13,7 @@ const Container: StyledComponent<Props, Props, {}> = styled.main`
 
 const Main: FunctionComponent<Props> = ({ hasHeader, children, ...props }) => {
   return (
-    <Container hasHeader={false} className="Main" {...props}>
+    <Container hasHeader={hasHeader} className="Main" {...props}>
       {children}
     </Container>
   );

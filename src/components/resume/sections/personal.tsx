@@ -4,7 +4,7 @@ import styled, { StyledComponent } from "@emotion/styled";
 import { Card } from "../../card";
 import { Location, Mobile, Email, LinkedIn, GitHub } from "../../icons";
 
-import { secondary, darkGrey } from "../../../style/color";
+import { secondary, darkGrey, primary } from "../../../style/color";
 import { fonts, sizes } from "../../../style/typography";
 import { layout, alignment, display } from "../../../style/layout";
 import { dimensions, fromUnit } from "../../../style/dimension";
@@ -40,10 +40,19 @@ const Text: StyledComponent<{}, {}, {}> = styled.span`
   color: ${darkGrey};
 `;
 
-const InfoItem = ({ title, Icon = null }) => (
+const createLink = (text: string) =>
+  text.startsWith("https") ? text : `https://${text}`;
+
+const InfoItem = ({ title, Icon = null, link = false }) => (
   <InfoItemContainer>
-    {Icon && <Icon size={fromUnit(dimensions.xxl)} color={secondary} />}
-    <Text>{title}</Text>
+    {Icon && <Icon size={fromUnit(dimensions.xxl)} color={primary} />}
+    {link ? (
+      <a href={createLink(title)} target="_blank">
+        <Text>{title}</Text>
+      </a>
+    ) : (
+      <Text>{title}</Text>
+    )}
   </InfoItemContainer>
 );
 
@@ -98,8 +107,8 @@ const Personal: FunctionComponent<PageProps> = ({ info }) => {
             </InfoColumn>
 
             <InfoColumn>
-              <InfoItem title={info.gitHub} Icon={GitHub} />
-              <InfoItem title={info.linkedIn} Icon={LinkedIn} />
+              <InfoItem title={info.gitHub} Icon={GitHub} link={true} />
+              <InfoItem title={info.linkedIn} Icon={LinkedIn} link={true} />
             </InfoColumn>
           </InfoRow>
         </Column>

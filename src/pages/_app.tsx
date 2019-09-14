@@ -3,7 +3,7 @@ import NextApp, { Container } from "next/app";
 import Head from "next/head";
 import { Global } from "@emotion/core";
 
-import { IAppContext, IPageProps, IComponent } from "../types";
+import { IPageProps, IComponent } from "../types";
 
 // Styles
 import { base as cssBase } from "../style/base";
@@ -28,23 +28,11 @@ interface AppState {
 }
 //
 export default class App extends NextApp<{}, {}> {
-  public static async getInitialProps({ Component, ctx }: IAppContext) {
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {};
-
-    return { pageProps };
-  }
-
   constructor(props: IPageProps) {
     super(props);
 
-    const { Component }: { Component: IComponent } = props;
-
     this.state = {
       loaded: false,
-      title: Component.title || "Welcome",
-      showHeader: false && Component.showHeader,
       darkMode: {
         enabled: false,
       },
@@ -73,9 +61,13 @@ export default class App extends NextApp<{}, {}> {
   }
 
   public render() {
-    const { Component, pageProps } = this.props;
+    const {
+      Component,
+      pageProps,
+    }: { Component: IComponent; pageProps: any } = this.props;
 
-    const { loaded, title, darkMode, showHeader } = this.state as AppState;
+    const { loaded, darkMode } = this.state as AppState;
+    const { title, showHeader } = Component;
 
     const theme = darkMode.enabled ? themeDark : themeLight;
 
@@ -95,7 +87,7 @@ export default class App extends NextApp<{}, {}> {
           <ThemeContext.Provider value={themeContext}>
             <Global styles={[cssReset, cssBase(themeContext.styles)]} />
             <Document>
-              {showHeader && <Header children={null} />}
+              {showHeader && <Header />}
               <Main hasHeader={showHeader}>
                 <Component {...pageProps} />
               </Main>
