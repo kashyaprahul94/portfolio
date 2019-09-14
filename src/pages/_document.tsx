@@ -47,11 +47,6 @@ export default class Document extends NextDocument {
           />
 
           <link rel="manifest" href="static/manifest.json" />
-
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Dosis|PT+Sans+Narrow|Poppins:200,400,600&amp;display=swap"
-          />
         </Head>
 
         <body>

@@ -3,15 +3,18 @@ import { Global } from "@emotion/core";
 import styled from "@emotion/styled";
 import addons from "@storybook/addons";
 
-import { reset as cssReset, base as cssBase } from "../../src/style";
+import { reset as cssReset } from "../style/reset";
+import { fonts as cssFonts } from "../style/fonts";
+import { base as cssBase } from "../style/base";
 import { dark as themeDark, light as themeLight } from "../../src/style/themes";
+
 import ThemeContext from "../../src/contexts/theme";
 
 const channel = addons.getChannel();
 const getInitialDarkModeValue = __window => {
   try {
     const storyBookStorage = __window.localStorage.getItem(
-      "@storybook/ui/store"
+      "@storybook/ui/store",
     );
     const { theme } = JSON.parse(storyBookStorage);
     return theme.base === "dark";
@@ -41,12 +44,12 @@ const ThemeDecorator = ({ context, children }) => {
     isDarkMode,
     toggleDarkMode: () => {
       console.info("Please use theme switcher to toggle dark mode");
-    }
+    },
   };
 
   return (
     <ThemeContext.Provider value={themeContext}>
-      <Global styles={[cssReset, cssBase(themeContext.styles)]} />
+      <Global styles={[cssReset, cssFonts, cssBase(themeContext.styles)]} />
       <ContentWrapper>{children}</ContentWrapper>
     </ThemeContext.Provider>
   );
