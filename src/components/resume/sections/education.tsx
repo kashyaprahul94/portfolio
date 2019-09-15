@@ -56,6 +56,8 @@ const InfoContainer: StyledComponent<{}, {}, {}> = styled.div`
 const InfoItem: StyledComponent<{}, {}, {}> = styled.p`
   margin-bottom: ${dimensions.s};
   font-style: ${text.italic};
+  font-family: ${fonts.secondary};
+  font-size: ${sizes.s};
   color: ${darkGrey};
 `;
 
