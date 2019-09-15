@@ -6,7 +6,7 @@ TAG=$(echo "$TAG" | tr / _)
 TAG=$(echo "${TAG/'refs_heads_'}")
 
 if [ $TAG = "master" ]; then 
-  TAG="latest"; 
+  TAG="stable"; 
 fi;
 
 echo "Will be using TAG ---------> $TAG";
