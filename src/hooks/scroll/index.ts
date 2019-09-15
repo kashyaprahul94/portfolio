@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { throttle } from "../../util/helpers";
+import { throttle } from "@util/helpers";
 
 interface IOptions {
   throttle?: number;

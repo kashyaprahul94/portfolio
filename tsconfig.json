@@ -13,10 +13,11 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@contexts/*": ["./src/contexts/*"],
+      "@data": ["./src/data"],
       "@data/*": ["./src/data/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@static/*": ["./src/static/*"],
       "@style/*": ["./src/style/*"],
+      "@types": ["./src/types"],
       "@types/*": ["./src/types/*"],
       "@util/*": ["./src/util/*"]
     },

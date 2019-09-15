@@ -1,4 +1,4 @@
-import { IBaseProps, IPartialBaseProps } from "../types";
+import { IBaseProps, IPartialBaseProps } from "@components/types";
 
 export interface SheetProps extends IBaseProps {
   printMode?: boolean;

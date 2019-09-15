@@ -1,4 +1,4 @@
-import { white, grey, darkGrey } from "../color";
+import { white, grey, darkGrey } from "@style/color";
 
 const theme = {
   colors: {

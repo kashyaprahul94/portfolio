@@ -1,4 +1,4 @@
-import { IBaseProps, IPartialBaseProps } from "../../types";
+import { IBaseProps, IPartialBaseProps } from "@components/types";
 
 export interface Item {
   title: string;

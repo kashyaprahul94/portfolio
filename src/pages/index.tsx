@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 import Typist from "react-typist";
 
-import { H1 } from "../components/heading";
+import { H1 } from "@components/heading";
 
-import { IPageProps } from "../types";
+import { IPageProps } from "@types";
 
 class Home extends Component<PageProps> {
   public static readonly title = "Rahul Kashyap : Home";

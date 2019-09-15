@@ -5,8 +5,8 @@ import Router from "next/router";
 import ThemeContext from "@contexts/theme";
 import { useScrollPosition } from "@hooks/scroll";
 
-import { P } from "../paragraph";
-import { OutlineButton } from "../button";
+import { P } from "@components/paragraph";
+import { OutlineButton } from "@components/button";
 
 import { transparent } from "@style/color";
 import { display, position, alignment } from "@style/layout";
