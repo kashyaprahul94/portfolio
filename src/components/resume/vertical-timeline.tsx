@@ -74,8 +74,10 @@ const VerticalTimelineItemHeaderLogo: StyledComponent<
     left: ${dimensions.zero};
     right: ${dimensions.zero};
     margin: ${dimensions.auto};
-    filter: grayscale(${dimensions.full});
     width: calc(${dimensions.full} - 10%);
+
+    filter: ${props =>
+      props.grayscaleLogo ? `grayscale(${dimensions.full})` : null};
   }
 `;
 
@@ -205,11 +207,14 @@ const VerticalTimelineItemContentSection2: FunctionComponent<any> = ({
 
 const VerticalTimelineItemHeader: FunctionComponent<
   VerticalTimelineItemProps
-> = ({ title, logo, showLogo, logoSize }) => (
+> = ({ title, logo, showLogo, logoSize, grayscaleLogo }) => (
   <VerticalTimelineItemHeaderContainer showLogo={showLogo}>
     <p className="Content">{title}</p>
     {showLogo && (
-      <VerticalTimelineItemHeaderLogo logoSize={logoSize}>
+      <VerticalTimelineItemHeaderLogo
+        logoSize={logoSize}
+        grayscaleLogo={grayscaleLogo}
+      >
         <img src={logo} className="Logo" />
       </VerticalTimelineItemHeaderLogo>
     )}
@@ -256,6 +261,7 @@ VerticalTimeline.defaultProps = {
 VerticalTimelineItem.defaultProps = {
   showLogo: true,
   logoSize: dimensions.icon.xl,
+  grayscaleLogo: false,
 };
 
 export {

@@ -121,6 +121,7 @@ const Place: StyledComponent<{}, {}, {}> = styled.p`
 
 const Duration: StyledComponent<{}, {}, {}> = styled.span`
   font-style: ${text.italic};
+  font-family: ${fonts.secondary};
   font-size: calc(${dimensions.half} + ${dimensions.quarter});
   color: ${darkGrey};
 `;

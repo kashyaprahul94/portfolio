@@ -14,15 +14,5 @@ export interface VerticalTimelineItemProps extends IPartialBaseProps<any> {
   logo: string;
   showLogo?: boolean;
   logoSize?: string;
-}
-
-export interface TimelineProps extends IBaseProps {}
-
-export interface TimelineItemProps extends IPartialBaseProps<any> {
-  color: string;
-  title: string;
-  text?: string;
-  subText?: string;
-  icon: string;
-  placement: "even" | "odd";
+  grayscaleLogo?: boolean;
 }

@@ -21,7 +21,7 @@ const projectHybrisLoyaltyIoTMobileApp: IProject = {
   title: "SAP Hybris Loyalty IoT Mobile App",
   description: [
     "SAP Hybris Loyalty being a Cloud solution was very easy to integrate with edge devices, such as POS devices, Mobile, etc. It offered various public APIs for different business objects. GeoMarketing was one of the eye candy feature the product had. It abstracted all the convoluted processes into simple Microservices such as Offers, iBeacon, Geofences, to name a few.",
-    "The business use case was to demonstrate an end to end story where, a Marketer would setup some iBeacon & Geofence related Master Data, create some offers & attach those iBeacons and/or iBeacons to it. Then on the end user side, there would be a mobile application, which would be polling one of the Microservice to get the offers based on the current geo vicinity, the person in. That would contain current lat & long of the location, iBeacons in range. The API would return all the offers relevant to those inputs.",
+    "The business use case was to demonstrate an end to end story where, a Marketer would setup some iBeacon & Geofence related Master Data, create some Offers & attach those iBeacons or Geofences to it. Then on the end user side, there would be a mobile application, which would be polling one of the Microservice to get the offers based on the current geo vicinity, the person in. That would contain current lat & long of the location, iBeacons in range. The API would return all the offers relevant to those inputs.",
   ],
   link: "http://bit.ly/32hpZaD",
 };
@@ -30,7 +30,7 @@ const projectSAPMarketingMobileChannel: IProject = {
   title: "SAP Marketing - Mobile Channel",
   description: [
     "SAP Marketing solution was available as Cloud & On-Premise full suite built for end to end marketing applications. For example, Mass Campaigns, Consumer Profile, Segmentation, Offers, Lead Nurture Stream etc.",
-    "There are many businesses which incumbent on such products to run their business. Very classical example was, use of Campaigns, to reach out to customers, let's say send emails to end customers regarding something. That's said, Email is not just one channel, a business would try to target their end customers, but many of them, Mobile for example.",
+    "There are many businesses which incumbent on such products to run their business. Very classical example could be, use of Marketing Campaigns, in which very first two phases are Identification of the consumers, and then target them with some sort of channel. That's said, those channel could be Emails, Surveys, SMS, etc. However, it was found out that Mobile was one of best channel to reach out to end consumers that too instantly with Push notifications for example.",
     "That was the foundation of this product, to enable customers to integrate their mobile applications with some sort of SDKs which could enable them to interact with SAP Marketing system, and allow them to reach out to their end consumers via Push Notifications. Those SDKs were available for both iOS & Android.",
   ],
   link: "http://bit.ly/2UlVjCE",
@@ -57,7 +57,7 @@ const projectWunderflats: IProject = {
   title: "Wunderflats",
   description: [
     "Wunderflats is a Housing as a Service cloud platform which offers furnished apartments for stays of 1 month or longer. It serves for both B2C & B2B scenarios.",
-    "The product is built using next-gen technologies, surrounded with JavaScript at some point. It has various Frontend applications catering different requirements to the End Users (Main Website), Landlords (Landlord Dashboard), Internal Business People (CRM). I am working as a Senior Software Engineer in an Agile team, responsible for Product Development, Developer Productivity, Mentorship to Junior colleagues, etc.",
+    "The product is built using next-gen technologies, surrounded with JavaScript at some point. It has various Frontend applications catering different requirements to the End Users (Main Website), Landlords (Landlord Dashboard), Internal Business People (CRM). I am working as a Senior Software Engineer in an Agile team, responsible for Product Development, Developer Productivity, & Mentorship to Junior colleagues.",
   ],
   link: "http://bit.ly/2zB18Cq",
 };
@@ -120,7 +120,7 @@ const experienceWunderflats: IExperience = {
   country: "Germany",
   logo: "static/images/logo-wf.png",
   description:
-    "Currently working as a Senior Software Engineer on the core product in a small Agile team, focusing on one business area, delivering features as per the roadmap, mitigating manual processes as far as possible, enhancing core operations of business with technology.",
+    "Currently working as a Senior Software Engineer in an Agile environment responsbile for development of different applications, developing tools for developer productivity, mentoring junior colleagues & enhancing core operations of business with technology.",
   roles: [roleWunderflats],
 };
 
