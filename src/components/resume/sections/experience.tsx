@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Card } from "../../card";
+import { Card } from "@components/card";
 
 import {
   darkGrey,
@@ -10,24 +10,12 @@ import {
   danger,
   white,
   lighterGrey,
-} from "../../../style/color";
-import {
-  fonts,
-  sizes,
-  weights,
-  text,
-  lineHeight,
-} from "../../../style/typography";
-import {
-  position,
-  display,
-  alignment,
-  border,
-  layout,
-} from "../../../style/layout";
-import { dimensions } from "../../../style/dimension";
+} from "@style/color";
+import { fonts, sizes, weights, text, lineHeight } from "@style/typography";
+import { position, display, alignment, border, layout } from "@style/layout";
+import { dimensions } from "@style/dimension";
 
-import { IExperience } from "../../../data/types";
+import { IExperience } from "@data/types";
 
 const Container: StyledComponent<{}, {}, {}> = styled.div`
   display: ${display.flex};

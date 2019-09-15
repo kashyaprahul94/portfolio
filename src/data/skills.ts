@@ -1,4 +1,4 @@
-import { primary, secondary, danger } from "../style/color";
+import { primary, secondary, danger } from "@style/color";
 
 import { IAreaOfExpertise, IExpertSkill, IOtherSkill } from "./types";
 

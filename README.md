@@ -13,4 +13,5 @@ Porfolio for Rahul Kashyap
 * [x] Style guidelines
 * [x] GitHub Actions ?
 * [x] Add resume
+* Add enzyme unit testing
 * Use state management

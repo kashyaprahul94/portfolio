@@ -2,11 +2,14 @@ import { useContext, FunctionComponent } from "react";
 import PropTypes from "prop-types";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import ThemeContext from "../../contexts/theme";
+import ThemeContext from "@contexts/theme";
 
-import * as colors from "../../style/color";
+import {
+  ColorVariants,
+  DefaultColorVariant,
+} from "@components/common/variants";
 
-import { ColorVariants, DefaultColorVariant } from "../common/variants";
+import * as colors from "@style/color";
 
 import { Button } from "./base";
 import { VariantProps } from "./types";

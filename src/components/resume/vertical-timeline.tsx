@@ -1,18 +1,12 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { white, transparent, danger, lightGrey } from "../../style/color";
-import { fonts, sizes, weights, lineHeight } from "../../style/typography";
+import { white, transparent, danger, lightGrey } from "@style/color";
+import { fonts, sizes, weights, lineHeight } from "@style/typography";
+import { position, display, alignment, border, layout } from "@style/layout";
+import { dimensions } from "@style/dimension";
 
 import { VerticalTimelineProps, VerticalTimelineItemProps } from "./types";
-import {
-  position,
-  display,
-  alignment,
-  border,
-  layout,
-} from "../../style/layout";
-import { dimensions } from "../../style/dimension";
 
 //
 //

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-import { Sheet } from "../components/resume/sheet";
-import { Personal as PersonalInfoSection } from "../components/resume/sections/personal";
-import { Experience as ExperienceSection } from "../components/resume/sections/experience";
-import { Education as EducationSection } from "../components/resume/sections/education";
-import { Skills as SkillsSection } from "../components/resume/sections/skills";
-import { Achievements as AchievementsSection } from "../components/resume/sections/achievements";
-import { Projects as ProjectSection } from "../components/resume/sections/projects";
+import { Sheet } from "@components/resume/sheet";
+import { Personal as PersonalInfoSection } from "@components/resume/sections/personal";
+import { Experience as ExperienceSection } from "@components/resume/sections/experience";
+import { Education as EducationSection } from "@components/resume/sections/education";
+import { Skills as SkillsSection } from "@components/resume/sections/skills";
+import { Achievements as AchievementsSection } from "@components/resume/sections/achievements";
+import { Projects as ProjectSection } from "@components/resume/sections/projects";
 
 import {
   personalInfo,
@@ -27,9 +27,9 @@ import {
   //
   achievementInfo,
   IAchievement,
-} from "../data";
+} from "@data";
 
-import { IPageProps } from "../types";
+import { IPageProps } from "@types";
 
 class Resume extends Component<PageProps> {
   public static readonly title = "Rahul Kashyap : Resume";

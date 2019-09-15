@@ -3,7 +3,7 @@
 # build image
 yarn docker:build
 
-TAG=$(echo "latest" | tr / _)
+TAG=stable
 IMAGE_NAME=kashyaprahul94/portfolio
 
 docker tag $IMAGE_NAME $IMAGE_NAME:$TAG

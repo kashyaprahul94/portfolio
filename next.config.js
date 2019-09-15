@@ -8,17 +8,8 @@ const env = require("./src/config");
 
 const config = {
   webpack: config => {
+    config.resolve.extensions.push(".js", ".ts", ".tsx");
     config.resolve.modules.push(path.resolve("./src"));
-
-    config.module.rules.push({
-      test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-      use: {
-        loader: "url-loader",
-        options: {
-          limit: 100000,
-        },
-      },
-    });
 
     return config;
   },

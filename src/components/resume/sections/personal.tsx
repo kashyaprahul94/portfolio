@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Card } from "../../card";
-import { Location, Mobile, Email, LinkedIn, GitHub } from "../../icons";
+import { Card } from "@components/card";
+import { Location, Mobile, Email, LinkedIn, GitHub } from "@components/icons";
 
-import { secondary, darkGrey, primary } from "../../../style/color";
-import { fonts, sizes } from "../../../style/typography";
-import { layout, alignment, display } from "../../../style/layout";
-import { dimensions, fromUnit } from "../../../style/dimension";
+import { secondary, darkGrey, primary } from "@style/color";
+import { fonts, sizes } from "@style/typography";
+import { layout, alignment, display } from "@style/layout";
+import { dimensions, fromUnit } from "@style/dimension";
 
-import { IPersonalInfo } from "../../../data/types";
+import { IPersonalInfo } from "@data/types";
 
 //
 

@@ -3,21 +3,21 @@ import NextApp, { Container } from "next/app";
 import Head from "next/head";
 import { Global } from "@emotion/core";
 
-import { IPageProps, IComponent } from "../types";
+import { IPageProps, IComponent } from "@types";
 
 // Styles
-import { reset as cssReset } from "../style/reset";
-import { fonts as cssFonts } from "../style/fonts";
-import { base as cssBase } from "../style/base";
-import { dark as themeDark, light as themeLight } from "../style/themes";
+import { reset as cssReset } from "@style/reset";
+import { fonts as cssFonts } from "@style/fonts";
+import { base as cssBase } from "@style/base";
+import { dark as themeDark, light as themeLight } from "@style/themes";
 
 // Context
-import ThemeContext from "../contexts/theme";
+import ThemeContext from "@contexts/theme";
 
 // Components
-import { Document } from "../components/document";
-import { ScrollAwareHeader as Header } from "../components/header";
-import { Main } from "../components/main";
+import { Document } from "@components/document";
+import { ScrollAwareHeader as Header } from "@components/header";
+import { Main } from "@components/main";
 
 interface AppState {
   loaded: boolean;

@@ -1,6 +1,6 @@
-import { ColorVariantsType } from "../common/variants";
+import { ColorVariantsType } from "@components/common/variants";
 
-import { IBaseProps, IPartialBaseProps } from "../types";
+import { IBaseProps, IPartialBaseProps } from "@components/types";
 
 export interface BaseProps extends IBaseProps {
   block?: boolean;

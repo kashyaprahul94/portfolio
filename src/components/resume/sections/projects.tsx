@@ -1,17 +1,17 @@
 import React, { FunctionComponent } from "react";
 
-import { pumpkin } from "../../../style/color";
-
-import { Card } from "../../card";
+import { Card } from "@components/card";
 import {
   VerticalTimeline,
   VerticalTimelineItem,
   VerticalTimelineItemContentSection1,
   VerticalTimelineItemContentSection2,
   VerticalTimelineItemText,
-} from "../vertical-timeline";
+} from "@components/resume/vertical-timeline";
 
-import { IExperience, IExperienceRole, IProject } from "../../../data/types";
+import { pumpkin } from "@style/color";
+
+import { IExperience, IExperienceRole, IProject } from "@data/types";
 
 const Projects: FunctionComponent<PageProps> = ({ experience }) => {
   return (

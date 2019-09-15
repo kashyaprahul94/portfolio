@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { display, border, alignment } from "../../style/layout";
-import { dimensions } from "../../style/dimension";
+import { display, border, alignment } from "@style/layout";
+import { dimensions } from "@style/dimension";
 
 import { Props, PartialProps } from "./types";
 

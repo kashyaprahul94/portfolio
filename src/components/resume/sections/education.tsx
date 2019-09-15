@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Card } from "../../card";
-import { Star, Trophy, GraduationCap } from "../../icons";
+import { Card } from "@components/card";
+import { Star, Trophy, GraduationCap } from "@components/icons";
 
-import { darkGrey, primary } from "../../../style/color";
-import { fonts, sizes, weights, text } from "../../../style/typography";
-import { layout, alignment, display } from "../../../style/layout";
-import { dimensions, fromUnit } from "../../../style/dimension";
+import { darkGrey, primary } from "@style/color";
+import { fonts, sizes, weights, text } from "@style/typography";
+import { layout, alignment, display } from "@style/layout";
+import { dimensions, fromUnit } from "@style/dimension";
 
-import { IEducation, IAchievement } from "../../../data/types";
+import { IEducation, IAchievement } from "@data/types";
 
 const Row: StyledComponent<{}, {}, {}> = styled.div`
   display: ${display.flex};
