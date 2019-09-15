@@ -1,19 +1,15 @@
 import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Card } from "../../card";
-import { Chip } from "../../chips";
-import { Donut } from "../../charts/donut";
+import { Card } from "@components/card";
+import { Chip } from "@components/chips";
+import { Donut } from "@components/charts/donut";
 
-import { sizes } from "../../../style/typography";
-import { layout, alignment, display } from "../../../style/layout";
-import { dimensions } from "../../../style/dimension";
+import { sizes } from "@style/typography";
+import { layout, alignment, display } from "@style/layout";
+import { dimensions } from "@style/dimension";
 
-import {
-  IAreaOfExpertise,
-  IExpertSkill,
-  IOtherSkill,
-} from "../../../data/types";
+import { IAreaOfExpertise, IExpertSkill, IOtherSkill } from "@data/types";
 
 const Title: StyledComponent<TitleProps, TitleProps, {}> = styled.h1`
   font-size: ${sizes.l};

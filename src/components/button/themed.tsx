@@ -1,9 +1,9 @@
 import { useContext, FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import ThemeContext from "../../contexts/theme";
+import ThemeContext from "@contexts/theme";
 
-import { transparent } from "../../style/color";
+import { transparent } from "@style/color";
 
 import { Button } from "./base";
 import { BaseProps } from "./types";

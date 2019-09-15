@@ -2,16 +2,16 @@ import { useContext, FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 import Router from "next/router";
 
-import ThemeContext from "../../contexts/theme";
-import { useScrollPosition } from "../../hooks/scroll";
+import ThemeContext from "@contexts/theme";
+import { useScrollPosition } from "@hooks/scroll";
 
 import { P } from "../paragraph";
 import { OutlineButton } from "../button";
 
-import { transparent } from "../../style/color";
-import { display, position, alignment } from "../../style/layout";
-import { dimensions, headerHeight, depth } from "../../style/dimension";
-import { transition, durations } from "../../style/animation";
+import { transparent } from "@style/color";
+import { display, position, alignment } from "@style/layout";
+import { dimensions, headerHeight, depth } from "@style/dimension";
+import { transition, durations } from "@style/animation";
 
 import { Props, ScrollSpiedHeaderProps } from "./types";
 

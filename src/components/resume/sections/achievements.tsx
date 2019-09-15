@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Card } from "../../card";
-import { Badge } from "../../icons";
+import { Card } from "@components/card";
+import { Badge } from "@components/icons";
 
-import { primary } from "../../../style/color";
-import { fonts, sizes, weights } from "../../../style/typography";
-import { dimensions, fromUnit } from "../../../style/dimension";
-import { display, alignment } from "../../../style/layout";
+import { primary } from "@style/color";
+import { fonts, sizes, weights } from "@style/typography";
+import { dimensions, fromUnit } from "@style/dimension";
+import { display, alignment } from "@style/layout";
 
-import { IAchievement } from "../../../data/types";
+import { IAchievement } from "@data/types";
 
 const AchievementItemContainer: StyledComponent<{}, {}, {}> = styled.div`
   margin-bottom: ${dimensions.m};

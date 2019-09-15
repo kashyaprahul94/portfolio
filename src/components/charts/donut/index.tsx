@@ -1,9 +1,8 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { dimensions } from "../../../style/dimension";
-import { display, position, alignment } from "../../../style/layout";
-import { lineHeight } from "../../../style/typography";
+import { dimensions } from "@style/dimension";
+import { display, position, alignment } from "@style/layout";
 
 import { Props, SegmentProps, DonutItem, LegendItemProps } from "./types";
 

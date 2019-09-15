@@ -2,12 +2,12 @@ import { FunctionComponent } from "react";
 import PropTypes from "prop-types";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import * as colors from "../../style/color";
-import { fonts, lineHeight, sizes } from "../../style/typography";
-import { display, border, alignment } from "../../style/layout";
-import { dimensions } from "../../style/dimension";
+import { ColorVariants } from "@components/common/variants";
 
-import { ColorVariants } from "../common/variants";
+import * as colors from "@style/color";
+import { fonts, lineHeight, sizes } from "@style/typography";
+import { display, border, alignment } from "@style/layout";
+import { dimensions } from "@style/dimension";
 
 import { Props } from "./types";
 

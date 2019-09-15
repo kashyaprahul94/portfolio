@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { white, lightGrey } from "../../style/color";
-import { dimensions } from "../../style/dimension";
+import { white, lightGrey } from "@style/color";
+import { dimensions } from "@style/dimension";
 
 import { SheetProps } from "./types";
 

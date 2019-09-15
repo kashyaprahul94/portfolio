@@ -2,10 +2,10 @@ import { FunctionComponent } from "react";
 import PropTypes from "prop-types";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { transparent } from "../../style/color";
-import { border } from "../../style/layout";
-import { text, fonts, weights, sizes } from "../../style/typography";
-import { dimensions } from "../../style/dimension";
+import { transparent } from "@style/color";
+import { border } from "@style/layout";
+import { text, fonts, weights, sizes } from "@style/typography";
+import { dimensions } from "@style/dimension";
 
 import { BaseProps } from "./types";
 

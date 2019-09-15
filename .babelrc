@@ -1,16 +1,22 @@
 {
-  "env": {
-    "development": {
-      "plugins": ["emotion"],
-      "presets": [["next/babel"], "@emotion/babel-preset-css-prop"]
-    },
-    "test": {
-      "plugins": ["emotion"],
-      "presets": [["next/babel"], "@emotion/babel-preset-css-prop"]
-    },
-    "production": {
-      "plugins": ["emotion"],
-      "presets": [["next/babel"], "@emotion/babel-preset-css-prop"]
-    }
-  }
+  "presets": ["next/babel", "@emotion/babel-preset-css-prop"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@components": "./src/components",
+          "@contexts": "./src/contexts",
+          "@data": "./src/data",
+          "@hooks": "./src/hooks",
+          "@static": "./src/static",
+          "@style": "./src/style",
+          "@types": "./src/types",
+          "@util": "./src/util"
+        }
+      }
+    ],
+    "emotion"
+  ]
 }

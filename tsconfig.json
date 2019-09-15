@@ -9,13 +9,20 @@
     "moduleResolution": "node",
     "target": "esnext",
     "resolveJsonModule": true,
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "app/*": ["./*"]
+      "@components/*": ["./src/components/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@data/*": ["./src/data/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@static/*": ["./src/static/*"],
+      "@style/*": ["./src/style/*"],
+      "@types/*": ["./src/types/*"],
+      "@util/*": ["./src/util/*"]
     },
     "outDir": "./build/src",
     "typeRoots": ["./node_modules/@types"]
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "build"],
   "include": ["src/*.ts"]
 }

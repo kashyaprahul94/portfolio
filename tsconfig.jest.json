@@ -13,5 +13,5 @@
     "typeRoots": ["node_modules/@types"],
     "esModuleInterop": true
   },
-  "exclude": ["node_modules", "out", ".next"]
+  "exclude": ["node_modules", "build", "out", ".next"]
 }

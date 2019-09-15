@@ -8,10 +8,10 @@ import {
   borderGrey,
   transparent as transparentColor,
   lightGrey,
-} from "../../style/color";
-import { fonts, sizes, text } from "../../style/typography";
-import { border, layout, alignment } from "../../style/layout";
-import { dimensions } from "../../style/dimension";
+} from "@style/color";
+import { fonts, sizes, text } from "@style/typography";
+import { border, layout, alignment } from "@style/layout";
+import { dimensions } from "@style/dimension";
 
 import { Props, PartialProps } from "./types";
 

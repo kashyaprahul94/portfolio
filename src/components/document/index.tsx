@@ -1,10 +1,10 @@
 import { useContext, FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import ThemeContext from "../../contexts/theme";
+import ThemeContext from "@contexts/theme";
 
-import { dimensions } from "../../style/dimension";
-import { durations, transition } from "../../style/animation";
+import { dimensions } from "@style/dimension";
+import { durations, transition } from "@style/animation";
 
 import { Props } from "./types";
 
