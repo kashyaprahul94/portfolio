@@ -3,9 +3,9 @@ import { Global } from "@emotion/core";
 import styled from "@emotion/styled";
 import addons from "@storybook/addons";
 
-import { reset as cssReset } from "../style/reset";
-import { fonts as cssFonts } from "../style/fonts";
-import { base as cssBase } from "../style/base";
+import { reset as cssReset } from "../../src/style/reset";
+import { fonts as cssFonts } from "../../src/style/fonts";
+import { base as cssBase } from "../../src/style/base";
 import { dark as themeDark, light as themeLight } from "../../src/style/themes";
 
 import ThemeContext from "../../src/contexts/theme";

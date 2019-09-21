@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import { Card } from "@components/card";
-import { Badge } from "@components/icons";
+import { Badge } from "@components/icon";
 
 import { primary } from "@style/color";
 import { fonts, sizes, weights } from "@style/typography";

@@ -6,5 +6,5 @@ export default create({
   ...themes.dark,
   textColor: darkTheme.colors.textPrimary,
   appBg: darkTheme.colors.backgroundPrimary,
-  appContentBg: darkTheme.colors.backgroundPrimary
+  appContentBg: darkTheme.colors.backgroundPrimary,
 });

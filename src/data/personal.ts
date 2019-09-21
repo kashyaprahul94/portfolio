@@ -15,7 +15,7 @@ const common: IPersonalInfo = {
   gitHub: "github.com/kashyaprahul94",
 };
 
-const bangaloreInfo: IPersonalInfo = {
+const indiaBangaloreInfo: IPersonalInfo = {
   ...common,
 
   city: "Bangalore",
