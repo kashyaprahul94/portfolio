@@ -3,9 +3,9 @@ import { storiesOf } from "@storybook/react";
 import { select, text, boolean } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
-import ThemedButton from "./themed";
-import AccentButton from "./accent";
-import OutlineButton from "./outline";
+import { ThemedButton } from "./themed";
+import { AccentButton } from "./accent";
+import { OutlineButton } from "./outline";
 
 export default (module: NodeModule, { storyName }) => {
   storiesOf(storyName, module)
@@ -14,7 +14,7 @@ export default (module: NodeModule, { storyName }) => {
       const size = select(
         "Size",
         ["xs", "s", "m", "l", "xl", "xxl", "jumbo", "hero"],
-        "m"
+        "m",
       );
       const block = boolean("Block", false);
 
@@ -34,7 +34,7 @@ export default (module: NodeModule, { storyName }) => {
       const size = select(
         "Size",
         ["xs", "s", "m", "l", "xl", "xxl", "jumbo", "hero"],
-        "m"
+        "m",
       );
       const block = boolean("Block", false);
 
@@ -55,7 +55,7 @@ export default (module: NodeModule, { storyName }) => {
       const size = select(
         "Size",
         ["xs", "s", "m", "l", "xl", "xxl", "jumbo", "hero"],
-        "m"
+        "m",
       );
       const block = boolean("Block", false);
 

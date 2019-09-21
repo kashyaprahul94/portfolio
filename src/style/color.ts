@@ -28,6 +28,7 @@ const transparent = "transparent";
 
 const grey = "#202020";
 const offWhite = "#f7f7f7";
+const blackGrey = "#555555";
 const darkGrey = "#2d2d2d";
 const lightGrey = "#dddddd";
 const lighterGrey = "#e8e8e8";
@@ -68,6 +69,7 @@ export {
   //
   grey,
   offWhite,
+  blackGrey,
   darkGrey,
   lightGrey,
   lighterGrey,
