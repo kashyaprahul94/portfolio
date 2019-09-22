@@ -120,7 +120,7 @@ const experienceWunderflats: IExperience = {
   country: "Germany",
   logo: "static/images/logo-wf.png",
   description:
-    "Currently working as a Senior Software Engineer in an Agile environment responsbile for development of different applications, developing tools for developer productivity, mentoring junior colleagues & enhancing core operations of business with technology.",
+    "Currently working as a Senior Software Engineer in an Agile environment responsible for development of different applications, developing tools for developer productivity, mentoring junior colleagues & enhancing core operations of business with technology.",
   roles: [roleWunderflats],
 };
 
