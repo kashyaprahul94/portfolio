@@ -6,7 +6,7 @@ TAG=$(echo "$TAG" | tr / _)
 TAG=$(echo "${TAG/'refs_heads_'}")
 
 if [ $TAG = "master" ]; then 
-  TAG="stable"; 
+  TAG="latest"; 
 fi;
 
 echo "Will be using TAG ---------> $TAG";
@@ -25,7 +25,7 @@ docker tag $IMAGE_NAME "$HEROKU_REGISTRY/$HEROKU_APP_NAME/$HEROKU_APP_TYPE:$TAG"
 
 docker push "$HEROKU_REGISTRY/$HEROKU_APP_NAME/$HEROKU_APP_TYPE:$TAG"
 
-if [ $TAG = "stable" ]; then 
+if [ $TAG = "latest" ]; then 
   HEROKU_DOCKER_IMAGE_ID=$(docker inspect $HEROKU_REGISTRY/$HEROKU_APP_NAME/$HEROKU_APP_TYPE --format={{.Id}})
   HEROKU_PAYLOAD='{"updates":[{"type":"'"$HEROKU_APP_TYPE"'","docker_image":"'"$HEROKU_DOCKER_IMAGE_ID"'"}]}'
 
