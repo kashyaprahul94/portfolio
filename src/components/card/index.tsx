@@ -1,5 +1,7 @@
-import { FunctionComponent } from "react";
+import { useContext, FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
+
+import ThemeContext from "@contexts/theme";
 
 import {
   teal,
@@ -16,15 +18,27 @@ import { dimensions } from "@style/dimension";
 import { Props, PartialProps } from "./types";
 
 const Container: StyledComponent<PartialProps, PartialProps, {}> = styled.div`
-  background-color: ${props => (props.transparent ? transparentColor : white)};
+  background-color: ${props =>
+    props.transparent
+      ? transparentColor
+      : props.theme.styles.colors.backgroundSecondary};
+  color: ${props => props.theme.styles.colors.textPrimary};
+
   border: ${border.width.s} ${border.style.solid}
-    ${props => (props.transparent ? transparentColor : offWhite)};
-  margin-bottom: ${dimensions.xl};
+    ${props =>
+      props.transparent
+        ? transparentColor
+        : props.theme.styles.colors.backgroundSecondary};
+
   box-shadow: ${dimensions.zero} ${dimensions.unit} ${dimensions.xs}
     ${dimensions.zero}
-    ${props => (props.transparent ? transparentColor : borderGrey)};
+    ${props =>
+      props.transparent
+        ? transparentColor
+        : props.theme.styles.colors.backgroundPrimary};
 
   border-radius: ${dimensions.xs};
+  margin-bottom: ${dimensions.xl};
 
   &:last-of-type {
     margin-bottom: ${dimensions.zero};
@@ -32,16 +46,21 @@ const Container: StyledComponent<PartialProps, PartialProps, {}> = styled.div`
 `;
 
 const Title: StyledComponent<PartialProps, PartialProps, {}> = styled.header`
+  color: ${teal};
+  border-bottom: ${border.width.s} ${border.style.solid}
+    ${props => props.theme.styles.colors.textSecondary};
+
+  font-size: ${sizes.xl};
+  font-family: ${fonts.secondary};
+
   margin-top: ${dimensions.s};
   margin-bottom: ${dimensions.s};
-  font-size: ${sizes.xl};
-  color: ${teal};
-  font-family: ${fonts.secondary};
+
   padding: ${dimensions.m};
   padding-bottom: calc(${dimensions.m} + ${dimensions.xs});
-  border-bottom: ${border.width.s} ${border.style.solid} ${lightGrey};
+
   text-transform: ${text.uppercase};
-  letter-spacing: 1px;
+  letter-spacing: ${dimensions.unit};
 
   ${layout.belowM(`
     text-align: ${alignment.center};
@@ -50,6 +69,7 @@ const Title: StyledComponent<PartialProps, PartialProps, {}> = styled.header`
 
 const Content: StyledComponent<PartialProps, PartialProps, {}> = styled.div`
   padding: ${props => (props.padding ? dimensions.m : dimensions.zero)};
+  color: inherit;
 `;
 
 const Card: FunctionComponent<Props> = ({
@@ -59,9 +79,19 @@ const Card: FunctionComponent<Props> = ({
   children,
   ...props
 }) => {
+  const theme = useContext(ThemeContext);
   return (
-    <Container className="Card" transparent={transparent} {...props}>
-      {title && <Title className="Card-Title">{title}</Title>}
+    <Container
+      {...props}
+      theme={theme}
+      className="Card"
+      transparent={transparent}
+    >
+      {title && (
+        <Title theme={theme} className="Card-Title">
+          {title}
+        </Title>
+      )}
       <Content className="Card-Content" padding={padding}>
         {children}
       </Content>

@@ -3,9 +3,9 @@ const { spawn } = require("child_process");
 const storybook = spawn("yarn", [
   "start-storybook",
   "-p",
-  "6006",
+  "7000",
   "-c",
-  ".storybook"
+  ".storybook",
 ]);
 
 storybook.stdout.pipe(process.stdout);

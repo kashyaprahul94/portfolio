@@ -112,7 +112,7 @@ const VerticalTimelineItemBodySection1: StyledComponent<
     display: ${display.block};
     position: ${position.absolute};
     left: calc(-${dimensions.xxxl} + 1.25px);
-    top: ${dimensions.xs};
+    top: ${dimensions.s};
     width: ${dimensions.xl};
     height: ${dimensions.xl};
     content: "";

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import { Card } from "@components/card";
-import { Star, Trophy, GraduationCap } from "@components/icons";
+import { Star, Trophy, GraduationCap } from "@components/icon";
 
 import { darkGrey, primary } from "@style/color";
 import { fonts, sizes, weights, text } from "@style/typography";

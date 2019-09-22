@@ -25,13 +25,13 @@ WORKDIR /app
 
 # Set env variables
 ENV NODE_ENV "production"
-ENV PORT 4000
+ENV PORT 5091
 
 ENV API_BASE_URL "/api"
 
 
 # Expose the web server port
-EXPOSE 4000
+EXPOSE 5091
 
 
 # Copy project manifest files

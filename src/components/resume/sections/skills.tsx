@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import { Card } from "@components/card";
-import { Chip } from "@components/chips";
+import { AccentBadge } from "@components/badge";
 import { Donut } from "@components/charts/donut";
 
 import { sizes } from "@style/typography";
@@ -61,17 +61,17 @@ const Skills: FunctionComponent<PageProps> = ({
           <SubSection>
             <Title>Daily Driver</Title>
             {expertise.map(skill => (
-              <Chip key={skill} variant="primary">
+              <AccentBadge key={skill} variant="primary">
                 {skill}
-              </Chip>
+              </AccentBadge>
             ))}
           </SubSection>
           <SubSection>
             <Title>Others</Title>
             {others.map(skill => (
-              <Chip key={skill} variant="secondary">
+              <AccentBadge key={skill} variant="secondary">
                 {skill}
-              </Chip>
+              </AccentBadge>
             ))}
           </SubSection>
         </Section>
