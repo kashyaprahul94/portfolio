@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import { Card } from "@components/card";
+import { ResponsiveGrid } from "@components/grid";
 
 import {
   darkGrey,
@@ -18,29 +19,14 @@ import { dimensions } from "@style/dimension";
 import { IExperience } from "@data/types";
 
 const Container: StyledComponent<{}, {}, {}> = styled.div`
-  display: ${display.flex};
-  align-items: ${alignment.center};
-  justify-content: ${alignment.spaceEvenly};
-  flex-wrap: ${display.wrap};
-
   padding-top: ${dimensions.l};
   width: ${dimensions.full};
-
-  ${layout.belowM(`
-    flex-direction: ${display.column};
-  `)}
 `;
 
 const ItemContainer: StyledComponent<{}, {}, {}> = styled.div`
   margin-top: ${dimensions.xxl};
   margin-bottom: ${dimensions.xxl};
   padding: ${dimensions.m};
-
-  max-width: ${dimensions.half};
-
-  ${layout.belowM(`
-    max-width: ${dimensions.full};
-  `)}
 `;
 
 const Item: StyledComponent<{}, {}, {}> = styled.div`
@@ -125,27 +111,29 @@ const Experience: FunctionComponent<PageProps> = ({ experience }) => {
   return (
     <Card padding={true} transparent={true} title="Experience">
       <Container>
-        {experience.map((experienceItem: IExperience, index: number) => {
-          const place = `${experienceItem.city}, ${experienceItem.country}`;
-          const duration = `${experienceItem.from} - ${experienceItem.to ||
-            "Present"}`;
-          return (
-            <ItemContainer key={index}>
-              <Item>
-                <Logo color={colors[index]}>
-                  <img src={experienceItem.logo} />
-                </Logo>
-                <Content>
-                  <Company>{experienceItem.company}</Company>
-                  <Place>
-                    {place} <Duration>{duration}</Duration>
-                  </Place>
-                  <Description>{experienceItem.description}</Description>
-                </Content>
-              </Item>
-            </ItemContainer>
-          );
-        })}
+        <ResponsiveGrid columns={2}>
+          {experience.map((experienceItem: IExperience, index: number) => {
+            const place = `${experienceItem.city}, ${experienceItem.country}`;
+            const duration = `${experienceItem.from} - ${experienceItem.to ||
+              "Present"}`;
+            return (
+              <ItemContainer key={index}>
+                <Item>
+                  <Logo color={colors[index]}>
+                    <img src={experienceItem.logo} />
+                  </Logo>
+                  <Content>
+                    <Company>{experienceItem.company}</Company>
+                    <Place>
+                      {place} <Duration>{duration}</Duration>
+                    </Place>
+                    <Description>{experienceItem.description}</Description>
+                  </Content>
+                </Item>
+              </ItemContainer>
+            );
+          })}
+        </ResponsiveGrid>
       </Container>
     </Card>
   );

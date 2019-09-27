@@ -14,17 +14,19 @@ const expertSkills: IExpertSkill[] = [
 ];
 
 const otherSkills: IOtherSkill[] = [
-  "OAuth 2",
   "Swift",
   "React",
   "Angular",
   "Redis",
   "MongoDB",
-  "Apache Kafka",
+  "OAuth 2",
+  "Elasticsearch",
   "CI/CD",
   "CloudFoundry",
   "SAP Cloud Platform",
   "Google Cloud Platform",
+  "Distributed Systems",
+  "Internet of Things",
 ];
 
 const areaOfExpertise: IAreaOfExpertise[] = [
