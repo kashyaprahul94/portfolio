@@ -35,6 +35,7 @@ const display = {
   inlineBlock: "inline-block",
   block: "block",
   none: "none",
+  grid: "grid",
   column: "column",
   row: "row",
   wrap: "wrap",
