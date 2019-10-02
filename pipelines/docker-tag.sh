@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-set -e
-set -x
 
 TAG=$GITHUB_REF;
 
-BRANCH=$(echo "$BRANCH" | tr / _ | tr -d \[:space:\] | tr -cs \[:alnum:\] -);
-TAG=$(echo "${TAG/'refs_heads_'}");
+TAG=$(echo "$TAG" | tr / _ | tr -d \[:space:\] | tr -cs \[:alnum:\] -);
+TAG=$(echo "${TAG/'refs-heads-'}");
 
 if [ $TAG = "master" ]; then 
   TAG="stable"; 

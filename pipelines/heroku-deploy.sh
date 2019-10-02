@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-set -e
-set -x
 
 BRANCH=$GITHUB_REF;
 
 BRANCH=$(echo "$BRANCH" | tr / _ | tr -d \[:space:\] | tr -cs \[:alnum:\] -);
-BRANCH=$(echo "${BRANCH/'refs_heads_'}");
+BRANCH=$(echo "${BRANCH/'refs-heads-'}");
 
 if [ $BRANCH = "master" ]; then 
 

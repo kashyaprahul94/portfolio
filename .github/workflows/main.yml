@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    name: Build | Push to Docker Hub | Deploy To Heroku
+    name: Build | Tag Docker Image | Deploy To Heroku
     runs-on: ubuntu-16.04
 
     steps:
