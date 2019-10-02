@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+set -x
 
 TAG=$GITHUB_REF;
 
@@ -17,12 +19,12 @@ FULL_IMAGE_NAME=$REGISTRY/$DOCKER_USERNAME/$REPOSITORY_NAME/$DOCKER_IMAGE_NAME:$
 
 echo $GITHUB_CI_TOKEN | docker login $REGISTRY -u $DOCKER_USERNAME --password-stdin;
 
-sudo yarn;
+# sudo yarn;
 
-sudo yarn build;
+# sudo yarn build;
 
-docker build --tag $LOCAL_IMAGE_NAME .;
+# docker build --tag $LOCAL_IMAGE_NAME .;
 
-docker tag $LOCAL_IMAGE_NAME $FULL_IMAGE_NAME;
+# docker tag $LOCAL_IMAGE_NAME $FULL_IMAGE_NAME;
 
-docker push $FULL_IMAGE_NAME;
+# docker push $FULL_IMAGE_NAME;
