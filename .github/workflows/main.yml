@@ -22,6 +22,7 @@ jobs:
       - name: Build Docker Image
         run: bash ./pipelines/docker-tag.sh
         env:
+          REPOSITORY_NAME: portfolio
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_IMAGE_NAME }}
@@ -30,6 +31,7 @@ jobs:
       - name: Deploy to Heroku
         run: bash ./pipelines/heroku-deploy.sh
         env:
+          REPOSITORY_NAME: portfolio
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_IMAGE_NAME }}
