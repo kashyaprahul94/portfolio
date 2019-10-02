@@ -23,18 +23,17 @@ jobs:
         run: bash ./pipelines/docker-tag.sh
         env:
           REPOSITORY_NAME: portfolio
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_IMAGE_NAME }}
-          DOCKER_REGISTRY_GITHUB: ${{ secrets.DOCKER_REGISTRY_GITHUB }}
+          DOCKER_USERNAME: kashyaprahul94
+          DOCKER_IMAGE_NAME: portfolio
+          DOCKER_REGISTRY_GITHUB: docker.pkg.github.com
           GITHUB_CI_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
 
       - name: Deploy to Heroku
         run: bash ./pipelines/heroku-deploy.sh
         env:
           REPOSITORY_NAME: portfolio
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_IMAGE_NAME }}
-          DOCKER_REGISTRY_GITHUB: ${{ secrets.DOCKER_REGISTRY_GITHUB }}
+          DOCKER_USERNAME: kashyaprahul94
+          DOCKER_IMAGE_NAME: portfolio
+          DOCKER_REGISTRY_GITHUB: docker.pkg.github.com
           GITHUB_CI_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
