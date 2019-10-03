@@ -1,0 +1,4 @@
+{
+  "extends": "../core/tsconfig.base.jest.json",
+  "exclude": ["node_modules", "build", "out", ".next"]
+}

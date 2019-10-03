@@ -1,0 +1,20 @@
+name: Portfolio - Core
+
+on: [push]
+
+jobs:
+  build:
+    name: Build | Publish Core Docker Image to Registry
+    runs-on: ubuntu-16.04
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build & Tag Docker Image
+        run: bash ./pipelines/publish-image-core.sh
+        env:
+          REPOSITORY_NAME: portfolio
+          DOCKER_USERNAME: kashyaprahul94
+          DOCKER_IMAGE_NAME: core
+          DOCKER_REGISTRY_GITHUB: docker.pkg.github.com
+          GITHUB_CI_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}

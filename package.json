@@ -1,77 +1,32 @@
 {
-  "name": "@kashyaprahul94/portfolio",
-  "version": "1.0.0",
-  "description": "Portfolio website for Rahul Kashyap",
+  "name": "@kashyaprahul94/portfolio-root",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/kashyaprahul94/portfolio.git"
   },
   "author": "Rahul Kashyap <kashyaprahul94@gmail.com>",
-  "license": "MIT",
+  "private": true,
   "scripts": {
-    "dev": "nodemon -r dotenv/config --watch src --ext ts --exec ts-node src/server.ts",
-    "storybook": "node scripts/storybook",
-    "start": "node src/server",
-    "compile": "tsc",
-    "lint": "yarn tslint --project src",
-    "build": "node scripts/build",
-    "analyze-bundle": "ANALYZE=true node scripts/build",
-    "test:unit": "jest --coverage",
-    "docker:build": "scripts/docker-build.sh"
+    "lerna": "lerna",
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "release": "run-s build 'lerna publish --exact --force-publish'",
+    "release:next": "run-s build 'lerna publish --exact --dist-tag next --force-publish'"
   },
   "dependencies": {
-    "@emotion/core": "10.0.10",
-    "@emotion/styled": "10.0.11",
-    "@next/bundle-analyzer": "9.0.5",
-    "express": "4.17.0",
-    "next": "9.0.0",
-    "prop-types": "15.7.2",
-    "puppeteer": "1.19.0",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "react-typist": "2.0.5",
-    "regenerator-runtime": "0.13.3"
+    "lerna": "3.13.3"
   },
   "devDependencies": {
-    "@babel/core": "7.4.5",
-    "@babel/preset-react": "7.0.0",
-    "@babel/preset-typescript": "7.3.3",
-    "@emotion/babel-preset-css-prop": "10.0.9",
-    "@storybook/addon-actions": "5.2.1",
-    "@storybook/addon-knobs": "5.2.1",
-    "@storybook/addon-viewport": "5.2.1",
-    "@storybook/react": "5.2.1",
-    "@storybook/theming": "5.2.1",
-    "@types/express": "4.17.0",
-    "@types/jest": "24.0.17",
-    "@types/next": "8.0.6",
-    "@types/node": "12.7.1",
-    "@types/puppeteer": "1.19.1",
-    "@types/react": "16.8.25",
-    "@types/react-typist": "2.0.1",
-    "@types/storybook__react": "4.0.2",
-    "babel-core": "6.26.3",
-    "babel-jest": "24.8.0",
-    "babel-loader": "8.0.6",
-    "babel-plugin-emotion": "10.0.9",
-    "babel-plugin-module-resolver": "3.2.0",
-    "babel-preset-env": "1.7.0",
-    "dotenv": "8.0.0",
-    "file-loader": "3.0.1",
-    "jest": "24.8.0",
-    "jest-emotion": "10.0.14",
-    "nodemon": "1.19.1",
     "prettier": "1.17.1",
-    "shelljs": "0.8.3",
-    "storybook-dark-mode": "0.1.7",
-    "ts-jest": "24.0.2",
-    "ts-node": "8.3.0",
-    "tslint": "5.13.1",
-    "tslint-config-prettier": "1.18.0",
-    "typescript": "3.5.3",
-    "webpack": "4.32.2"
+    "tslint-config-prettier": "1.18.0"
+  },
+  "resolutions": {
+    "react": "16.8.6"
   },
   "prettier": {
     "trailingComma": "all"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

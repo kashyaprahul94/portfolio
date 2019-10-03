@@ -1,6 +1,10 @@
 # Portfolio
 
-Porfolio for Rahul Kashyap
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org)
+
+## Porfolio for Rahul Kashyap
+
+This repository is a Monorepo managed by Lerna.
 
 ## Checklist -
 
@@ -13,5 +17,10 @@ Porfolio for Rahul Kashyap
 * [x] Style guidelines
 * [x] GitHub Actions ?
 * [x] Add resume
-* Add enzyme unit testing
-* Use state management
+* [x] Use GitHub Registry
+* [x] Convert to monorepo
+* [x] Base Docker Image ?
+* [ ] Publish NPM packages
+* [ ] Add rennovate
+* [ ] Add enzyme unit testing
+* [ ] Use state management

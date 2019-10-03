@@ -1,5 +1,5 @@
 import React from "react";
-import NextApp, { Container } from "next/app";
+import NextApp from "next/app";
 import Head from "next/head";
 import { Global } from "@emotion/core";
 
@@ -78,7 +78,7 @@ export default class App extends NextApp<AppProps, {}> {
     };
 
     return (
-      <Container>
+      <>
         <Head>
           <title>{title}</title>
         </Head>
@@ -96,7 +96,7 @@ export default class App extends NextApp<AppProps, {}> {
             </Document>
           </ThemeContext.Provider>
         )}
-      </Container>
+      </>
     );
   }
 }

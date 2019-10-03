@@ -12,14 +12,11 @@ fi;
 echo "Will be using TAG ---------> $TAG";
 
 REGISTRY=$DOCKER_REGISTRY_GITHUB;
-LOCAL_IMAGE_NAME=$DOCKER_USERNAME/$DOCKER_IMAGE_NAME;
 FULL_IMAGE_NAME=$REGISTRY/$DOCKER_USERNAME/$REPOSITORY_NAME/$DOCKER_IMAGE_NAME:$TAG;
 
 echo $GITHUB_CI_TOKEN | docker login $REGISTRY -u $DOCKER_USERNAME --password-stdin;
 
-sudo yarn;
-
-sudo yarn build;
+cd packages/core;
 
 docker build --tag $FULL_IMAGE_NAME .;
 
