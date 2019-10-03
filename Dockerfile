@@ -1,18 +1,20 @@
 # Using slim image, less size
 FROM node:10-slim
 
+
 # Install all related dependencies for Chromium & Puppeteer
-RUN  apt-get update \
-  # Install latest chrome dev package, which installs the necessary libs to
-  # make the bundled version of Chromium that Puppeteer installs work.
-  && apt-get install -y wget --no-install-recommends \
+RUN apt update && apt install -qy --no-install-recommends wget \
   && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-  && apt-get update \
-  && apt-get install -y google-chrome-unstable --no-install-recommends \
+  && apt update \
+  && apt install -qy --no-install-recommends google-chrome-unstable \
   && rm -rf /var/lib/apt/lists/* \
-  && wget --quiet https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -O /usr/sbin/wait-for-it.sh \
-  && chmod +x /usr/sbin/wait-for-it.sh
+  && apt-get purge --auto-remove -y curl \
+  && rm -rf /src/*.deb
+
+# Use dumb-init
+ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
+RUN chmod +x /usr/local/bin/dumb-init
 
 
 # Add metadata
@@ -40,6 +42,10 @@ COPY build .
 
 # Install all dependencies ( production only )
 RUN yarn install --production
+
+
+# Entrypoint
+ENTRYPOINT ["dumb-init", "--"]
 
 
 # Run 'npm start' to start the application

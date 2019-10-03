@@ -1,37 +1,30 @@
 #!/usr/bin/env bash
 
-TAG=$GITHUB_REF;
+BRANCH=$GITHUB_REF;
 
-TAG=$(echo "$TAG" | tr / _)
-TAG=$(echo "${TAG/'refs_heads_'}")
+BRANCH=$(echo "$BRANCH" | tr / _ | tr -d \[:space:\] | tr -cs \[:alnum:\] -);
+BRANCH=$(echo "${BRANCH/'refs-heads-'}");
 
-if [ $TAG = "master" ]; then 
-  TAG="latest"; 
-fi;
+if [ $BRANCH = "master" ]; then 
 
-echo "Will be using TAG ---------> $TAG";
+  TAG=stable
+  IMAGE_NAME=$DOCKER_USERNAME/$REPOSITORY_NAME/$DOCKER_IMAGE_NAME;
+  DOCKER_IMAGE=$DOCKER_REGISTRY_GITHUB/$IMAGE_NAME:$TAG;
 
+  HEROKU_APP_NAME=kashyaprahul94-portfolio;
+  HEROKU_APP_TYPE=web;
 
-IMAGE_NAME="kashyaprahul94/portfolio"
+  echo $GITHUB_CI_TOKEN | docker login $REGISTRY -u $DOCKER_USERNAME --password-stdin;
 
-HEROKU_REGISTRY="registry.heroku.com"
-HEROKU_APP_NAME="kashyaprahul94-portfolio"
-HEROKU_APP_TYPE="web"
+  docker pull $DOCKER_IMAGE;
 
-echo $HEROKU_API_KEY | docker login --username=_ --password-stdin $HEROKU_REGISTRY
-
-docker build --tag $IMAGE_NAME .
-docker tag $IMAGE_NAME "$HEROKU_REGISTRY/$HEROKU_APP_NAME/$HEROKU_APP_TYPE:$TAG"
-
-docker push "$HEROKU_REGISTRY/$HEROKU_APP_NAME/$HEROKU_APP_TYPE:$TAG"
-
-if [ $TAG = "latest" ]; then 
-  HEROKU_DOCKER_IMAGE_ID=$(docker inspect $HEROKU_REGISTRY/$HEROKU_APP_NAME/$HEROKU_APP_TYPE --format={{.Id}})
-  HEROKU_PAYLOAD='{"updates":[{"type":"'"$HEROKU_APP_TYPE"'","docker_image":"'"$HEROKU_DOCKER_IMAGE_ID"'"}]}'
+  DOCKER_IMAGE_ID=$(docker inspect $DOCKER_IMAGE --format={{.Id}});
+  PAYLOAD='{"updates":[{"type":"'"$HEROKU_APP_TYPE"'","docker_image":"'"$DOCKER_IMAGE_ID"'"}]}';
 
   curl -n -X PATCH https://api.heroku.com/apps/$HEROKU_APP_NAME/formation \
-  -d "$HEROKU_PAYLOAD" \
+  -d "$PAYLOAD" \
   -H "Content-Type: application/json" \
   -H "Accept: application/vnd.heroku+json; version=3.docker-releases" \
-  -H "Authorization: Bearer $HEROKU_API_KEY"
+  -H "Authorization: Bearer $HEROKU_API_KEY";
+
 fi;

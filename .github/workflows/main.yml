@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    name: Build | Push to Docker Hub | Deploy To Heroku
+    name: Build | Tag Docker Image | Deploy To Heroku
     runs-on: ubuntu-16.04
 
     steps:
@@ -20,15 +20,20 @@ jobs:
         run: sudo yarn
 
       - name: Build Docker Image
-        run: bash ./pipelines/docker-build.sh
-
-      - name: Push to Docker Hub
-        run: bash ./pipelines/docker-deploy.sh
+        run: bash ./pipelines/docker-tag.sh
         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          REPOSITORY_NAME: portfolio
+          DOCKER_USERNAME: kashyaprahul94
+          DOCKER_IMAGE_NAME: portfolio
+          DOCKER_REGISTRY_GITHUB: docker.pkg.github.com
+          GITHUB_CI_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
 
       - name: Deploy to Heroku
         run: bash ./pipelines/heroku-deploy.sh
         env:
+          REPOSITORY_NAME: portfolio
+          DOCKER_USERNAME: kashyaprahul94
+          DOCKER_IMAGE_NAME: portfolio
+          DOCKER_REGISTRY_GITHUB: docker.pkg.github.com
+          GITHUB_CI_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}

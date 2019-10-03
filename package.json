@@ -1,8 +1,11 @@
 {
-  "name": "portfolio",
+  "name": "@kashyaprahul94/portfolio",
   "version": "1.0.0",
   "description": "Portfolio website for Rahul Kashyap",
-  "repository": "https://bitbucket.org/kashyaprahul94/portfolio",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/kashyaprahul94/portfolio.git"
+  },
   "author": "Rahul Kashyap <kashyaprahul94@gmail.com>",
   "license": "MIT",
   "scripts": {

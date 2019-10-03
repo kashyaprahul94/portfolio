@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# build image
-yarn docker:build
-
 TAG=stable
 IMAGE_NAME=kashyaprahul94/portfolio
 
