@@ -18,9 +18,9 @@ echo $GITHUB_CI_TOKEN | docker login $REGISTRY -u $DOCKER_USERNAME --password-st
 
 cd packages/app;
 
-yarn;
+sudo yarn;
 
-yarn build;
+sudo yarn build;
 
 docker build --tag $FULL_IMAGE_NAME .;
 

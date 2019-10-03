@@ -1,7 +1,6 @@
 # Portfolio
 
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org) [![](https://github.com/kashyaprahul94/portfolio/workflows/Portfolio%20-%20Core/badge.svg)](https://github.com/kashyaprahul94/portfolio) [![](https://github.com/kashyaprahul94/portfolio/workflows/Portfolio%20-%App/badge.svg)](https://github.com/kashyaprahul94/portfolio)
-
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org)
 
 ## Porfolio for Rahul Kashyap
 
