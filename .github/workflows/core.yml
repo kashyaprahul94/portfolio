@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Build & Tag Docker Image
-        run: bash ./packages/core/pipelines/docker-tag.sh
+        run: bash ./pipelines/publish-image-core.sh
         env:
           REPOSITORY_NAME: portfolio
           DOCKER_USERNAME: kashyaprahul94

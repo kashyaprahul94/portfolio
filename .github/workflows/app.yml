@@ -20,7 +20,7 @@ jobs:
         run: sudo yarn
 
       - name: Build & Tag Docker Image
-        run: bash ./packages/app/pipelines/docker-tag.sh
+        run: bash ./pipelines/publish-image-app.sh
         env:
           REPOSITORY_NAME: portfolio
           DOCKER_USERNAME: kashyaprahul94
