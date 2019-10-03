@@ -17,9 +17,7 @@
     "build": "node scripts/build",
     "analyze-bundle": "ANALYZE=true node scripts/build",
     "test:unit": "jest --coverage",
-    "docker:build": "scripts/docker-build.sh",
-    "docker:deploy": "scripts/docker-deploy.sh",
-    "heroku:deploy": "scripts/heroku-deploy.sh"
+    "docker:build": "scripts/docker-build.sh"
   },
   "dependencies": {
     "@emotion/core": "10.0.10",
