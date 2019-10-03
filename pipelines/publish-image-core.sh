@@ -16,6 +16,6 @@ FULL_IMAGE_NAME=$REGISTRY/$DOCKER_USERNAME/$REPOSITORY_NAME/$DOCKER_IMAGE_NAME:$
 
 echo $GITHUB_CI_TOKEN | docker login $REGISTRY -u $DOCKER_USERNAME --password-stdin;
 
-docker build --tag $FULL_IMAGE_NAME .;
+docker build --tag $FULL_IMAGE_NAME ./packages/core;
 
 docker push $FULL_IMAGE_NAME;

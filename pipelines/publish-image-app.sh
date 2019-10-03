@@ -20,6 +20,6 @@ sudo yarn;
 
 sudo yarn build;
 
-docker build --tag $FULL_IMAGE_NAME .;
+docker build --tag $FULL_IMAGE_NAME ./packages/app;
 
 docker push $FULL_IMAGE_NAME;
