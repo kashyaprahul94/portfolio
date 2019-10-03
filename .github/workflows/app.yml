@@ -24,6 +24,6 @@ jobs:
         env:
           REPOSITORY_NAME: portfolio
           DOCKER_USERNAME: kashyaprahul94
-          DOCKER_IMAGE_NAME: portfolio
+          DOCKER_IMAGE_NAME: app
           DOCKER_REGISTRY_GITHUB: docker.pkg.github.com
           GITHUB_CI_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}

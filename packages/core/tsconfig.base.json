@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "esnext"],
+    "sourceMap": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "resolveJsonModule": true,
+    "noImplicitUseStrict": true,
+    "experimentalDecorators": true,
+    "typeRoots": ["node_modules/@types"]
+  }
+}

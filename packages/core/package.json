@@ -1,0 +1,12 @@
+{
+  "name": "@kashyaprahul94/portfolio-core",
+  "version": "1.0.0",
+  "description": "Portfolio - Core package",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/kashyaprahul94/portfolio.git"
+  },
+  "author": "Rahul Kashyap <kashyaprahul94@gmail.com>",
+  "private": true,
+  "scripts": {}
+}

@@ -1,14 +1,7 @@
 {
+  "extends": "../core/tsconfig.base.json",
   "compilerOptions": {
-    "lib": ["dom", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "target": "esnext",
-    "resolveJsonModule": true,
+    "noImplicitUseStrict": false,
     "baseUrl": "./",
     "paths": {
       "@components/*": ["./src/components/*"],
@@ -21,8 +14,7 @@
       "@types/*": ["./src/types/*"],
       "@util/*": ["./src/util/*"]
     },
-    "outDir": "./build/src",
-    "typeRoots": ["./node_modules/@types"]
+    "outDir": "./build/src"
   },
   "exclude": ["node_modules", "build"],
   "include": ["src/*.ts"]
