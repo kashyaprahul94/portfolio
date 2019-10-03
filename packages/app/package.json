@@ -20,11 +20,11 @@
     "docker:build": "scripts/docker-build"
   },
   "dependencies": {
-    "@emotion/core": "10.0.10",
-    "@emotion/styled": "10.0.11",
+    "@emotion/core": "10.0.20",
+    "@emotion/styled": "10.0.17",
     "@next/bundle-analyzer": "9.0.5",
     "express": "4.17.0",
-    "next": "9.0.7",
+    "next": "9.0.0",
     "prop-types": "15.7.2",
     "puppeteer": "1.19.0",
     "react": "16.8.6",
@@ -63,7 +63,7 @@
     "nodemon": "1.19.1",
     "prettier": "1.17.1",
     "shelljs": "0.8.3",
-    "storybook-dark-mode": "0.1.7",
+    "storybook-dark-mode": "0.1.4",
     "ts-jest": "24.0.2",
     "ts-node": "8.3.0",
     "tslint": "5.13.1",

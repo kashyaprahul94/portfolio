@@ -20,6 +20,9 @@
     "prettier": "1.17.1",
     "tslint-config-prettier": "1.18.0"
   },
+  "resolutions": {
+    "react": "16.8.6"
+  },
   "prettier": {
     "trailingComma": "all"
   },
