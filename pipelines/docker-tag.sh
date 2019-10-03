@@ -21,8 +21,6 @@ sudo yarn;
 
 sudo yarn build;
 
-docker build --tag $LOCAL_IMAGE_NAME .;
-
-docker tag $LOCAL_IMAGE_NAME $FULL_IMAGE_NAME;
+docker build --tag $FULL_IMAGE_NAME .;
 
 docker push $FULL_IMAGE_NAME;
