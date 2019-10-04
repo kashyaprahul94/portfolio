@@ -27,9 +27,6 @@
     "trailingComma": "all"
   },
   "workspaces": [
-    "packages/*"
-  ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  }
+    "packages/style"
+  ]
 }
