@@ -11,4 +11,4 @@ exec("yarn install");
 
 exec("yarn build");
 
-exec("docker build --tag kashyaprahul94/portfolio/app .");
+exec("docker build --tag kashyaprahul94/portfolio-app .");
