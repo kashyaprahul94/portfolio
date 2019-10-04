@@ -12,6 +12,7 @@ export interface IPersonalInfo {
   linkedIn: string;
   gitHub: string;
   website?: string;
+  skype: string;
 }
 
 export interface IEducation {

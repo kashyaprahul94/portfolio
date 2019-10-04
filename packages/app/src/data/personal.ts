@@ -13,6 +13,7 @@ const common: IPersonalInfo = {
 
   linkedIn: "linkedin.com/in/rahul-kashyap",
   gitHub: "github.com/kashyaprahul94",
+  skype: "live:kashyaprahul94_1",
 };
 
 const indiaBangaloreInfo: IPersonalInfo = {

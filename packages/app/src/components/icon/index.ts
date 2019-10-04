@@ -7,3 +7,4 @@ export * from "./trophy";
 export * from "./badge";
 export * from "./star";
 export * from "./graduation-cap";
+export * from "./skype";
