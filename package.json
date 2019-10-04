@@ -27,6 +27,6 @@
     "trailingComma": "all"
   },
   "workspaces": [
-    "packages/style"
+    "packages/*"
   ]
 }

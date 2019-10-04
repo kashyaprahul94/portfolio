@@ -7,7 +7,7 @@
     "url": "ssh://git@github.com/kashyaprahul94/portfolio.git"
   },
   "author": "Rahul Kashyap <kashyaprahul94@gmail.com>",
-  "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "compile": "tsc",
     "build": "node scripts/build"
