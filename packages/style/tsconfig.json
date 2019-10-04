@@ -1,0 +1,12 @@
+{
+  "extends": "../core/tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "allowJs": false,
+    "baseUrl": "./",
+    "jsx": "preserve",
+    "outDir": "./build"
+  },
+  "exclude": ["node_modules", "build"],
+  "include": ["src/**/*.tsx"]
+}
