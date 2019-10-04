@@ -10,8 +10,8 @@
     "lerna": "lerna",
     "build": "lerna run build",
     "test": "lerna run test",
-    "release": "lerna publish --exact --force-publish --registry 'npm.pkg.github.com' --contents build",
-    "release:next": "lerna publish --exact --dist-tag next --force-publish --registry 'npm.pkg.github.com' --contents build"
+    "release": "lerna publish --exact --force-publish --registry 'https://npm.pkg.github.com' --contents build",
+    "release:next": "lerna publish --exact --dist-tag next --force-publish --registry 'https://npm.pkg.github.com' --contents build"
   },
   "dependencies": {
     "lerna": "3.13.3"
