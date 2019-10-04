@@ -20,6 +20,8 @@ This repository is a Monorepo managed by Lerna.
 * [x] Use GitHub Registry
 * [x] Convert to monorepo
 * [x] Base Docker Image ?
+* [ ] Add @kashyaprahul/portfolio-styles
+* [ ] Add @kashyaprahul/portfolio-storybook
 * [ ] Publish NPM packages
 * [ ] Add rennovate
 * [ ] Add enzyme unit testing

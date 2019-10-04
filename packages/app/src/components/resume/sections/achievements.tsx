@@ -53,7 +53,7 @@ const Achievements: FunctionComponent<PageProps> = ({ achievements }) => {
 };
 
 export interface PageProps {
-  achievements: IAchievement[];
+  achievements: ReadonlyArray<IAchievement>;
 }
 
 export default Achievements;

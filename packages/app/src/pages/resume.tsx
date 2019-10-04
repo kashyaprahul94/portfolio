@@ -88,15 +88,15 @@ export interface PageProps extends IPageProps {
   printMode?: boolean;
 
   data: {
-    personal: IPersonalInfo;
-    education: IEducation[];
-    experience: IExperience[];
+    personal: Readonly<IPersonalInfo>;
+    education: ReadonlyArray<IEducation>;
+    experience: ReadonlyArray<IExperience>;
     skills: {
-      areaOfExpertise: IAreaOfExpertise[];
-      expertise: IExpertSkill[];
-      others: IOtherSkill[];
+      areaOfExpertise: ReadonlyArray<IAreaOfExpertise>;
+      expertise: ReadonlyArray<IExpertSkill>;
+      others: ReadonlyArray<IOtherSkill>;
     };
-    achievements: IAchievement[];
+    achievements: ReadonlyArray<IAchievement>;
   };
 }
 

@@ -2,9 +2,16 @@ import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import { Card } from "@components/card";
-import { Location, Mobile, Email, LinkedIn, GitHub } from "@components/icon";
+import {
+  Location,
+  Mobile,
+  Email,
+  LinkedIn,
+  GitHub,
+  Skype,
+} from "@components/icon";
 
-import { secondary, darkGrey, primary } from "@style/color";
+import { darkGrey, primary } from "@style/color";
 import { fonts, sizes } from "@style/typography";
 import { layout, alignment, display } from "@style/layout";
 import { dimensions, fromUnit } from "@style/dimension";
@@ -75,7 +82,7 @@ const InfoRow: StyledComponent<{}, {}, {}> = styled.div`
   align-items: ${alignment.center};
 
   ${layout.belowM(`
-  flex-direction: ${display.column};
+    flex-direction: ${display.column};
     text-align: ${alignment.center};
   `)}
 `;
@@ -109,6 +116,7 @@ const Personal: FunctionComponent<PageProps> = ({ info }) => {
             <InfoColumn>
               <InfoItem title={info.gitHub} Icon={GitHub} link={true} />
               <InfoItem title={info.linkedIn} Icon={LinkedIn} link={true} />
+              <InfoItem title={info.skype} Icon={Skype} link={false} />
             </InfoColumn>
           </InfoRow>
         </Column>

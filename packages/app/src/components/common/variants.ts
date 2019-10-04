@@ -1,6 +1,6 @@
 export type ColorVariantsType = "primary" | "secondary" | "danger";
 
-export const ColorVariants: ColorVariantsType[] = [
+export const ColorVariants: ReadonlyArray<ColorVariantsType> = [
   "primary",
   "secondary",
   "danger",

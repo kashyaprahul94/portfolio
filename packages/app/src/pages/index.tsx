@@ -67,7 +67,7 @@ class Home extends Component<PageProps> {
 }
 
 interface PageProps extends IPageProps {
-  titles: string[];
+  titles: ReadonlyArray<string>;
   name: string;
 }
 

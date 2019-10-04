@@ -89,9 +89,9 @@ interface TitleProps {
 }
 
 export interface PageProps {
-  areaOfExpertise: IAreaOfExpertise[];
-  expertise: IExpertSkill[];
-  others: IOtherSkill[];
+  areaOfExpertise: ReadonlyArray<IAreaOfExpertise>;
+  expertise: ReadonlyArray<IExpertSkill>;
+  others: ReadonlyArray<IOtherSkill>;
 }
 
 export default Skills;

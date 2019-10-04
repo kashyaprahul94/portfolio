@@ -2,7 +2,7 @@ import { primary, secondary, danger } from "@style/color";
 
 import { IAreaOfExpertise, IExpertSkill, IOtherSkill } from "./types";
 
-const expertSkills: IExpertSkill[] = [
+const expertSkills: ReadonlyArray<IExpertSkill> = [
   "Node.JS",
   "TypeScript/JavaScript (ESNext)",
   "GraphQL",
@@ -13,7 +13,7 @@ const expertSkills: IExpertSkill[] = [
   "Cloud Architecture",
 ];
 
-const otherSkills: IOtherSkill[] = [
+const otherSkills: ReadonlyArray<IOtherSkill> = [
   "Swift",
   "React",
   "Angular",
@@ -29,7 +29,7 @@ const otherSkills: IOtherSkill[] = [
   "Internet of Things",
 ];
 
-const areaOfExpertise: IAreaOfExpertise[] = [
+const areaOfExpertise: ReadonlyArray<IAreaOfExpertise> = [
   {
     title: "Cloud Native Engineering",
     value: 60,
