@@ -22,7 +22,3 @@ sudo yarn;
 sudo yarn build;
 
 docker build --tag $LOCAL_IMAGE_NAME .;
-
-docker save $LOCAL_IMAGE_NAME | gzip > $ARTIFACT_FILE_NAME;
-
-echo "Docker Image saved to $ARTIFACT_FILE_NAME file.";
