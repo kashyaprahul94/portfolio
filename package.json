@@ -6,7 +6,6 @@
   },
   "author": "Rahul Kashyap <kashyaprahul94@gmail.com>",
   "private": true,
-  "license": "MIT",
   "scripts": {
     "lerna": "lerna",
     "build": "lerna run build",
