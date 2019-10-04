@@ -11,10 +11,9 @@ fi;
 
 echo "Will be using TAG ---------> $TAG";
 
-REGISTRY=$DOCKER_REGISTRY_GITHUB;
-FULL_IMAGE_NAME=$REGISTRY/$DOCKER_USERNAME/$REPOSITORY_NAME/$DOCKER_IMAGE_NAME:$TAG;
+LOCAL_IMAGE_NAME=$DOCKER_USERNAME/$REPOSITORY_NAME-$DOCKER_IMAGE_NAME:$TAG;
 
-echo $GITHUB_CI_TOKEN | docker login $REGISTRY -u $DOCKER_USERNAME --password-stdin;
+echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_REGISTRY;
 
 cd packages/app;
 
@@ -22,6 +21,4 @@ sudo yarn;
 
 sudo yarn build;
 
-docker build --tag $FULL_IMAGE_NAME .;
-
-docker push $FULL_IMAGE_NAME;
+docker build --tag $LOCAL_IMAGE_NAME .;

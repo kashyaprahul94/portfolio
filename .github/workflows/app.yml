@@ -20,10 +20,30 @@ jobs:
         run: sudo yarn
 
       - name: Build & Tag Docker Image
-        run: bash ./pipelines/publish-image-app.sh
+        run: bash ./pipelines/app-tag-docker-image.sh
         env:
-          REPOSITORY_NAME: portfolio
           DOCKER_USERNAME: kashyaprahul94
+          REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: app
-          DOCKER_REGISTRY_GITHUB: docker.pkg.github.com
-          GITHUB_CI_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_REGISTRY: docker.pkg.github.com
+          ARTIFACT_FILE_NAME: portfolio-app.tar
+
+      - name: Publish Image to Docker Hub
+        run: bash ./pipelines/app-publish-docker-hub.sh
+        env:
+          DOCKER_USERNAME: kashyaprahul94
+          REPOSITORY_NAME: portfolio
+          DOCKER_IMAGE_NAME: app
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_CI_TOKEN }}
+          ARTIFACT_FILE_NAME: portfolio-app.tar
+
+      - name: Publish Image to GitHub Registry
+        run: bash ./pipelines/app-publish-github.sh
+        env:
+          DOCKER_USERNAME: kashyaprahul94
+          REPOSITORY_NAME: portfolio
+          DOCKER_IMAGE_NAME: app
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_REGISTRY: docker.pkg.github.com
+          ARTIFACT_FILE_NAME: portfolio-app.tar
