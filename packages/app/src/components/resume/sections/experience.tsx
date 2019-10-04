@@ -140,7 +140,7 @@ const Experience: FunctionComponent<PageProps> = ({ experience }) => {
 };
 
 export interface PageProps {
-  experience: IExperience[];
+  experience: ReadonlyArray<IExperience>;
 }
 
 export default Experience;

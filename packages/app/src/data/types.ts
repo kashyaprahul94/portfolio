@@ -23,18 +23,18 @@ export interface IEducation {
   from: number;
   to?: number;
   score: string;
-  achievements: string[];
+  achievements: ReadonlyArray<string>;
 }
 
 export interface IProject {
   title: string;
-  description: string[];
+  description: ReadonlyArray<string>;
   link?: string;
 }
 
 export interface IExperienceRole {
   title: string;
-  projects: IProject[];
+  projects: ReadonlyArray<IProject>;
 }
 
 export interface IExperience {
@@ -45,7 +45,7 @@ export interface IExperience {
   country: string;
   logo: string;
   description?: string;
-  roles: IExperienceRole[];
+  roles: ReadonlyArray<IExperienceRole>;
 }
 
 export type IExpertSkill = string;

@@ -15,7 +15,7 @@ export interface Props extends IBaseProps {
   size: number;
   stroke: number;
   legend?: boolean;
-  items: Item[];
+  items: ReadonlyArray<Item>;
 }
 
 export interface SegmentProps extends IBaseProps {

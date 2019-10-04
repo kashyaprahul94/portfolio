@@ -2,7 +2,7 @@ const throttle = (func: () => void, limit: number) => {
   let lastFunc: NodeJS.Timeout;
   let lastRan: number;
 
-  return (...args: any[]) => {
+  return (...args: ReadonlyArray<any>) => {
     if (!lastRan) {
       func.apply(this, args);
       lastRan = Date.now();

@@ -92,7 +92,7 @@ const Spacer: FunctionComponent<any> = ({}) => {
   return <GraduationCap size={fromUnit(sizes.hero)} color={darkGrey} />;
 };
 
-const addSpacers = (education: IEducation[]) => {
+const addSpacers = (education: ReadonlyArray<IEducation>) => {
   const input = [...education];
 
   const spacer: IEducation = {
@@ -163,7 +163,7 @@ const Education: FunctionComponent<PageProps> = ({ education }) => {
 };
 
 export interface PageProps {
-  education: IEducation[];
+  education: ReadonlyArray<IEducation>;
 }
 
 export default Education;

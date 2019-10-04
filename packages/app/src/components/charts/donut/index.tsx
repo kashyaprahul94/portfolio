@@ -122,7 +122,7 @@ const Donut: FunctionComponent<Props> = ({ size, stroke, items, legend }) => {
   const [firstItem, ...restItems] = items;
 
   const donutItems = restItems.reduce(
-    (acc: DonutItem[], item: DonutItem, index: number) => {
+    (acc: ReadonlyArray<DonutItem>, item: DonutItem, index: number) => {
       const { angle: lastAngle, value: lastValue } = acc[acc.length - 1];
 
       return [

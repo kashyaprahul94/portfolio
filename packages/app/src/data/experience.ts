@@ -127,7 +127,7 @@ const experienceWunderflats: IExperience = {
 //
 //
 
-const experienceInfo: IExperience[] = [
+const experienceInfo: ReadonlyArray<IExperience> = [
   experienceSAPLabsIndia,
   experienceWunderflats,
 ]
