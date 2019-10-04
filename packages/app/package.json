@@ -7,7 +7,7 @@
     "url": "ssh://git@github.com/kashyaprahul94/portfolio.git"
   },
   "author": "Rahul Kashyap <kashyaprahul94@gmail.com>",
-  "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "nodemon -r dotenv/config --watch src --ext ts --exec ts-node src/server.ts",
     "storybook": "node scripts/storybook",

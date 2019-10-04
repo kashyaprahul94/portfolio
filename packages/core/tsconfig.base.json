@@ -10,7 +10,6 @@
     "moduleResolution": "node",
     "target": "esnext",
     "resolveJsonModule": true,
-    "noImplicitUseStrict": true,
     "experimentalDecorators": true,
     "typeRoots": ["node_modules/@types"]
   }
