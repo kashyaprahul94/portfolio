@@ -23,11 +23,11 @@ docker tag $LOCAL_IMAGE_NAME $REMOTE_IMAGE_NAME;
 
 docker push $REMOTE_IMAGE_NAME;
 
-
 # Deploy to Heroku
 
 if [ $TAG = "stable" ]; then 
-
+  
+  HEROKU_API_KEY=$DOCKER_PASSWORD;
   DOCKER_IMAGE_ID=$(docker inspect $REMOTE_IMAGE_NAME --format={{.Id}});
   PAYLOAD='{"updates":[{"type":"'"$HEROKU_APP_TYPE"'","docker_image":"'"$DOCKER_IMAGE_ID"'"}]}';
 
