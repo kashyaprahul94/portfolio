@@ -25,6 +25,8 @@ jobs:
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: app
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_REGISTRY: docker.pkg.github.com
           ARTIFACT_FILE_NAME: portfolio-app.tar
 
       - name: Publish Image to Docker Hub

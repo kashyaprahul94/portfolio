@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    name: Build | Publish Core Docker Image to Registry
+    name: Build | Tag Docker Image | Push Docker Image to Registry
     runs-on: ubuntu-16.04
 
     steps:
