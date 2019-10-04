@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-GITHUB_REF=master
-
 BRANCH=$GITHUB_REF;
 
 BRANCH=$(echo "$BRANCH" | tr / _ | tr -d \[:space:\] | tr -cs \[:alnum:\] -);
