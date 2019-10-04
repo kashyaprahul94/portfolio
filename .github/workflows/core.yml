@@ -11,10 +11,10 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Build & Tag Docker Image
-        run: bash ./pipelines/publish-image-core.sh
+        run: bash ./pipelines/core-publish-image-github.sh
         env:
-          REPOSITORY_NAME: portfolio
           DOCKER_USERNAME: kashyaprahul94
+          REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: core
-          DOCKER_REGISTRY_GITHUB: docker.pkg.github.com
-          GITHUB_CI_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_REGISTRY: docker.pkg.github.com
