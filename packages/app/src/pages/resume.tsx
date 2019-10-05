@@ -8,6 +8,8 @@ import { Skills as SkillsSection } from "@components/resume/sections/skills";
 import { Achievements as AchievementsSection } from "@components/resume/sections/achievements";
 import { Projects as ProjectSection } from "@components/resume/sections/projects";
 
+import { AccentBadge } from "@kashyaprahul94/portfolio-style";
+
 import {
   personalInfo,
   IPersonalInfo,

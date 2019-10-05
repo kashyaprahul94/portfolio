@@ -10,10 +10,8 @@ set("-e");
 set("-v");
 
 exec("cd ../");
-exec("rm -rf build");
-
-exec("mkdir build");
-
-exec("cp -a package.json build");
-
-exec(`yarn compile ${argv.join(" ")}`);
+exec(
+  `prettier $(find . -name '*.tsx' -o  -name '*.ts' -not -path '*/node_modules/*' -not -path '*/build/*') ${argv.join(
+    " ",
+  )}`,
+);
