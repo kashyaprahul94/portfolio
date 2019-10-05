@@ -9,10 +9,10 @@
   "author": "Rahul Kashyap <kashyaprahul94@gmail.com>",
   "license": "UNLICENSED",
   "files": [
-    "build/*"
+    "lib/*"
   ],
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "compile": "tsc",
     "build": "node scripts/build",

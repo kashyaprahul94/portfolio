@@ -6,8 +6,8 @@
     "sourceMap": true,
     "jsx": "react",
     "target": "es5",
-    "outDir": "./build"
+    "outDir": "./lib"
   },
-  "exclude": ["node_modules", "build"],
+  "exclude": ["node_modules", "lib"],
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

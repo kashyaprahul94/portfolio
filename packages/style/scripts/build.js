@@ -10,10 +10,10 @@ set("-e");
 set("-v");
 
 exec("cd ../");
-exec("rm -rf build");
+exec("rm -rf lib");
 
-exec("mkdir build");
+exec("mkdir lib");
 
-exec("cp -a package.json build");
+exec("cp -a package.json lib");
 
 exec(`yarn compile ${argv.join(" ")}`);

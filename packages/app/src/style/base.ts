@@ -1,5 +1,8 @@
-import { fonts, sizes } from "./typography";
-import { primary as primaryColor } from "./color";
+import {
+  fonts,
+  sizes,
+} from "@kashyaprahul94/portfolio-style/lib/style/typography";
+import { primary as primaryColor } from "@kashyaprahul94/portfolio-style/lib/style/color";
 
 export const base = ({ colors }) => `
 

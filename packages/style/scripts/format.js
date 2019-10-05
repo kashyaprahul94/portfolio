@@ -11,7 +11,7 @@ set("-v");
 
 exec("cd ../");
 exec(
-  `prettier $(find . -name '*.tsx' -o  -name '*.ts' -not -path '*/node_modules/*' -not -path '*/build/*') ${argv.join(
+  `prettier $(find . -name '*.tsx' -o  -name '*.ts' -not -path '*/node_modules/*' -not -path '*/lib/*') ${argv.join(
     " ",
   )}`,
 );

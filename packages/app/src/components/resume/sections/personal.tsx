@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Card } from "@components/card";
+import { Card } from "@kashyaprahul94/portfolio-style/lib/components/card";
 import {
   Location,
   Mobile,
@@ -9,12 +9,25 @@ import {
   LinkedIn,
   GitHub,
   Skype,
-} from "@components/icon";
+} from "@kashyaprahul94/portfolio-style/lib/components/icon";
 
-import { darkGrey, primary } from "@style/color";
-import { fonts, sizes } from "@style/typography";
-import { layout, alignment, display } from "@style/layout";
-import { dimensions, fromUnit } from "@style/dimension";
+import {
+  darkGrey,
+  primary,
+} from "@kashyaprahul94/portfolio-style/lib/style/color";
+import {
+  fonts,
+  sizes,
+} from "@kashyaprahul94/portfolio-style/lib/style/typography";
+import {
+  layout,
+  alignment,
+  display,
+} from "@kashyaprahul94/portfolio-style/lib/style/layout";
+import {
+  dimensions,
+  fromUnit,
+} from "@kashyaprahul94/portfolio-style/lib/style/dimension";
 
 import { IPersonalInfo } from "@data/types";
 

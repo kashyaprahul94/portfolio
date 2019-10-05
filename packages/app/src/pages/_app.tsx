@@ -3,19 +3,22 @@ import NextApp from "next/app";
 import Head from "next/head";
 import { Global } from "@emotion/core";
 
+// Context
+import ThemeContext from "@kashyaprahul94/portfolio-style/lib/contexts/theme";
+
 import { IPageProps, IComponent } from "@types";
 
 // Styles
 import { reset as cssReset } from "@style/reset";
 import { fonts as cssFonts } from "@style/fonts";
 import { base as cssBase } from "@style/base";
-import { dark as themeDark, light as themeLight } from "@style/themes";
-
-// Context
-import ThemeContext from "@contexts/theme";
+import {
+  dark as themeDark,
+  light as themeLight,
+} from "@kashyaprahul94/portfolio-style/lib/style/themes";
 
 // Components
-import { Document } from "@components/document";
+import { Document } from "@kashyaprahul94/portfolio-style/lib/components/document";
 import { ScrollAwareHeader as Header } from "@components/header";
 import { Main } from "@components/main";
 

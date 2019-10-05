@@ -1,7 +1,10 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { headerHeight, dimensions } from "@style/dimension";
+import {
+  headerHeight,
+  dimensions,
+} from "@kashyaprahul94/portfolio-style/lib/style/dimension";
 
 import { Props } from "./types";
 

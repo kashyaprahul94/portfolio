@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Card } from "@components/card";
-import { ResponsiveGrid } from "@components/grid";
+import { Card } from "@kashyaprahul94/portfolio-style/lib/components/card";
+import { ResponsiveGrid } from "@kashyaprahul94/portfolio-style/lib/components/grid";
 
 import {
   darkGrey,
@@ -11,10 +11,22 @@ import {
   danger,
   white,
   lighterGrey,
-} from "@style/color";
-import { fonts, sizes, weights, text, lineHeight } from "@style/typography";
-import { position, display, alignment, border, layout } from "@style/layout";
-import { dimensions } from "@style/dimension";
+} from "@kashyaprahul94/portfolio-style/lib/style/color";
+import {
+  fonts,
+  sizes,
+  weights,
+  text,
+  lineHeight,
+} from "@kashyaprahul94/portfolio-style/lib/style/typography";
+import {
+  position,
+  display,
+  alignment,
+  border,
+  layout,
+} from "@kashyaprahul94/portfolio-style/lib/style/layout";
+import { dimensions } from "@kashyaprahul94/portfolio-style/lib/style/dimension";
 
 import { IExperience } from "@data/types";
 

@@ -1,10 +1,26 @@
 import { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { white, transparent, danger, lightGrey } from "@style/color";
-import { fonts, sizes, weights, lineHeight } from "@style/typography";
-import { position, display, alignment, border, layout } from "@style/layout";
-import { dimensions } from "@style/dimension";
+import {
+  white,
+  transparent,
+  danger,
+  lightGrey,
+} from "@kashyaprahul94/portfolio-style/lib/style/color";
+import {
+  fonts,
+  sizes,
+  weights,
+  lineHeight,
+} from "@kashyaprahul94/portfolio-style/lib/style/typography";
+import {
+  position,
+  display,
+  alignment,
+  border,
+  layout,
+} from "@kashyaprahul94/portfolio-style/lib/style/layout";
+import { dimensions } from "@kashyaprahul94/portfolio-style/lib/style/dimension";
 
 import { VerticalTimelineProps, VerticalTimelineItemProps } from "./types";
 
