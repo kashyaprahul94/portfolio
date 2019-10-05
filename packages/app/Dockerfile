@@ -25,8 +25,12 @@ EXPOSE 5091
 COPY build .
 
 
+# Temp
+RUN echo -e @kashyaprahul94:registry=https://$NPM_REGISTRY/\n//$NPM_REGISTRY/:_authToken=$NPM_TOKEN > ./.npmrc
+
+
 # Install all dependencies ( production only )
-RUN yarn install --production
+RUN yarn install --production && rm -f .npmrc
 
 
 # Entrypoint

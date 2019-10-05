@@ -16,8 +16,11 @@ jobs:
       - name: Install 'yarn'
         run: sudo npm install -g yarn
 
-      - name: Install dependencies
-        run: sudo yarn
+      # - name: Install dependencies
+      #   run: bash ./pipelines/app-install-dependencies.sh
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+      #     NPM_REGISTRY: npm.pkg.github.com
 
       - name: Build & Tag Docker Image
         run: bash ./pipelines/app-tag-docker-image.sh
@@ -27,6 +30,8 @@ jobs:
           DOCKER_IMAGE_NAME: app
           DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
           DOCKER_REGISTRY: docker.pkg.github.com
+          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+          NPM_REGISTRY: npm.pkg.github.com
 
       - name: Publish Image to Docker Hub
         run: bash ./pipelines/app-publish-docker-hub.sh

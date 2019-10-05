@@ -17,7 +17,7 @@ echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKE
 
 cd packages/app;
 
-echo -e "@kashyaprahul94:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=$DOCKER_PASSWORD" > ./.npmrc
+echo -e "@kashyaprahul94:registry=https://$NPM_REGISTRY/\n//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" > ./.npmrc;
 
 sudo yarn;
 
