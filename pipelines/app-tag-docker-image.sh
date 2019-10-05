@@ -17,10 +17,4 @@ echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKE
 
 cd packages/app;
 
-echo -e "@kashyaprahul94:registry=https://$NPM_REGISTRY/\n//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" > ./.npmrc;
-
-sudo yarn;
-
-sudo yarn build;
-
 docker build --tag $LOCAL_IMAGE_NAME .;
