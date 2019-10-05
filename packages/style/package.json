@@ -9,7 +9,7 @@
   "author": "Rahul Kashyap <kashyaprahul94@gmail.com>",
   "license": "UNLICENSED",
   "files": [
-    "lib/*"
+    "lib"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
