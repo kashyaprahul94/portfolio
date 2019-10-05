@@ -16,8 +16,8 @@
     "lint": "yarn tslint --project src",
     "build": "node scripts/build",
     "analyze-bundle": "ANALYZE=true node scripts/build",
-    "test:unit": "jest --coverage",
-    "docker:build": "scripts/docker-build"
+    "docker:build": "node scripts/docker-build",
+    "test:unit": "jest --coverage"
   },
   "dependencies": {
     "@emotion/core": "10.0.20",

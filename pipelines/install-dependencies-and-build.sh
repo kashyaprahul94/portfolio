@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-echo -e "@kashyaprahul94:registry=https://$NPM_REGISTRY/\n//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" > ./.npmrc;
+echo "@kashyaprahul94:registry=https://$NPM_REGISTRY/" >> ./.npmrc;
+echo "//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" >> ./.npmrc;
+
+cp .npmrc packages/app/.npmrc
+cp yarn.lock packages/app/yarn.lock
 
 sudo yarn;
 
