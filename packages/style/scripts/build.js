@@ -12,8 +12,4 @@ set("-v");
 exec("cd ../");
 exec("rm -rf lib");
 
-exec("mkdir lib");
-
-exec("cp -a package.json lib");
-
 exec(`yarn compile ${argv.join(" ")}`);

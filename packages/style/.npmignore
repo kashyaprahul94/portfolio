@@ -1,2 +1,8 @@
-*.ts
-*.tsx
+.DS_Store
+.vscode
+*.log
+
+.eslintcache
+.npmrc
+*.env
+.env
