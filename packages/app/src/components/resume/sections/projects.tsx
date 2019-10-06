@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import { Card } from "@components/card";
+import { Card } from "@kashyaprahul94/portfolio-style/lib/components/card";
 import {
   VerticalTimeline,
   VerticalTimelineItem,
@@ -9,7 +9,7 @@ import {
   VerticalTimelineItemText,
 } from "@components/resume/vertical-timeline";
 
-import { pumpkin } from "@style/color";
+import { pumpkin } from "@kashyaprahul94/portfolio-style/lib/style/color";
 
 import { IExperience, IExperienceRole, IProject } from "@data/types";
 

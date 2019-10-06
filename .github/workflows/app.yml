@@ -16,10 +16,13 @@ jobs:
       - name: Install 'yarn'
         run: sudo npm install -g yarn
 
-      - name: Install dependencies
-        run: sudo yarn
+      - name: Install dependencies & Build
+        run: bash ./pipelines/install-dependencies-and-build.sh
+        env:
+          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+          NPM_REGISTRY: npm.pkg.github.com
 
-      - name: Build & Tag Docker Image
+      - name: Tag Docker Image
         run: bash ./pipelines/app-tag-docker-image.sh
         env:
           DOCKER_USERNAME: kashyaprahul94

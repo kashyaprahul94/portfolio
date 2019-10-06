@@ -17,8 +17,4 @@ echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKE
 
 cd packages/app;
 
-sudo yarn;
-
-sudo yarn build;
-
 docker build --tag $LOCAL_IMAGE_NAME .;

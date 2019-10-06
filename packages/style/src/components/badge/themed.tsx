@@ -1,4 +1,4 @@
-import { useContext, FunctionComponent } from "react";
+import React, { useContext, FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
 import ThemeContext from "../../contexts/theme";

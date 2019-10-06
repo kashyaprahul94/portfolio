@@ -1,13 +1,32 @@
 import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Card } from "@components/card";
-import { Star, Trophy, GraduationCap } from "@components/icon";
+import { Card } from "@kashyaprahul94/portfolio-style/lib/components/card";
+import {
+  Star,
+  Trophy,
+  GraduationCap,
+} from "@kashyaprahul94/portfolio-style/lib/components/icon";
 
-import { darkGrey, primary } from "@style/color";
-import { fonts, sizes, weights, text } from "@style/typography";
-import { layout, alignment, display } from "@style/layout";
-import { dimensions, fromUnit } from "@style/dimension";
+import {
+  darkGrey,
+  primary,
+} from "@kashyaprahul94/portfolio-style/lib/style/color";
+import {
+  fonts,
+  sizes,
+  weights,
+  text,
+} from "@kashyaprahul94/portfolio-style/lib/style/typography";
+import {
+  layout,
+  alignment,
+  display,
+} from "@kashyaprahul94/portfolio-style/lib/style/layout";
+import {
+  dimensions,
+  fromUnit,
+} from "@kashyaprahul94/portfolio-style/lib/style/dimension";
 
 import { IEducation, IAchievement } from "@data/types";
 

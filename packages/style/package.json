@@ -1,6 +1,6 @@
 {
   "name": "@kashyaprahul94/portfolio-style",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Style guidelines & components",
   "repository": {
     "type": "git",
@@ -8,11 +8,19 @@
   },
   "author": "Rahul Kashyap <kashyaprahul94@gmail.com>",
   "license": "UNLICENSED",
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "compile": "tsc",
-    "build": "node scripts/build"
+    "build": "node scripts/build",
+    "build:watch": "node scripts/build --watch",
+    "format": "node scripts/format --write",
+    "format:check": "node scripts/format --check"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@emotion/core": "10.0.20",
     "@emotion/styled": "10.0.17",
     "prop-types": "15.7.2",
@@ -24,8 +32,6 @@
     "@types/react": "16.8.25",
     "prettier": "1.17.1",
     "shelljs": "0.8.3",
-    "ts-jest": "24.0.2",
-    "ts-node": "8.3.0",
     "tslint": "5.13.1",
     "tslint-config-prettier": "1.18.0",
     "typescript": "3.5.3"

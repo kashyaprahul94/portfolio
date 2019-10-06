@@ -1,13 +1,17 @@
 import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Card } from "@components/card";
-import { AccentBadge } from "@components/badge";
-import { Donut } from "@components/charts/donut";
+import { Card } from "@kashyaprahul94/portfolio-style/lib/components/card";
+import { AccentBadge } from "@kashyaprahul94/portfolio-style/lib/components/badge";
+import { Donut } from "@kashyaprahul94/portfolio-style/lib/components/charts/donut";
 
-import { sizes } from "@style/typography";
-import { layout, alignment, display } from "@style/layout";
-import { dimensions } from "@style/dimension";
+import { sizes } from "@kashyaprahul94/portfolio-style/lib/style/typography";
+import {
+  layout,
+  alignment,
+  display,
+} from "@kashyaprahul94/portfolio-style/lib/style/layout";
+import { dimensions } from "@kashyaprahul94/portfolio-style/lib/style/dimension";
 
 import { IAreaOfExpertise, IExpertSkill, IOtherSkill } from "@data/types";
 

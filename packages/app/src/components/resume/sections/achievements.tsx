@@ -1,13 +1,23 @@
 import React, { FunctionComponent } from "react";
 import styled, { StyledComponent } from "@emotion/styled";
 
-import { Card } from "@components/card";
-import { Badge } from "@components/icon";
+import { Card } from "@kashyaprahul94/portfolio-style/lib/components/card";
+import { Badge } from "@kashyaprahul94/portfolio-style/lib/components/icon";
 
-import { primary } from "@style/color";
-import { fonts, sizes, weights } from "@style/typography";
-import { dimensions, fromUnit } from "@style/dimension";
-import { display, alignment } from "@style/layout";
+import { primary } from "@kashyaprahul94/portfolio-style/lib/style/color";
+import {
+  fonts,
+  sizes,
+  weights,
+} from "@kashyaprahul94/portfolio-style/lib/style/typography";
+import {
+  dimensions,
+  fromUnit,
+} from "@kashyaprahul94/portfolio-style/lib/style/dimension";
+import {
+  display,
+  alignment,
+} from "@kashyaprahul94/portfolio-style/lib/style/layout";
 
 import { IAchievement } from "@data/types";
 

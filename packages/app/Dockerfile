@@ -13,7 +13,6 @@ WORKDIR /app
 # Set env variables
 ENV NODE_ENV "production"
 ENV PORT 5091
-
 ENV API_BASE_URL "/api"
 
 
@@ -22,15 +21,15 @@ EXPOSE 5091
 
 
 # Copy project manifest files
-COPY build .
+COPY build .npmrc ./
 
 
 # Install all dependencies ( production only )
-RUN yarn install --production
+RUN yarn install --production --update-checksums && rm -f .npmrc
 
 
 # Entrypoint
-ENTRYPOINT ["dumb-init", "--"]
+ENTRYPOINT [ "dumb-init", "--" ]
 
 
 # Run 'npm start' to start the application

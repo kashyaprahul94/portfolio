@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Typist from "react-typist";
 
-import { H1 } from "@components/heading";
+import { H1 } from "@kashyaprahul94/portfolio-style/lib/components/heading";
 
 import { IPageProps } from "@types";
 

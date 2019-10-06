@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import PropTypes from "prop-types";
 import styled, { StyledComponent } from "@emotion/styled";
 

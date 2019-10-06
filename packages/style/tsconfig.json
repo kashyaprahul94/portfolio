@@ -3,10 +3,11 @@
   "compilerOptions": {
     "declaration": true,
     "allowJs": false,
-    "baseUrl": "./",
-    "jsx": "preserve",
-    "outDir": "./build"
+    "sourceMap": true,
+    "jsx": "react",
+    "target": "es5",
+    "outDir": "./lib"
   },
-  "exclude": ["node_modules", "build"],
-  "include": ["src/**/*.tsx"]
+  "exclude": ["node_modules", "lib"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
 }
