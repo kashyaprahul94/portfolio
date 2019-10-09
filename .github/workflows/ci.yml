@@ -1,5 +1,0 @@
-name: "Test"
-description: "Test the CIII"
-runs:
-  using: "docker"
-  image: "Dockerfile"

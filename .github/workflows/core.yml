@@ -1,6 +1,10 @@
 name: Portfolio - Core
 
-on: [push]
+on:
+  push:
+    paths:
+      - "packages/core/*.*"
+      - "packages/core/**/*.*"
 
 jobs:
   build:
@@ -9,6 +13,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+
+      - name: Init Docker
+        run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_REGISTRY;
+        env:
+          DOCKER_USERNAME: kashyaprahul94
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_REGISTRY: docker.pkg.github.com
+
+      - name: "Setup Environment"
+        uses: ./
 
       - name: Build & Tag Docker Image
         run: bash ./pipelines/core-publish-github.sh

@@ -16,7 +16,7 @@ REMOTE_IMAGE_NAME=$DOCKER_REGISTRY/$DOCKER_USERNAME/$REPOSITORY_NAME/$DOCKER_IMA
 
 echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_REGISTRY;
 
-cd packages/ci;
+cd packages/core;
 
 docker build --tag $LOCAL_IMAGE_NAME .;
 
