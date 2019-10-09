@@ -1,10 +1,10 @@
-name: Portfolio - Core
+name: Portfolio - CI
 
 on:
   push:
     paths:
-      - "packages/core/*.*"
-      - "packages/core/**/*.*"
+      - "packages/ci/*.*"
+      - "packages/ci/**/*.*"
 
 jobs:
   build:
@@ -15,10 +15,10 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Build & Tag Docker Image
-        run: bash ./pipelines/core-publish-github.sh
+        run: bash ./pipelines/ci-publish-github.sh
         env:
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
-          DOCKER_IMAGE_NAME: core
+          DOCKER_IMAGE_NAME: ci
           DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
           DOCKER_REGISTRY: docker.pkg.github.com
