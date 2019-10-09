@@ -1,6 +1,10 @@
 name: Portfolio - App
 
-on: [push]
+on:
+  push:
+    paths:
+      - "packages/app/*.*"
+      - "packages/app/**/*.*"
 
 jobs:
   build:
@@ -10,11 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Install 'Node 10'
-        run: sudo npm install -g n && sudo n 10
+      - name: Setup Docker
+        run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_REGISTRY;
+        env:
+          DOCKER_USERNAME: kashyaprahul94
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_REGISTRY: docker.pkg.github.com
 
-      - name: Install 'yarn'
-        run: sudo npm install -g yarn
+      - name: "Setup Environment"
+        uses: ./
 
       - name: Install dependencies & Build
         run: bash ./pipelines/install-dependencies-and-build.sh
