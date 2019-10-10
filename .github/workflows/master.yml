@@ -13,6 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: Reattach HEAD
+        run: git checkout $BRANCH
+        env:
+          BRANCH: ${{ github.ref }}
+
       - name: Install dependencies & Build
         run: bash ./pipelines/install-dependencies-and-build.sh
         env:
@@ -22,5 +27,6 @@ jobs:
       - name: Release NPM Packages
         run: bash ./pipelines/publish-to-npm.sh
         env:
+          BRANCH: ${{ github.ref }}
           NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
           NPM_REGISTRY: npm.pkg.github.com
