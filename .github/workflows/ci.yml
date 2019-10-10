@@ -1,0 +1,29 @@
+name: Portfolio - CI
+
+on:
+  pull_request:
+    branches:
+      - "**"
+    paths:
+      - "packages/ci/**"
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build | Tag Docker Image | Push Docker Image to Registry
+    runs-on: ubuntu-16.04
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Build & Tag Docker Image
+        run: bash ./pipelines/ci-publish-github.sh
+        env:
+          BRANCH: ${{ github.head_ref }}
+          DOCKER_USERNAME: kashyaprahul94
+          REPOSITORY_NAME: portfolio
+          DOCKER_IMAGE_NAME: ci
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_REGISTRY: docker.pkg.github.com
