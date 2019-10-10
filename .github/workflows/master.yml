@@ -25,7 +25,7 @@ jobs:
           NPM_REGISTRY: npm.pkg.github.com
 
       - name: Release NPM Packages
-        run: bash ./pipelines/publish-to-npm.sh
+        run: bash ./pipelines/publish-to-npm.sh || true
         env:
           BRANCH: ${{ github.ref }}
           NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
