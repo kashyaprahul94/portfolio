@@ -1,0 +1,38 @@
+name: Portfolio - Style
+
+on:
+  pull_request:
+    branches:
+      - "**"
+    paths:
+      - "packages/style/**"
+
+jobs:
+  build:
+    name: Release NPM Packages
+    runs-on: ubuntu-16.04
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup Docker
+        run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_REGISTRY;
+        env:
+          DOCKER_USERNAME: kashyaprahul94
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_REGISTRY: docker.pkg.github.com
+
+      - name: "Setup Environment"
+        uses: ./
+
+      - name: Install dependencies & Build
+        run: bash ./pipelines/install-dependencies-and-build.sh
+        env:
+          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+          NPM_REGISTRY: npm.pkg.github.com
+
+      - name: Release NPM Packages
+        run: bash ./pipelines/publish-to-npm.sh
+        env:
+          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+          NPM_REGISTRY: npm.pkg.github.com
