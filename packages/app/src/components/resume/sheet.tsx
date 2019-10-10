@@ -16,10 +16,10 @@ const Container: StyledComponent<SheetProps, SheetProps, {}> = styled.section`
   padding: ${dimensions.l};
 
   width: ${dimensions.full};
-  min-height: ${props =>
-    props.printMode ? dimensions.a4.scaledHeight : dimensions.full};
+  min-height: ${dimensions.full};
 
-  max-width: ${dimensions.a4.width};
+  max-width: ${props =>
+    props.printMode ? dimensions.a4.width : dimensions.wide};
   max-height: ${dimensions.full};
 
   background-image: url("/static/images/back.png");
@@ -32,6 +32,10 @@ const Container: StyledComponent<SheetProps, SheetProps, {}> = styled.section`
       : `${dimensions.zero} ${dimensions.zero} ${dimensions.m} ${
           dimensions.zero
         } ${lightGrey}`};
+
+  @media print {
+    page-break-after: always;
+  }
 `;
 
 const Sheet: FunctionComponent<SheetProps> = ({

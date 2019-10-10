@@ -37,6 +37,7 @@ jobs:
       - name: Tag Docker Image
         run: bash ./pipelines/app-tag-docker-image.sh
         env:
+          BRANCH: ${{ github.head_ref }}
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: app
@@ -46,6 +47,7 @@ jobs:
       - name: Publish Image to Docker Hub
         run: bash ./pipelines/app-publish-docker-hub.sh
         env:
+          BRANCH: ${{ github.head_ref }}
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: app
@@ -54,6 +56,7 @@ jobs:
       - name: Publish Image to GitHub Registry
         run: bash ./pipelines/app-publish-github.sh
         env:
+          BRANCH: ${{ github.head_ref }}
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: app
@@ -63,6 +66,7 @@ jobs:
       - name: Publish Image to Heroku Registry & Deploy
         run: bash ./pipelines/app-publish-heroku.sh
         env:
+          BRANCH: ${{ github.head_ref }}
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: app

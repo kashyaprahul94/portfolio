@@ -1,9 +1,11 @@
-name: Portfolio - Release
+name: Portfolio - Style
 
 on:
-  push:
+  pull_request:
     branches:
-      - master
+      - "**"
+    paths:
+      - "packages/style/**"
 
 jobs:
   build:
@@ -16,7 +18,7 @@ jobs:
       - name: Reattach HEAD
         run: git checkout $BRANCH
         env:
-          BRANCH: ${{ github.ref }}
+          BRANCH: ${{ github.head_ref }}
 
       - name: Install dependencies & Build
         run: bash ./pipelines/install-dependencies-and-build.sh
@@ -27,6 +29,6 @@ jobs:
       - name: Release NPM Packages
         run: bash ./pipelines/publish-to-npm.sh || true
         env:
-          BRANCH: ${{ github.ref }}
+          BRANCH: ${{ github.head_ref }}
           NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
           NPM_REGISTRY: npm.pkg.github.com

@@ -21,6 +21,7 @@ jobs:
       - name: Build & Tag Docker Image
         run: bash ./pipelines/ci-publish-github.sh
         env:
+          BRANCH: ${{ github.head_ref }}
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: ci

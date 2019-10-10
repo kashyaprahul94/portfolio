@@ -18,6 +18,10 @@ const Container: StyledComponent<Props, Props, {}> = styled.div`
     property: "background",
     duration: durations.medium,
   })};
+
+  @media print {
+    background-color: ${props => props.theme.styles.colors.backgroundSecondary};
+  }
 `;
 
 const Document: FunctionComponent<Props> = ({ children }) => {

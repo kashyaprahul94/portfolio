@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TAG=$GITHUB_REF;
+TAG=$BRANCH;
 
 TAG=$(echo "$TAG" | tr / _ | tr -d \[:space:\] | tr -cs \[:alnum:\] -);
 TAG=$(echo "${TAG/'refs-heads-'}");
