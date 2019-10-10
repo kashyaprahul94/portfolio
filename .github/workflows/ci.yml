@@ -1,10 +1,14 @@
 name: Portfolio - CI
 
 on:
-  push:
+  pull_request:
+    branches:
+      - "**"
     paths:
-      - "packages/ci/*.*"
-      - "packages/ci/**/*.*"
+      - "packages/ci/**"
+  push:
+    branches:
+      - master
 
 jobs:
   build:
