@@ -11,7 +11,7 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "release": "lerna publish patch --exact --force-publish --registry 'https://npm.pkg.github.com'",
-    "release:next": "lerna publish prepatch --exact --force-publish --registry 'https://npm.pkg.github.com' --preid next"
+    "release:next": "lerna publish prepatch --preid next --exact --force-publish --registry 'https://npm.pkg.github.com'"
   },
   "dependencies": {
     "lerna": "3.13.3"
