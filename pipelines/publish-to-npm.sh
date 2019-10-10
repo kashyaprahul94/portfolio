@@ -9,7 +9,8 @@ echo "@kashyaprahul94:registry=https://$NPM_REGISTRY/" >> ./.npmrc;
 echo "//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" >> ./.npmrc;
 
 if [ $BRANCH = "master" ]; then 
-  yarn lerna publish --exact --force-publish --message "Bump to - %s" --yes --registry "https://$NPM_REGISTRY";
+  echo "I shall release patch version"
+  # yarn lerna publish --exact --force-publish --message "Bump to - %s" --yes --registry "https://$NPM_REGISTRY";
 else
-  yarn lerna publish --exact --force-publish --canary --yes --preid "$BRANCH" --registry "https://$NPM_REGISTRY";
+  # yarn lerna publish --exact --force-publish --canary --yes --preid "$BRANCH" --registry "https://$NPM_REGISTRY";
 fi

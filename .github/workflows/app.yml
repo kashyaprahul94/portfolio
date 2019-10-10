@@ -1,10 +1,12 @@
 name: Portfolio - App
 
 on:
+  pull_request:
+    branches:
+      - "**"
   push:
-    paths:
-      - "packages/app/*.*"
-      - "packages/app/**/*.*"
+    branches:
+      - master
 
 jobs:
   build:

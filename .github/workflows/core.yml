@@ -1,10 +1,12 @@
 name: Portfolio - Core
 
 on:
+  pull_request:
+    branches:
+      - "**"
   push:
-    paths:
-      - "packages/core/*.*"
-      - "packages/core/**/*.*"
+    branches:
+      - master
 
 jobs:
   build:
