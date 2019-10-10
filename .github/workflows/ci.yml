@@ -3,6 +3,9 @@ name: Portfolio - CI
 on:
   pull_request:
     branches:
+      - /**
+  push:
+    branches:
       - master
 
 jobs:
