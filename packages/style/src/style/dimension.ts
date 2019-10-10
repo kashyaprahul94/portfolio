@@ -29,6 +29,7 @@ const dimensions = {
     xl: "64px",
   },
 
+  wide: "1200px",
   full: "100%",
   half: "50%",
   quarter: "25%",
