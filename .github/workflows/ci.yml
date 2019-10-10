@@ -5,6 +5,9 @@ on:
     paths:
       - "packages/ci/*.*"
       - "packages/ci/**/*.*"
+    branches:
+      - master
+      - try/ci-for-branch
 
 jobs:
   build:
@@ -15,7 +18,8 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Build & Tag Docker Image
-        run: bash ./pipelines/ci-publish-github.sh
+        # run: bash ./pipelines/ci-publish-github.sh
+        run: echo "Helloo"
         env:
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
