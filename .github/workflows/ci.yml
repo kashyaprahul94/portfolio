@@ -1,14 +1,9 @@
 name: Portfolio - CI
 
 on:
-  pull_request:
-    branches:
-      - "**"
+  push:
     paths:
       - "packages/ci/**"
-  push:
-    branches:
-      - master
 
 jobs:
   build:
@@ -21,7 +16,7 @@ jobs:
       - name: Build & Tag Docker Image
         run: bash ./pipelines/ci-publish-github.sh
         env:
-          BRANCH: ${{ github.head_ref }}
+          BRANCH: ${{ github.ref }}
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: ci

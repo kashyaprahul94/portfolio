@@ -1,14 +1,9 @@
 name: Portfolio - Core
 
 on:
-  pull_request:
-    branches:
-      - "**"
+  push:
     paths:
       - "packages/core/**"
-  push:
-    branches:
-      - master
 
 jobs:
   build:
@@ -21,7 +16,7 @@ jobs:
       - name: Build & Tag Docker Image
         run: bash ./pipelines/core-publish-github.sh
         env:
-          BRANCH: ${{ github.head_ref }}
+          BRANCH: ${{ github.ref }}
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: core

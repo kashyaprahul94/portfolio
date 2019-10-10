@@ -1,9 +1,7 @@
 name: Portfolio - Style
 
 on:
-  pull_request:
-    branches:
-      - "**"
+  push:
     paths:
       - "packages/style/**"
 
@@ -18,17 +16,15 @@ jobs:
       - name: Reattach HEAD
         run: git checkout $BRANCH
         env:
-          BRANCH: ${{ github.head_ref }}
-
-      - name: Install dependencies & Build
-        run: bash ./pipelines/install-dependencies-and-build.sh
-        env:
-          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
-          NPM_REGISTRY: npm.pkg.github.com
-
-      - name: Release NPM Packages
-        run: bash ./pipelines/publish-to-npm.sh || true
-        env:
-          BRANCH: ${{ github.head_ref }}
-          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
-          NPM_REGISTRY: npm.pkg.github.com
+          BRANCH: ${{ github.ref }}
+      # - name: Install dependencies & Build
+      #   run: bash ./pipelines/install-dependencies-and-build.sh
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+      #     NPM_REGISTRY: npm.pkg.github.com
+      # - name: Release NPM Packages
+      #   run: bash ./pipelines/publish-to-npm.sh || true
+      #   env:
+      #     BRANCH: ${{ github.ref }}
+      #     NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+      #     NPM_REGISTRY: npm.pkg.github.com
