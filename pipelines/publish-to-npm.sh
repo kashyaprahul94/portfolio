@@ -18,6 +18,6 @@ if [ $BRANCH = "master" ]; then
   echo "I shall release patch version";
   sudo yarn lerna publish patch --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s";
 else
-  echo "I shall release prepatch version";
-  sudo yarn lerna publish prepatch --preid next --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s";
+  echo "I shall release prerelease version";
+  sudo yarn lerna publish prerelease --preid next --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s";
 fi;
