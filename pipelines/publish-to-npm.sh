@@ -16,8 +16,8 @@ sudo git config --global user.name "Rahul Kashyap";
 
 if [ $BRANCH = "master" ]; then 
   echo "I shall release patch version";
-  sudo yarn lerna publish patch --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s";
+  sudo yarn lerna publish patch --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s [skip ci]";
 else
   echo "I shall release prerelease version";
-  sudo yarn lerna publish prerelease --preid next --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s";
+  sudo yarn lerna publish prerelease --preid next --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s [skip ci]";
 fi;

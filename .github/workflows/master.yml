@@ -8,18 +8,26 @@ on:
       - "**"
 
 jobs:
-  build:
-    name: Build | Tag App Docker Image | Push App Docker Image to Registry
+  prepare:
     runs-on: ubuntu-16.04
+    if: "! contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - run: echo "Commit ----> ${{ github.event.head_commit.message }}"
+
+  build:
+    name: Build | Release NPM Packages | Tag App Docker Image | Push App Docker Image to Registry
+    runs-on: ubuntu-16.04
+    needs: prepare
 
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout Code
+        uses: "actions/checkout@v1"
 
       - name: Setup Environment
         run: bash ./pipelines/_setup-env.sh
 
       - name: Reattach HEAD
-        run: git checkout master
+        run: git checkout $BRANCH
 
       - name: Install 'Node 10'
         run: sudo npm install -g n && sudo n 10

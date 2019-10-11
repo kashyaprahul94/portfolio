@@ -15,3 +15,6 @@ echo "Docker TAG ---------> $DOCKER_TAG";
 
 echo ::set-env name=BRANCH::$BRANCH;
 echo ::set-env name=DOCKER_TAG::$DOCKER_TAG;
+
+
+run: exit 1
