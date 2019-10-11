@@ -1,0 +1,25 @@
+name: Portfolio - Pull Request
+
+on:
+  pull_request:
+    tags-ignore:
+      - "**"
+
+jobs:
+  build:
+    name: Build | Tag App Docker Image | Push App Docker Image to Registry
+    runs-on: ubuntu-16.04
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Test
+        run: bash ./pipelines/get-escaped-branch.sh
+
+      - name: Install dependencies & Build
+        run: bash ./pipelines/install-dependencies-and-build.sh
+        env:
+          BRANCH: ${{ BRANCH }}
+          ACTION_STATE: ${{ action_state }}
+          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+          NPM_REGISTRY: npm.pkg.github.com
