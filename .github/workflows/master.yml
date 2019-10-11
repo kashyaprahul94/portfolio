@@ -8,17 +8,9 @@ on:
       - "**"
 
 jobs:
-  prepare:
-    runs-on: ubuntu-16.04
-    if: "! contains(github.event.head_commit.message, '[skip ci]')"
-    steps:
-      - name: Current commit
-        run: echo "Commit ----> ${{ github.event.head_commit.message }}"
-
-  build:
+  build_release_deploy:
     name: Build | Release NPM Packages | Tag App Docker Image | Push App Docker Image to Registry
     runs-on: ubuntu-16.04
-    needs: prepare
 
     steps:
       - name: Checkout Code
