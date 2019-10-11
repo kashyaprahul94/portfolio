@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-TAG=$BRANCH;
-
-TAG=$(echo "$TAG" | tr / _ | tr -d \[:space:\] | tr -cs \[:alnum:\] -);
-TAG=$(echo "${TAG/'refs-heads-'}");
+BRANCH=$BRANCH;
 
 echo "@kashyaprahul94:registry=https://$NPM_REGISTRY/" >> ./.npmrc;
 echo "//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" >> ./.npmrc;
@@ -17,10 +14,10 @@ sudo git config --global user.email "kashyaprahul94@gmail.com";
 sudo git config --global user.name "Rahul Kashyap";
 
 
-if [ $TAG = "master" ]; then 
+if [ $BRANCH = "master" ]; then 
   echo "I shall release patch version";
   sudo yarn lerna publish patch --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s";
 else
-  echo "I shall release prepatch version";
-  sudo yarn lerna publish prepatch --preid next --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s";
+  echo "I shall release prerelease version";
+  sudo yarn lerna publish prerelease --preid next --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s";
 fi;

@@ -1,20 +1,28 @@
-name: Portfolio - Release
+name: Release
 
 on:
   push:
     branches:
       - master
+    tags-ignore:
+      - "**"
 
 jobs:
   build:
-    name: Release NPM Packages
+    name: Build | Tag App Docker Image | Push App Docker Image to Registry
     runs-on: ubuntu-16.04
 
     steps:
       - uses: actions/checkout@v1
 
+      - name: Setup Environment
+        run: bash ./pipelines/_setup-env.sh
+
       - name: Reattach HEAD
         run: git checkout master
+
+      - name: Install 'Node 10'
+        run: sudo npm install -g n && sudo n 10
 
       - name: Install dependencies & Build
         run: bash ./pipelines/install-dependencies-and-build.sh
@@ -25,6 +33,5 @@ jobs:
       - name: Release NPM Packages
         run: bash ./pipelines/publish-to-npm.sh || true
         env:
-          BRANCH: ${{ github.ref }}
           NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
           NPM_REGISTRY: npm.pkg.github.com
