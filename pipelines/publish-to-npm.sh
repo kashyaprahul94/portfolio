@@ -6,9 +6,9 @@ echo "@kashyaprahul94:registry=https://$NPM_REGISTRY/" >> ./.npmrc;
 echo "//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" >> ./.npmrc;
 
 
-sudo git remote rm origin;
-sudo git remote add origin "https://kashyaprahul94:$NPM_TOKEN@github.com/kashyaprahul94/portfolio.git";
-sudo git fetch;
+# sudo git remote rm origin;
+# sudo git remote add origin "https://kashyaprahul94:$NPM_TOKEN@github.com/kashyaprahul94/portfolio.git";
+# sudo git fetch;
       
 sudo git config --global user.email "kashyaprahul94@gmail.com";
 sudo git config --global user.name "Rahul Kashyap";
