@@ -2,7 +2,6 @@
 
 
 echo $BRANCH;
-echo $ACTION_STATE;
 
 # echo "@kashyaprahul94:registry=https://$NPM_REGISTRY/" >> ./.npmrc;
 # echo "//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" >> ./.npmrc;
