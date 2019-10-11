@@ -22,7 +22,6 @@ jobs:
       - name: Install dependencies & Build
         run: bash ./pipelines/install-dependencies-and-build.sh
         env:
-          ACTION_STATE: ${{ action_state }}
           NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
           NPM_REGISTRY: npm.pkg.github.com
 
