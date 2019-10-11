@@ -29,12 +29,12 @@ jobs:
         run: bash ./pipelines/_setup-env.sh
 
       - name: Reattach HEAD
-        run: git checkout $BRANCH
+        run: git checkout $ORIGIN_BRANCH
 
       - name: Install 'Node 10'
         run: sudo npm install -g n && sudo n 10
 
-      - name: Install dependencies & Build Before Release
+      - name: Install dependencies & Build
         run: bash ./pipelines/install-dependencies-and-build.sh
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
@@ -43,12 +43,9 @@ jobs:
       - name: Release NPM Packages
         run: bash ./pipelines/publish-to-npm.sh || true
         env:
-          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
-          NPM_REGISTRY: npm.pkg.github.com
-
-      - name: Install dependencies & Build After Release
-        run: bash ./pipelines/install-dependencies-and-build.sh
-        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: kashyaprahul94
+          GITHUB_REPOISTORY: portfolio
           NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
           NPM_REGISTRY: npm.pkg.github.com
 
