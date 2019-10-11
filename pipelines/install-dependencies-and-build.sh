@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 
+echo "@kashyaprahul94:registry=https://$NPM_REGISTRY/" >> ./.npmrc;
+echo "//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" >> ./.npmrc;
 
-echo $BRANCH;
+cp .npmrc packages/app/.npmrc
+cp yarn.lock packages/app/yarn.lock
 
-# echo "@kashyaprahul94:registry=https://$NPM_REGISTRY/" >> ./.npmrc;
-# echo "//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" >> ./.npmrc;
+cp .npmrc packages/style/.npmrc
+cp yarn.lock packages/app/yarn.lock
 
-# cp .npmrc packages/app/.npmrc
-# cp yarn.lock packages/app/yarn.lock
+sudo yarn;
 
-# cp .npmrc packages/style/.npmrc
-# cp yarn.lock packages/app/yarn.lock
-
-# sudo yarn;
-
-# sudo yarn build;
+sudo yarn build;

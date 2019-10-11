@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
 
-TAG=$GITHUB_HEAD_REF; if [ -z "$TAG" ]; then TAG=$GITHUB_REF; fi;
-
-TAG=$(echo "$TAG" | tr / _ | tr -d \[:space:\] | tr -cs \[:alnum:\] -);
-TAG=$(echo "${TAG/'refs-heads-'}");
-
-if [ $TAG = "master" ]; then 
-  TAG="stable"; 
-fi;
-
-echo "Will be using TAG ---------> $TAG";
+TAG=$DOCKER_TAG;
 
 HEROKU_APP_NAME=kashyaprahul94-portfolio;
 HEROKU_APP_TYPE=web;

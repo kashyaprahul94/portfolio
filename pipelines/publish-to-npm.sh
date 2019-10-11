@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-TAG=$GITHUB_HEAD_REF; if [ -z "$TAG" ]; then TAG=$GITHUB_REF; fi;
-
-TAG=$(echo "$TAG" | tr / _ | tr -d \[:space:\] | tr -cs \[:alnum:\] -);
-TAG=$(echo "${TAG/'refs-heads-'}");
+BRANCH=$BRANCH;
 
 echo "@kashyaprahul94:registry=https://$NPM_REGISTRY/" >> ./.npmrc;
 echo "//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" >> ./.npmrc;
@@ -17,7 +14,7 @@ sudo git config --global user.email "kashyaprahul94@gmail.com";
 sudo git config --global user.name "Rahul Kashyap";
 
 
-if [ $TAG = "master" ]; then 
+if [ $BRANCH = "master" ]; then 
   echo "I shall release patch version";
   sudo yarn lerna publish patch --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s";
 else
