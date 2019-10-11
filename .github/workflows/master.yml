@@ -22,7 +22,7 @@ jobs:
     needs: prepare
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: "actions/checkout@v1"
 
       - name: Setup Environment
