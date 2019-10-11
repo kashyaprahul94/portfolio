@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-16.04
     if: "! contains(github.event.head_commit.message, '[skip ci]')"
     steps:
-      - run: echo "Commit ----> ${{ github.event.head_commit.message }}"
+      - name: Current commit
+        run: echo "Commit ----> ${{ github.event.head_commit.message }}"
 
   build:
     name: Build | Release NPM Packages | Tag App Docker Image | Push App Docker Image to Registry
@@ -43,3 +44,40 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
           NPM_REGISTRY: npm.pkg.github.com
+
+      ##### App
+
+      - name: Tag App Docker Image
+        run: bash ./pipelines/app-tag-docker-image.sh
+        env:
+          DOCKER_USERNAME: kashyaprahul94
+          REPOSITORY_NAME: portfolio
+          DOCKER_IMAGE_NAME: app
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_REGISTRY: docker.pkg.github.com
+
+      - name: Publish App Image to Docker Hub
+        run: bash ./pipelines/app-publish-docker-hub.sh || true
+        env:
+          DOCKER_USERNAME: kashyaprahul94
+          REPOSITORY_NAME: portfolio
+          DOCKER_IMAGE_NAME: app
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_CI_TOKEN }}
+
+      - name: Publish App Image to GitHub Registry
+        run: bash ./pipelines/app-publish-github.sh || true
+        env:
+          DOCKER_USERNAME: kashyaprahul94
+          REPOSITORY_NAME: portfolio
+          DOCKER_IMAGE_NAME: app
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_REGISTRY: docker.pkg.github.com
+
+      - name: Publish App Image to Heroku Registry & Deploy
+        run: bash ./pipelines/app-publish-heroku.sh || true
+        env:
+          DOCKER_USERNAME: kashyaprahul94
+          REPOSITORY_NAME: portfolio
+          DOCKER_IMAGE_NAME: app
+          DOCKER_PASSWORD: ${{ secrets.HEROKU_API_KEY }}
+          DOCKER_REGISTRY: registry.heroku.com
