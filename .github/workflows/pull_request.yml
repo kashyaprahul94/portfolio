@@ -8,7 +8,7 @@ on:
 jobs:
   build_deploy:
     name: Build | Tag App Docker Image | Push App Docker Image to Registry
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository

@@ -9,7 +9,7 @@ on:
 
 jobs:
   prepare:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     name: Prepare
     if: "! contains(github.event.head_commit.message, '[skip ci]')"
     steps:
@@ -18,7 +18,7 @@ jobs:
 
   build_release_deploy:
     name: Build | Release NPM Packages | Tag App Docker Image | Push App Docker Image to Registry
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     needs: prepare
 
     steps:
@@ -29,7 +29,7 @@ jobs:
         run: bash ./pipelines/_setup-env.sh
 
       - name: Reattach HEAD
-        run: git checkout $BRANCH
+        run: git checkout $ORIGIN_BRANCH
 
       - name: Install 'Node 10'
         run: sudo npm install -g n && sudo n 10
@@ -43,6 +43,9 @@ jobs:
       - name: Release NPM Packages
         run: bash ./pipelines/publish-to-npm.sh || true
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: kashyaprahul94
+          GITHUB_REPOISTORY: portfolio
           NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
           NPM_REGISTRY: npm.pkg.github.com
 
