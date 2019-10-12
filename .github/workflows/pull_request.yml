@@ -17,6 +17,9 @@ jobs:
       - name: Setup Environment
         run: bash ./pipelines/_setup-env.sh
 
+      - name: Reattach HEAD
+        run: sudo git checkout $LOCAL_BRANCH
+
       - name: Install 'Node 10'
         run: sudo npm install -g n && sudo n 10
 
