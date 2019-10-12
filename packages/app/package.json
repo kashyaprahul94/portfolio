@@ -1,6 +1,6 @@
 {
   "name": "@kashyaprahul94/portfolio-app",
-  "version": "1.1.8",
+  "version": "1.1.9-next.2",
   "description": "Portfolio website for Rahul Kashyap",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   "dependencies": {
     "@emotion/core": "10.0.20",
     "@emotion/styled": "10.0.17",
-    "@kashyaprahul94/portfolio-style": "1.1.8",
+    "@kashyaprahul94/portfolio-style": "1.1.9-next.2",
     "@next/bundle-analyzer": "9.0.5",
     "express": "4.17.0",
     "next": "9.0.0",
