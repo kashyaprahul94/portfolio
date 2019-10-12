@@ -22,29 +22,7 @@ jobs:
     needs: prepare
 
     steps:
-      - name: Checkout Repository
-        uses: "actions/checkout@v1"
-
-      - name: Setup Environment
-        run: bash ./pipelines/_setup-env.sh
-
-      - name: Reattach HEAD
-        run: sudo git checkout $LOCAL_BRANCH
-
-      - name: Install 'Node 10'
-        run: sudo npm install -g n && sudo n 10
-
-      - name: Install dependencies & Build
-        run: bash ./pipelines/install-dependencies-and-build.sh
+      - name: Test
+        run: "echo $GITHUB_CONTEXT"
         env:
-          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
-          NPM_REGISTRY: npm.pkg.github.com
-
-      - name: Release NPM Packages
-        run: bash ./pipelines/publish-to-npm.sh || true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USERNAME: kashyaprahul94
-          GITHUB_REPOISTORY: portfolio
-          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
-          NPM_REGISTRY: npm.pkg.github.com
+          GITHUB_CONTEXT: ${{ toJson(github) }}
