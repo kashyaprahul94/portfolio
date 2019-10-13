@@ -8,6 +8,6 @@ set("-e");
 set("-v");
 
 exec("cd ../");
-exec("rm -rf lib");
+exec("rm -rf lib || true");
 
 exec(`yarn compile ${argv.join(" ")}`);

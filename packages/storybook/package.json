@@ -8,16 +8,15 @@
   },
   "author": "Rahul Kashyap <kashyaprahul94@gmail.com>",
   "private": true,
-  "license": "UNLICENSED",
-  "files": [
-    "lib"
-  ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
   "scripts": {
     "dev": "node -r dotenv/config scripts/dev",
+    "build": "node scripts/build",
     "format": "node scripts/format --write",
-    "format:check": "node scripts/format --check"
+    "format:check": "node scripts/format --check",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "4.17.0"
   },
   "peerDependencies": {
     "@kashyaprahul94/portfolio-style": "1.1.10",

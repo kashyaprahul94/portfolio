@@ -1,22 +1,4 @@
 {
-  "presets": ["next/babel", "@emotion/babel-preset-css-prop"],
-  "plugins": [
-    [
-      "module-resolver",
-      {
-        "root": ["./"],
-        "alias": {
-          "@components": "./src/components",
-          "@contexts": "./src/contexts",
-          "@data": "./src/data",
-          "@hooks": "./src/hooks",
-          "@static": "./src/static",
-          "@style": "./src/style",
-          "@types": "./src/types",
-          "@util": "./src/util"
-        }
-      }
-    ],
-    "emotion"
-  ]
+  "presets": ["@emotion/babel-preset-css-prop"],
+  "plugins": ["emotion"]
 }
