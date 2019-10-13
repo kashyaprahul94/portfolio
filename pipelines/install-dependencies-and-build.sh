@@ -7,7 +7,10 @@ cp .npmrc packages/app/.npmrc
 cp yarn.lock packages/app/yarn.lock
 
 cp .npmrc packages/style/.npmrc
-cp yarn.lock packages/app/yarn.lock
+cp yarn.lock packages/style/yarn.lock
+
+cp .npmrc packages/storybook/.npmrc
+cp yarn.lock packages/storybook/yarn.lock
 
 sudo yarn;
 

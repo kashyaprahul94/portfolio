@@ -5,12 +5,11 @@ import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 import { withTheme, themes } from "./themes";
 
-const req = require.context("../src", true, /\.stories\.(tsx|mdx)$/);
+const req = require.context("./components", true, /.tsx$/);
 
 const loadStories = () => {
   req.keys().forEach(filename => {
-    const storyDirname = path.dirname(filename).substr(2);
-    const storyName = storyDirname.replace(/^pages\//, "");
+    const storyName = path.dirname(filename).substr(2);
     req(filename).default(module, { storyName });
   });
 };

@@ -22,17 +22,17 @@ jobs:
     needs: prepare
 
     steps:
+      - name: Install 'Node 10'
+        run: sudo npm install -g n && sudo n 10
+
       - name: Checkout Repository
         uses: "actions/checkout@v1"
-
-      - name: Setup Environment
-        run: bash ./pipelines/setup-env.sh
 
       - name: Reattach HEAD
         run: sudo git checkout $LOCAL_BRANCH
 
-      - name: Install 'Node 10'
-        run: sudo npm install -g n && sudo n 10
+      - name: Setup Environment
+        run: bash ./pipelines/setup-env.sh
 
       - name: Install dependencies & Build
         run: bash ./pipelines/install-dependencies-and-build.sh

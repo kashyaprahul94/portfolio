@@ -1,6 +1,6 @@
 import { create, themes } from "@storybook/theming";
 
-import { dark as darkTheme } from "../../src/style/themes";
+import { dark as darkTheme } from "@kashyaprahul94/portfolio-style/lib/style/themes";
 
 export default create({
   ...themes.dark,

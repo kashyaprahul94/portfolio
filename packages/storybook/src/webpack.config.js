@@ -1,5 +1,3 @@
-const { webpack } = require("../next.config");
-
 module.exports = async ({ config }) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
@@ -20,6 +18,5 @@ module.exports = async ({ config }) => {
 
   return {
     ...config,
-    ...webpack(config),
   };
 };

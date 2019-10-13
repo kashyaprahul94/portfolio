@@ -3,12 +3,16 @@ import { Global } from "@emotion/core";
 import styled from "@emotion/styled";
 import addons from "@storybook/addons";
 
-import { reset as cssReset } from "../../src/style/reset";
-import { fonts as cssFonts } from "../../src/style/fonts";
-import { base as cssBase } from "../../src/style/base";
-import { dark as themeDark, light as themeLight } from "../../src/style/themes";
+import {
+  dark as themeDark,
+  light as themeLight,
+} from "@kashyaprahul94/portfolio-style/lib/style/themes";
 
-import ThemeContext from "../../src/contexts/theme";
+import ThemeContext from "@kashyaprahul94/portfolio-style/lib/contexts/theme";
+
+import { reset as cssReset } from "../../../app/src/style/reset";
+import { fonts as cssFonts } from "../../../app/src/style/fonts";
+import { base as cssBase } from "../../../app/src/style/base";
 
 const channel = addons.getChannel();
 const getInitialDarkModeValue = __window => {
