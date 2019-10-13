@@ -19,11 +19,11 @@ jobs:
       - name: Checkout Repository
         uses: "actions/checkout@v1"
 
-      - name: Reattach HEAD
-        run: sudo git checkout $LOCAL_BRANCH
-
       - name: Setup Environment
         run: bash ./pipelines/setup-env.sh
+
+      - name: Reattach HEAD
+        run: sudo git checkout $LOCAL_BRANCH
 
       - name: Install dependencies & Build
         run: bash ./pipelines/install-dependencies-and-build.sh
