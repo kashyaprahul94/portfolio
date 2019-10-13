@@ -26,7 +26,7 @@ jobs:
         uses: "actions/checkout@v1"
 
       - name: Setup Environment
-        run: bash ./pipelines/_setup-env.sh
+        run: bash ./pipelines/setup-env.sh
 
       - name: Reattach HEAD
         run: sudo git checkout $LOCAL_BRANCH
@@ -52,7 +52,7 @@ jobs:
       ##### App
 
       - name: Tag App Docker Image
-        run: bash ./pipelines/app-tag-docker-image.sh
+        run: bash ./pipelines/app/tag-docker-image.sh
         env:
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
@@ -61,7 +61,7 @@ jobs:
           DOCKER_REGISTRY: docker.pkg.github.com
 
       - name: Publish App Image to Docker Hub
-        run: bash ./pipelines/app-publish-docker-hub.sh || true
+        run: bash ./pipelines/app/publish-to-docker-hub.sh || true
         env:
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
@@ -69,7 +69,7 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_CI_TOKEN }}
 
       - name: Publish App Image to GitHub Registry
-        run: bash ./pipelines/app-publish-github.sh || true
+        run: bash ./pipelines/app/publish-to-github.sh || true
         env:
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
@@ -78,7 +78,7 @@ jobs:
           DOCKER_REGISTRY: docker.pkg.github.com
 
       - name: Publish App Image to Heroku Registry & Deploy
-        run: bash ./pipelines/app-publish-heroku.sh || true
+        run: bash ./pipelines/app/publish-to-heroku.sh || true
         env:
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
