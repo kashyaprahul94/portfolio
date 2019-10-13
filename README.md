@@ -4,25 +4,17 @@
 
 ## Porfolio for Rahul Kashyap
 
-This repository is a Monorepo managed by Lerna.
+Welcome to the portfolio repository for Rahul Kashyap.
 
-## Checklist -
+Features - 
+* Leverage monorepo powered by Lerna
+* Use docker for containerizing different applications such that they can run indepedently.
+* Integrated with CI / CD via GitHub Actions.
+* NPM packages can be released on canary or patch versions.
 
-* [x] Apply Next JS
-* [x] Basic Docker setup
-* [x] Try to use Circle CI
-* [x] Deploy to Heroku if possible
-* [x] Add TypeScript support 
-* [x] Hooks & Context
-* [x] Style guidelines
-* [x] GitHub Actions ?
-* [x] Add resume
-* [x] Use GitHub Registry
-* [x] Convert to monorepo
-* [x] Base Docker Image ?
-* [ ] Add @kashyaprahul/portfolio-styles
-* [ ] Add @kashyaprahul/portfolio-storybook
-* [ ] Publish NPM packages
-* [ ] Add rennovate
-* [ ] Add enzyme unit testing
-* [ ] Use state management
+This repo comprises of following packages - 
+
+* Core - Core package contains common assets.
+* Style - UI Component package.
+* Storybook - Complete storybook package using `style` package.
+* App - Next JS based portfolio application
