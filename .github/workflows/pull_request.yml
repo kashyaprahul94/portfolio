@@ -13,17 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: "actions/checkout@v1"
+      - name: Install 'Node 10'
+        run: sudo npm install -g n && sudo n 10
 
       - name: Setup Environment
         run: bash ./pipelines/setup-env.sh
 
+      - name: Checkout Repository
+        uses: "actions/checkout@v1"
+
       - name: Reattach HEAD
         run: sudo git checkout $LOCAL_BRANCH
-
-      - name: Install 'Node 10'
-        run: sudo npm install -g n && sudo n 10
 
       - name: Install dependencies & Build
         run: bash ./pipelines/install-dependencies-and-build.sh
