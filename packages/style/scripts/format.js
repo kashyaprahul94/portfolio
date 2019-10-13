@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-"use strict";
-
 const { exec, set } = require("shelljs");
 
 const argv = process.argv.slice(2);
