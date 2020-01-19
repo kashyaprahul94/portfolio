@@ -31,6 +31,8 @@ import {
 
 import { IPersonalInfo } from "@data/types";
 
+import { ILink } from "../types";
+
 //
 
 const Title: StyledComponent<{}, {}, {}> = styled.h1`
@@ -60,19 +62,60 @@ const Text: StyledComponent<{}, {}, {}> = styled.span`
   color: ${darkGrey};
 `;
 
-const createLink = (text: string) =>
-  text.startsWith("https") ? text : `https://${text}`;
+const Link: StyledComponent<
+  {},
+  { href?: string; target?: string },
+  {}
+> = styled.a`
+  color: ${darkGrey};
 
-const InfoItem = ({ title, Icon = null, link = false }) => (
+  :hover {
+    color: ${primary};
+  }
+`;
+
+const createLink = (input: ILink) => {
+  const { link, action, type } = input;
+
+  switch (type) {
+    case "email":
+      return `mailto:${link}`;
+
+    case "location":
+      return `https://maps.google.com/?q= ${link}`;
+
+    case "phone":
+      return `tel:${String(link)
+        .split(" ")
+        .join("")}`;
+
+    case "skype":
+      return `skype:${link}?${action}`;
+
+    case "http":
+      return link.startsWith("https") ? link : `https://${link}`;
+
+    default:
+      return link;
+  }
+};
+
+const createSkypeLink = (username: string, action: string = "chat") =>
+  `skype:${username}?${action}`;
+
+const InfoItem = ({ title, Icon = null }) => (
   <InfoItemContainer>
     {Icon && <Icon size={fromUnit(dimensions.xxl)} color={primary} />}
-    {link ? (
-      <a href={createLink(title)} target="_blank">
-        <Text>{title}</Text>
-      </a>
-    ) : (
-      <Text>{title}</Text>
-    )}
+    <Text>{title}</Text>
+  </InfoItemContainer>
+);
+
+const LinkInfoItem = ({ link, Icon = null }: { link: ILink; Icon: any }) => (
+  <InfoItemContainer>
+    {Icon && <Icon size={fromUnit(dimensions.xxl)} color={primary} />}
+    <Link href={createLink(link)} target="_blank">
+      <span>{link.link}</span>
+    </Link>
   </InfoItemContainer>
 );
 
@@ -118,18 +161,36 @@ const Personal: FunctionComponent<PageProps> = ({ info }) => {
         <Column>
           <InfoRow>
             <InfoColumn>
-              <InfoItem
-                title={`${info.city}, ${info.country}`}
+              <LinkInfoItem
+                link={{
+                  link: `${info.city}, ${info.country}`,
+                  type: "location",
+                }}
                 Icon={Location}
               />
-              <InfoItem title={info.mobile} Icon={Mobile} />
-              <InfoItem title={info.email} Icon={Email} />
+              <LinkInfoItem
+                link={{ link: info.mobile, type: "phone" }}
+                Icon={Mobile}
+              />
+              <LinkInfoItem
+                link={{ link: info.email, type: "email" }}
+                Icon={Email}
+              />
             </InfoColumn>
 
             <InfoColumn>
-              <InfoItem title={info.gitHub} Icon={GitHub} link={true} />
-              <InfoItem title={info.linkedIn} Icon={LinkedIn} link={true} />
-              <InfoItem title={info.skype} Icon={Skype} link={false} />
+              <LinkInfoItem
+                link={{ link: info.gitHub, type: "http" }}
+                Icon={GitHub}
+              />
+              <LinkInfoItem
+                link={{ link: info.linkedIn, type: "http" }}
+                Icon={LinkedIn}
+              />
+              <LinkInfoItem
+                link={{ link: info.skype, type: "skype", action: "chat" }}
+                Icon={Skype}
+              />
             </InfoColumn>
           </InfoRow>
         </Column>
