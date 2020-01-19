@@ -80,8 +80,8 @@ const Skills: FunctionComponent<PageProps> = ({
           </SubSection>
         </Section>
         <Section>
-          <DonutTitle center={true}>Area of interest</DonutTitle>
-          <Donut size={200} stroke={13} items={areaOfExpertise} legend={true} />
+          <DonutTitle center={true}>Area of expertise</DonutTitle>
+          <Donut size={230} stroke={10} items={areaOfExpertise} legend={true} />
         </Section>
       </SectionContainer>
     </Card>

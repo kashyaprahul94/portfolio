@@ -10,6 +10,7 @@ const expertSkills: ReadonlyArray<IExpertSkill> = [
   "Node.JS",
   "TypeScript/JavaScript (ESNext)",
   "GraphQL",
+  "Go",
   "Docker",
   "Kubernetes",
   "Microservices",
@@ -35,19 +36,19 @@ const otherSkills: ReadonlyArray<IOtherSkill> = [
 
 const areaOfExpertise: ReadonlyArray<IAreaOfExpertise> = [
   {
-    title: "Cloud Native Engineering",
-    value: 60,
-    color: primary,
+    title: "System Design",
+    value: 31,
+    color: danger,
   },
   {
-    title: "DevOps",
-    value: 30,
+    title: "DevOps / SRE",
+    value: 24,
     color: secondary,
   },
   {
-    title: "Mobile Development",
-    value: 10,
-    color: danger,
+    title: "SaaS Engineering",
+    value: 48,
+    color: primary,
   },
 ];
 
