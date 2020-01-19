@@ -16,3 +16,9 @@ export interface VerticalTimelineItemProps extends IPartialBaseProps<any> {
   logoSize?: string;
   grayscaleLogo?: boolean;
 }
+
+export interface ILink {
+  type?: "location" | "phone" | "email" | "http" | "skype";
+  action?: "chat";
+  link: string;
+}
