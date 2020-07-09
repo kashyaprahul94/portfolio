@@ -62,6 +62,14 @@ const projectWunderflats: IProject = {
   link: "http://bit.ly/2zB18Cq",
 };
 
+const projectJFrogPipelines: IProject = {
+  title: "JFrog Pipelines",
+  description: [
+    "JFrog Pipelines offers JFrog Platform customers three vital capabilities: end-to-end automation (CI/CD), workflow and tool orchestration, and the optimization of the JFrog toolset functionality in use. Consistent with JFrog’s customer-centric product philosophy, Pipelines is enterprise-ready and universal.",
+  ],
+  link: "http://bit.ly/2ZVMT7W",
+};
+
 //
 //
 
@@ -95,6 +103,13 @@ const roleWunderflats: IExperienceRole = {
 };
 
 //
+
+const rolesJFrog: IExperienceRole = {
+  title: "Senior Software Engineer",
+  projects: [projectJFrogPipelines],
+};
+
+//
 //
 
 const experienceSAPLabsIndia: IExperience = {
@@ -116,6 +131,7 @@ const experienceSAPLabsIndia: IExperience = {
 const experienceWunderflats: IExperience = {
   company: "Wunderflats GmbH",
   from: "Feb 2019",
+  to: "Mar 2020",
   city: "Berlin",
   country: "Germany",
   logo: "static/images/logo-wf.png",
@@ -124,12 +140,23 @@ const experienceWunderflats: IExperience = {
   roles: [roleWunderflats],
 };
 
+const experienceJFrog: IExperience = {
+  company: "JFrog",
+  from: "Jul 2020",
+  city: "Bangalore",
+  country: "India",
+  logo: "static/images/logo-jfrog.png",
+  description: "Currently working as a Senior Software Engineer.",
+  roles: [rolesJFrog],
+};
+
 //
 //
 
 const experienceInfo: ReadonlyArray<IExperience> = [
   experienceSAPLabsIndia,
   experienceWunderflats,
+  experienceJFrog,
 ]
   .map((experienceItem: IExperience) => ({
     ...experienceItem,
