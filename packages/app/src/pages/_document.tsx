@@ -11,41 +11,16 @@ export default class Document extends NextDocument {
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"
           />
 
-          <meta name="msapplication-TileColor" content="#2b5797" />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="application-name" content="Portfolio" />
+          <meta name="msapplication-TileColor" content="#000000" />
+          <meta name="msapplication-config" content="static/browserconfig.xml" />
+          <meta name="theme-color" content="#000000" />
 
+          <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png" />
+          <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#5bbad5" />
           <link rel="shortcut icon" href="static/favicon.ico" />
-          <link rel="icon" href="static/favicon.ico" type="image/x-icon" />
-          <link
-            rel="shortcut-icon"
-            href="static/favicon.ico"
-            type="image/x-icon"
-          />
-
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="static/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="static/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="static/favicon-16x16.png"
-          />
-          <link rel="manifest" href="static/site.webmanifest" />
-          <link
-            rel="mask-icon"
-            href="static/safari-pinned-tab.svg"
-            color="#5bbad5"
-          />
-
           <link rel="manifest" href="static/manifest.json" />
         </Head>
 
