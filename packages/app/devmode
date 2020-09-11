@@ -1,0 +1,9 @@
+running_app=$(docker ps -aq --filter "Name=portfolio-app*")
+if [[ "$running_app" ]]; then
+  echo $running_app | xargs docker rm -f
+fi
+
+boot_cmd="docker run -p 5091:5091 --restart=always -d --name=portfolio-app kashyaprahul94/portfolio-app:stable"
+boot_cmd="docker run -p 5091:5091 --restart=always -d --name=portfolio-app -v $(pwd)/build/src:/app/src:rw kashyaprahul94/portfolio-app:stable"
+
+eval "$boot_cmd"
