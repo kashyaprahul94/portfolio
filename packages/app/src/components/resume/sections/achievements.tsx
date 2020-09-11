@@ -25,7 +25,7 @@ const AchievementItemContainer: StyledComponent<{}, {}, {}> = styled.div`
   margin-bottom: ${dimensions.m};
 
   &:last-of-type {
-    marginb-bottom: ${dimensions.zero};
+    margin-bottom: ${dimensions.zero};
   }
 `;
 
