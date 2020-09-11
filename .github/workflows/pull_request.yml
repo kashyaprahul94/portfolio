@@ -58,12 +58,3 @@ jobs:
           DOCKER_IMAGE_NAME: app
           DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
           DOCKER_REGISTRY: docker.pkg.github.com
-
-      - name: Publish App Image to Heroku Registry & Deploy
-        run: bash ./pipelines/app/publish-to-heroku.sh || true
-        env:
-          DOCKER_USERNAME: kashyaprahul94
-          REPOSITORY_NAME: portfolio
-          DOCKER_IMAGE_NAME: app
-          DOCKER_PASSWORD: ${{ secrets.HEROKU_API_KEY }}
-          DOCKER_REGISTRY: registry.heroku.com

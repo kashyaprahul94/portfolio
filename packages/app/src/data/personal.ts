@@ -30,7 +30,7 @@ const germanyBerlinInfo: IPersonalInfo = {
   mobile: "+49 0175 3491806",
 };
 
-const personalInfo: IPersonalInfo = { ...germanyBerlinInfo };
+const personalInfo: IPersonalInfo = { ...indiaBangaloreInfo };
 
 export { personalInfo };
 export default personalInfo;

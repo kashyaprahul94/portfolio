@@ -26,7 +26,7 @@ class Service {
     const pdfBuffer = await page.pdf({
       format: "Letter",
       printBackground: true,
-      scale: 0.77,
+      scale: 0.70,
     });
 
     await browser.close();

@@ -36,7 +36,7 @@ const Container: StyledComponent<{}, {}, {}> = styled.div`
 `;
 
 const ItemContainer: StyledComponent<{}, {}, {}> = styled.div`
-  margin-top: ${dimensions.xxl};
+  margin-top: ${dimensions.xl};
   margin-bottom: ${dimensions.xxl};
   padding: ${dimensions.m};
 `;

@@ -93,7 +93,7 @@ const ScoreContainer: StyledComponent<{}, {}, {}> = styled.div`
 `;
 const Score: StyledComponent<{}, {}, {}> = styled.p``;
 
-const AchivementContainer: StyledComponent<{}, {}, {}> = styled.div`
+const AchievementContainer: StyledComponent<{}, {}, {}> = styled.div`
   display: ${display.flex};
   width: ${dimensions.full};
   align-items: ${alignment.center};
@@ -105,7 +105,7 @@ const AchivementContainer: StyledComponent<{}, {}, {}> = styled.div`
   `)}
 `;
 
-const Achivement: StyledComponent<{}, {}, {}> = styled.p``;
+const Achievement: StyledComponent<{}, {}, {}> = styled.p``;
 
 const Spacer: FunctionComponent<any> = ({}) => {
   return <GraduationCap size={fromUnit(sizes.hero)} color={darkGrey} />;
@@ -163,10 +163,10 @@ const Education: FunctionComponent<PageProps> = ({ education }) => {
                     {educationItem.achievements.map(
                       (achievement: IAchievement, _index: number) => {
                         return (
-                          <AchivementContainer key={_index}>
+                          <AchievementContainer key={_index}>
                             <Trophy size={fromUnit(sizes.m)} color={primary} />
-                            <Achivement>{achievement}</Achivement>
-                          </AchivementContainer>
+                            <Achievement>{achievement}</Achievement>
+                          </AchievementContainer>
                         );
                       },
                     )}
