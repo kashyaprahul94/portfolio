@@ -4,7 +4,7 @@
 
 # Use our base image
 # FROM docker.pkg.github.com/kashyaprahul94/portfolio/core:stable AS builder
-FROM kashyaprahul94/portfolio-core:stable AS builder
+FROM docker.pkg.github.com/kashyaprahul94/portfolio/core:stable AS builder
 
 # Add metadata
 LABEL author="kashyaprahul94@gmail.com"
