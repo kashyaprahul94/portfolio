@@ -19,17 +19,15 @@ const expertSkills: ReadonlyArray<IExpertSkill> = [
 ];
 
 const otherSkills: ReadonlyArray<IOtherSkill> = [
-  "Swift",
-  "React",
-  "Angular",
+  "RabbitMQ",
   "Redis",
   "MongoDB",
   "OAuth 2",
+  "Hashicorp Vault",
   "Elasticsearch",
   "CI/CD",
   "CloudFoundry",
-  "SAP Cloud Platform",
-  "Google Cloud Platform",
+  "Cloud Hyperscalers",
   "Distributed Systems",
   "Internet of Things",
 ];
