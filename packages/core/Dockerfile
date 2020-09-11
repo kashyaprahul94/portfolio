@@ -1,5 +1,5 @@
 # Using slim image, less size
-FROM node:10-slim
+FROM node:12-slim
 
 
 # Add metadata
@@ -12,10 +12,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 
 # Update registry && Install necessary common packages
-RUN apt-get update && apt-get install -yq --no-install-recommends apt-utils apt-transport-https ca-certificates libgconf-2-4 wget
+RUN apt-get update && apt-get install -yq --no-install-recommends apt-utils apt-transport-https ca-certificates libgconf-2-4 wget curl gnupg
 
 
 # Install `yarn`
-RUN wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg |  apt-key add - \
-  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-  && apt-get update && apt-get install --no-install-recommends -yq yarn
+RUN npm i -g yarn --force
+
+RUN echo "Yarn version ---> $(yarn -v)"

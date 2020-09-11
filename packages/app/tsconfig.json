@@ -1,6 +1,19 @@
 {
-  "extends": "../core/tsconfig.base.json",
   "compilerOptions": {
+    "lib": ["dom", "ESNext"],
+    "sourceMap": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ESNext",
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "typeRoots": ["node_modules/@types"],
+    "types": ["node"],
+
     "noImplicitUseStrict": false,
     "baseUrl": "./",
     "paths": {

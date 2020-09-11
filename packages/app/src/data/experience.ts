@@ -146,7 +146,7 @@ const experienceJFrog: IExperience = {
   city: "Bangalore",
   country: "India",
   logo: "static/images/logo-jfrog.png",
-  description: "Currently working as a Senior Software Engineer in JFrog Pipelines team. Responsible for mostly backend tasks and overall improvements of the product",
+  description: "Currently working as a Senior Software Engineer in JFrog Pipelines team. Responsible for mostly backend tasks and overall improvements of the product.",
   roles: [rolesJFrog],
 };
 

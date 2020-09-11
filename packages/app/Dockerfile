@@ -1,13 +1,53 @@
-# Use our base image
-FROM docker.pkg.github.com/kashyaprahul94/portfolio/core:stable
+# ------------------------------- #
+# Build phase --------------------#
+# ------------------------------- #
 
+# Use our base image
+# FROM docker.pkg.github.com/kashyaprahul94/portfolio/core:stable AS builder
+FROM kashyaprahul94/portfolio-core:stable AS builder
 
 # Add metadata
 LABEL author="kashyaprahul94@gmail.com"
 
+# Mark /app as working directory
+WORKDIR /app
+
+# Copy everything
+COPY . .
+
+# Disable strict ssl check for yarn packages
+RUN yarn config set "strict-ssl" false -g
+
+# Install all dependencies
+RUN yarn --update-checksums
+
+# Build the application
+RUN rm -rf build || true \
+  && ./node_modules/.bin/next build src \
+  && ./node_modules/.bin/tsc
+
+# Copy built contents
+RUN cp -a package.json *.lock next.config.js node_modules build \
+  && cp -ap src/static/. build/src/static
+
+# ------------------------------- #
+# Runtime phase ----------------- #
+# ------------------------------- #
+
+FROM node:12-slim
 
 # Mark /app as working directory
 WORKDIR /app
+
+# Install all related dependencies for Chromium & Puppeteer
+RUN apt-get update \
+    && apt-get install -yq wget gnupg \
+    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+    && apt-get update \
+    && apt-get install -yq google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
+      --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
 
 
 # Set env variables
@@ -15,35 +55,11 @@ ENV NODE_ENV "production"
 ENV PORT 5091
 ENV API_BASE_URL "/api"
 
-
 # Expose the web server port
 EXPOSE 5091
 
-
-# Install all related dependencies for Chromium & Puppeteer
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-  && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google.list \
-  && apt-get update && apt-get install --no-install-recommends -yq google-chrome-unstable \
-  && rm -rf /var/lib/apt/lists/* \
-  && rm -rf /src/*.deb
-
-
-# Install dumb-init for google chrome process & add necessary permissions
-ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
-RUN chmod +x /usr/local/bin/dumb-init
-
-
-# Copy project manifest files
-COPY build .npmrc ./
-
-
-# Install all dependencies ( production only )
-RUN yarn install --production --update-checksums && rm -f .npmrc
-
-
-# Entrypoint
-ENTRYPOINT [ "dumb-init", "--" ]
-
+# Copy build contents from builder
+COPY --from=builder /app/build .
 
 # Run 'npm start' to start the application
 CMD [ "npm", "start" ]
