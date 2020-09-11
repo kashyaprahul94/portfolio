@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install 'Node 10'
-        run: sudo npm install -g n && sudo n 10
+      - name: Install 'Node 12'
+        run: sudo npm install -g n && sudo n 12
 
       - name: Checkout Repository
         uses: "actions/checkout@v1"
@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies & Build
         run: bash ./pipelines/install-dependencies-and-build.sh
         env:
-          NPM_TOKEN: ${{ secrets.GITHUB_CI_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_REGISTRY: npm.pkg.github.com
 
       ##### App
@@ -39,7 +39,7 @@ jobs:
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: app
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_REGISTRY: docker.pkg.github.com
 
       - name: Publish App Image to Docker Hub
@@ -56,5 +56,5 @@ jobs:
           DOCKER_USERNAME: kashyaprahul94
           REPOSITORY_NAME: portfolio
           DOCKER_IMAGE_NAME: app
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_CI_TOKEN }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_REGISTRY: docker.pkg.github.com

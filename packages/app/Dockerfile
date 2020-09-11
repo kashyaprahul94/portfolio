@@ -3,7 +3,6 @@
 # ------------------------------- #
 
 # Use our base image
-# FROM docker.pkg.github.com/kashyaprahul94/portfolio/core:stable AS builder
 FROM docker.pkg.github.com/kashyaprahul94/portfolio/core:stable AS builder
 
 # Add metadata
