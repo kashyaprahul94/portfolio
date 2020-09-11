@@ -65,7 +65,7 @@ const projectWunderflats: IProject = {
 const projectJFrogPipelines: IProject = {
   title: "JFrog Pipelines",
   description: [
-    "JFrog Pipelines offers JFrog Platform customers three vital capabilities: end-to-end automation (CI/CD), workflow and tool orchestration, and the optimization of the JFrog toolset functionality in use. Consistent with JFrog’s customer-centric product philosophy, Pipelines is enterprise-ready and universal.",
+    "JFrog Pipelines offers JFrog Platform customers three vital capabilities: end-to-end automation (CI/CD), workflow and tool orchestration, and the optimization of the JFrog tooJFrog Pipelines empowers software teams to ship updates faster by automating DevOps processes in a continuously streamlined and secure way across all their teams and tools. Encompassing continuous integration (CI), continuous delivery (CD), infrastructure and more, it automates everything from code to production. Pipelines is natively integrated with the JFrog Platform and is available with both cloud (software-as-a-service) and on-premise subscriptions.",
   ],
   link: "http://bit.ly/2ZVMT7W",
 };
@@ -120,7 +120,7 @@ const experienceSAPLabsIndia: IExperience = {
   country: "India",
   logo: "static/images/logo-sap.png",
   description:
-    "Joined after graduation and pursued a Master's alongside. Journey was challenging, mostly required self learning. Played different roles such as Cloud Architect, DevOps Engineer, Full Stack Engineer, & Mobile Developer.",
+    "Joined after graduation and pursued Masters alongside. Journey was challenging, mostly required self learning. Played different roles such as Cloud Architect, DevOps Engineer, Full Stack Engineer, & Mobile Developer.",
   roles: [
     roleSAPFullStackEngineer,
     roleSAPMobileDeveloper,
@@ -136,17 +136,17 @@ const experienceWunderflats: IExperience = {
   country: "Germany",
   logo: "static/images/logo-wf.png",
   description:
-    "Currently working as a Senior Software Engineer in an Agile environment responsible for development of different applications, developing tools for developer productivity, mentoring junior colleagues & enhancing core operations of business with technology.",
+    "Worked as a Senior Software Engineer in a small autonomous team, responsible for development of different applications, developing tools for developer productivity, mentoring junior colleagues & enhancing core operations of business with technology.",
   roles: [roleWunderflats],
 };
 
 const experienceJFrog: IExperience = {
-  company: "JFrog",
+  company: "JFrog India",
   from: "Jul 2020",
   city: "Bangalore",
   country: "India",
   logo: "static/images/logo-jfrog.png",
-  description: "Currently working as a Senior Software Engineer.",
+  description: "Currently working as a Senior Software Engineer in JFrog Pipelines team. Responsible for mostly backend tasks and overall improvements of the product",
   roles: [rolesJFrog],
 };
 
