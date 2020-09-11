@@ -7,7 +7,7 @@ echo "//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" >> ./.npmrc;
 
 
 sudo git remote rm origin;
-sudo git remote add origin "https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/$GITHUB_USERNAME/$GITHUB_REPOISTORY.git";
+sudo git remote add origin "https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/$GITHUB_USERNAME/$GITHUB_REPOSITORY.git";
 sudo git fetch;   
 
 sudo git config --global user.email "kashyaprahul94@gmail.com";
