@@ -3,18 +3,52 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          version: "{{gitBranch}}"
+          git_branch: "{{gitBranch}}"
     steps:
-      - name: api_build
+      - name: core_entry
         type: Bash
         configuration:
-          environmentVariables:
-            foo: "bar"
           inputResources:
             - name: repoCore
         execution:
           onStart:
-            - ls -al
             - printenv
-            - docker --version
-            - node --version
+            - pushd $res_repoCore_resourcePath
+            - add_run_variables RELEASE_TAG=$( ./pipelines/normalize-version.sh ${git_branch} )
+            - echo "Release tag is --> ${RELEASE_TAG}"
+            - popd
+
+      - name: core_docker_build
+        type: DockerBuild
+        configuration:
+          integrations:
+            - name: kashyaprahul94_artifactory
+          inputResources:
+            - name: repoCore
+          inputSteps:
+            - name: core_entry
+          affinityGroup: group_docker_build_push
+
+          dockerFileLocation: packages/core
+          dockerFileName: Dockerfile
+          dockerImageName: kashyaprahul94-docker.jfrog.io/portfolio-core
+          dockerImageTag: ${RELEASE_TAG}
+        execution:
+          onSuccess:
+            - echo "Docker image was built with '$RELEASE_TAG' tag"
+
+      - name: core_docker_push_to_jfrog
+        type: DockerPush
+        configuration:
+          integrations:
+            - name: kashyaprahul94_artifactory
+          inputSteps:
+            - name: core_docker_build
+          affinityGroup: group_docker_build_push
+
+          targetRepository: docker
+        execution:
+          onStart:
+            - docker images
+          onSuccess:
+            - echo "Docker image is pushed to JFrog Docker Registry"
