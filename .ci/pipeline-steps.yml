@@ -1,0 +1,20 @@
+pipelines:
+  - name: portfolio-core
+    configuration:
+      environmentVariables:
+        readOnly:
+          version: "{{gitBranch}}"
+    steps:
+      - name: api_build
+        type: Bash
+        configuration:
+          environmentVariables:
+            foo: "bar"
+          inputResources:
+            - name: repoCore
+          execution:
+            onStart:
+              - ls -al
+              - printenv
+              - docker --version
+              - node --version

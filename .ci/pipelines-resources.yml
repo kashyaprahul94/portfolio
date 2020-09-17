@@ -1,0 +1,20 @@
+resources:
+  - name: repoCore
+    type: GitRepo
+    configuration:
+      path: kashyaprahul94/portfolio
+      gitProvider: kashyaprahul94_github
+      branches:
+        include: ^{{gitBranch}}$
+      files:
+        include: \bpackages\/core\/.+\b
+        
+  - name: repoApp
+    type: GitRepo
+    configuration:
+      path: kashyaprahul94/portfolio
+      gitProvider: kashyaprahul94_github
+      branches:
+        include: ^{{gitBranch}}$
+      files:
+        include: \bpackages\/app\/.+\b
