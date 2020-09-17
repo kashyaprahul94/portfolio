@@ -1,5 +1,5 @@
 pipelines:
-  - name: portfolio-core
+  - name: portfolio_core
     configuration:
       environmentVariables:
         readOnly:
@@ -12,9 +12,9 @@ pipelines:
             foo: "bar"
           inputResources:
             - name: repoCore
-          execution:
-            onStart:
-              - ls -al
-              - printenv
-              - docker --version
-              - node --version
+        execution:
+          onStart:
+            - ls -al
+            - printenv
+            - docker --version
+            - node --version
