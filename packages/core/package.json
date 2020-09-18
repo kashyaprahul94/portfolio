@@ -1,7 +1,7 @@
 {
-  "name": "@kashyaprahul94/portfolio-core",
+  "name": "@kashyaprahul94/portfolio-ci",
   "version": "1.1.13",
-  "description": "Portfolio - Core package",
+  "description": "Portfolio - CI package",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/kashyaprahul94/portfolio.git"
