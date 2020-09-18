@@ -5,7 +5,8 @@ pipelines:
         readOnly:
           GIT_BRANCH: "{{gitBranch}}"
           DOCKER_REGISTRY: "kashyaprahul94-docker.jfrog.io"
-          DOCKER_IMAGE_NAME: "portfolio-ci"
+          DOCKER_IMAGE_NAME_: "portfolio-ci"
+          DOCKER_FULL_IMAGE_NAME: "${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME_}"
 
     steps:
       - name: ci_entry
@@ -18,7 +19,7 @@ pipelines:
             - printenv
             - pushd $res_repoCI_resourcePath
             - add_run_variables RELEASE_TAG=$( ./pipelines/normalize-version.sh ${GIT_BRANCH} )
-            - echo "Release tag is --> ${RELEASE_TAG}"
+            - echo "Release tag will be --> ${RELEASE_TAG}."
             - popd
 
       - name: ci_docker_build
@@ -34,11 +35,12 @@ pipelines:
 
           dockerFileLocation: packages/ci
           dockerFileName: Dockerfile
-          dockerImageName: "${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}"
+          dockerImageName: "${DOCKER_FULL_IMAGE_NAME}"
           dockerImageTag: ${RELEASE_TAG}
         execution:
           onSuccess:
-            - echo "Docker image was built with '$RELEASE_TAG' tag"
+            - echo "Docker image is built successfully."
+            - echo "Image ---> ${DOCKER_FULL_IMAGE_NAME}:${RELEASE_TAG}"
 
       - name: ci_docker_push_to_jfrog
         type: DockerPush
@@ -54,4 +56,5 @@ pipelines:
           onStart:
             - docker images
           onSuccess:
-            - echo "Docker image is pushed to JFrog Docker Registry --> ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${RELEASE_TAG}"
+            - echo "Docker image is pushed to JFrog Docker Registry successfully."
+            - echo "Image ---> ${DOCKER_FULL_IMAGE_NAME}:${RELEASE_TAG}"
