@@ -16,6 +16,5 @@ RUN apt-get update && apt-get install -yq --no-install-recommends apt-utils apt-
 
 
 # Install `yarn`
-RUN npm i -g yarn --force
-
+RUN npm i -g yarn@1.22.5 --force
 RUN echo "Yarn version ---> $(yarn -v)"

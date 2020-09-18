@@ -1,0 +1,21 @@
+pipelines:
+  - name: portfolio_style
+    configuration:
+      environmentVariables:
+        readOnly:
+          git_branch: "{{gitBranch}}"
+    steps:
+      - name: style_build
+        type: Bash
+        configuration:
+          inputResources:
+            - name: repoStyle
+        execution:
+          onStart:
+            - npm i -g yarn@1.22.5 --force
+          onExecute:
+            - pushd $res_repoStyle_resourcePath
+            - yarn --update-checksums
+            - yarn build
+            - ls -al
+            - popd

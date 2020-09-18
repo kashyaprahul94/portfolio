@@ -1,60 +1,60 @@
-name: Pull Request
+# name: Pull Request
 
-on:
-  pull_request:
-    branches:
-      - "**"
-    tags-ignore:
-      - "**"
+# on:
+#   pull_request:
+#     branches:
+#       - "**"
+#     tags-ignore:
+#       - "**"
 
-jobs:
-  build_deploy:
-    name: Build | Tag App Docker Image | Push App Docker Image to Registry
-    runs-on: ubuntu-latest
+# jobs:
+#   build_deploy:
+#     name: Build | Tag App Docker Image | Push App Docker Image to Registry
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Install 'Node 12'
-        run: sudo npm install -g n && sudo n 12
+#     steps:
+#       - name: Install 'Node 12'
+#         run: sudo npm install -g n && sudo n 12
 
-      - name: Checkout Repository
-        uses: "actions/checkout@v1"
+#       - name: Checkout Repository
+#         uses: "actions/checkout@v1"
 
-      - name: Setup Environment
-        run: bash ./pipelines/setup-env.sh
+#       - name: Setup Environment
+#         run: bash ./pipelines/setup-env.sh
 
-      - name: Reattach HEAD
-        run: sudo git checkout $LOCAL_BRANCH
+#       - name: Reattach HEAD
+#         run: sudo git checkout $LOCAL_BRANCH
 
-      - name: Install dependencies & Build
-        run: bash ./pipelines/install-dependencies-and-build.sh
-        env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_REGISTRY: npm.pkg.github.com
+#       - name: Install dependencies & Build
+#         run: bash ./pipelines/install-dependencies-and-build.sh
+#         env:
+#           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           NPM_REGISTRY: npm.pkg.github.com
 
-      ##### App
+#       ##### App
 
-      - name: Tag App Docker Image
-        run: bash ./pipelines/app/tag-docker-image.sh
-        env:
-          DOCKER_USERNAME: kashyaprahul94
-          REPOSITORY_NAME: portfolio
-          DOCKER_IMAGE_NAME: app
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-          DOCKER_REGISTRY: docker.pkg.github.com
+#       - name: Tag App Docker Image
+#         run: bash ./pipelines/app/tag-docker-image.sh
+#         env:
+#           DOCKER_USERNAME: kashyaprahul94
+#           REPOSITORY_NAME: portfolio
+#           DOCKER_IMAGE_NAME: app
+#           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+#           DOCKER_REGISTRY: docker.pkg.github.com
 
-      - name: Publish App Image to Docker Hub
-        run: bash ./pipelines/app/publish-to-docker-hub.sh || true
-        env:
-          DOCKER_USERNAME: kashyaprahul94
-          REPOSITORY_NAME: portfolio
-          DOCKER_IMAGE_NAME: app
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_CI_TOKEN }}
+#       - name: Publish App Image to Docker Hub
+#         run: bash ./pipelines/app/publish-to-docker-hub.sh || true
+#         env:
+#           DOCKER_USERNAME: kashyaprahul94
+#           REPOSITORY_NAME: portfolio
+#           DOCKER_IMAGE_NAME: app
+#           DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_CI_TOKEN }}
 
-      - name: Publish App Image to GitHub Registry
-        run: bash ./pipelines/app/publish-to-github.sh || true
-        env:
-          DOCKER_USERNAME: kashyaprahul94
-          REPOSITORY_NAME: portfolio
-          DOCKER_IMAGE_NAME: app
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-          DOCKER_REGISTRY: docker.pkg.github.com
+#       - name: Publish App Image to GitHub Registry
+#         run: bash ./pipelines/app/publish-to-github.sh || true
+#         env:
+#           DOCKER_USERNAME: kashyaprahul94
+#           REPOSITORY_NAME: portfolio
+#           DOCKER_IMAGE_NAME: app
+#           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+#           DOCKER_REGISTRY: docker.pkg.github.com
