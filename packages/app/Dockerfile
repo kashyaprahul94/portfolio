@@ -3,7 +3,7 @@
 # ------------------------------- #
 
 # Use our base image
-FROM docker.pkg.github.com/kashyaprahul94/portfolio/core:stable AS builder
+FROM kashyaprahul94-docker.jfrog.io/portfolio-ci:stable AS builder
 
 # Add metadata
 LABEL author="kashyaprahul94@gmail.com"

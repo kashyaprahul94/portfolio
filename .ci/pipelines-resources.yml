@@ -46,3 +46,11 @@ resources:
         include: ^{{gitBranch}}$
       files:
         include: \bpackages\/app\/.+\b
+  
+  - name: dockerImageCI
+    type: Image
+    configuration:
+      registry: kashyaprahul94_docker
+      sourceRepository: docker
+      imageName: kashyaprahul94-docker.jfrog.io/portfolio-ci
+      imageTag: stable

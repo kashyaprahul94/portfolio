@@ -1,38 +1,38 @@
 pipelines:
-  - name: portfolio_ci
+  - name: portfolio_app
     configuration:
       environmentVariables:
         readOnly:
           GIT_BRANCH: "{{gitBranch}}"
           DOCKER_REGISTRY: "kashyaprahul94-docker.jfrog.io"
-          DOCKER_IMAGE_NAME: "portfolio-ci"
+          DOCKER_IMAGE_NAME: "portfolio-app"
 
     steps:
-      - name: ci_entry
+      - name: app_entry
         type: Bash
         configuration:
           inputResources:
-            - name: repoCI
+            - name: repoApp
         execution:
           onStart:
             - printenv
-            - pushd $res_repoCI_resourcePath
+            - pushd $res_repoApp_resourcePath
             - add_run_variables RELEASE_TAG=$( ./pipelines/normalize-version.sh ${GIT_BRANCH} )
             - echo "Release tag is --> ${RELEASE_TAG}"
             - popd
 
-      - name: ci_docker_build
+      - name: app_docker_build
         type: DockerBuild
         configuration:
           integrations:
             - name: kashyaprahul94_artifactory
           inputResources:
-            - name: repoCI
+            - name: repoApp
           inputSteps:
-            - name: ci_entry
+            - name: app_entry
           affinityGroup: group_docker_build_push
 
-          dockerFileLocation: packages/ci
+          dockerFileLocation: packages/app
           dockerFileName: Dockerfile
           dockerImageName: "${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}"
           dockerImageTag: ${RELEASE_TAG}
@@ -40,13 +40,13 @@ pipelines:
           onSuccess:
             - echo "Docker image was built with '$RELEASE_TAG' tag"
 
-      - name: ci_docker_push_to_jfrog
+      - name: app_docker_push_to_jfrog
         type: DockerPush
         configuration:
           integrations:
             - name: kashyaprahul94_artifactory
           inputSteps:
-            - name: ci_docker_build
+            - name: app_docker_build
           affinityGroup: group_docker_build_push
 
           targetRepository: docker
