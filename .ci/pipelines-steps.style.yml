@@ -10,14 +10,14 @@ pipelines:
         configuration:
           inputResources:
             - name: repoStyle
-          runtime:
-            type: image
-            image:
-              custom:
-                name: kashyaprahul94-docker.jfrog.io/portfolio-ci
-                tag: stable
-                registry: kashyaprahul94_docker
-                sourceRepository: docker
+          # runtime:
+          #   type: image
+          #   image:
+          #     custom:
+          #       name: kashyaprahul94-docker.jfrog.io/portfolio-ci
+          #       tag: stable
+          #       registry: kashyaprahul94_docker
+          #       sourceRepository: docker
         execution:
           onExecute:
             - pushd $res_repoStyle_resourcePath

@@ -1,20 +1,15 @@
-# Using slim image, less size
-FROM node:12-slim
+# Using Ubuntu 18 as base image
+FROM ubuntu:18.04
 
 
 # Add metadata
 LABEL author="kashyaprahul94@gmail.com"
 
 
-# Necessary env variables
-ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
-ENV DEBIAN_FRONTEND=noninteractive
+# Add everything to working directory
+ADD . /ci
 
 
-# Update registry && Install necessary common packages
-RUN apt-get update && apt-get install -yq --no-install-recommends apt-utils apt-transport-https ca-certificates libgconf-2-4 wget curl gnupg
-
-
-# Install `yarn`
-RUN npm i -g yarn@1.22.5 --force
-RUN echo "Yarn version ---> $(yarn -v)"
+# Run the installer script
+RUN chmod +x /ci/install.sh
+RUN /ci/install.sh && rm -rf /tmp && mkdir /tmp && chmod 1777 /tmp
