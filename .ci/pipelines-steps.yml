@@ -1,5 +1,5 @@
 pipelines:
-  - name: portfolio_style
+  - name: portfolio_root
     configuration:
       runtime:
         type: image
@@ -11,35 +11,39 @@ pipelines:
             sourceRepository: "docker"
       environmentVariables:
         readOnly:
-          PACKAGE_NAME: "style"
           NPM_USER_NAME: "service_user"
           NPM_USER_EMAIL: "kashyaprahul94@gmail.com"
 
     steps:
-      - name: style_init
+      - name: root_init
         type: Bash
         configuration:
           integrations:
             - name: kashyaprahul94_npm
           inputResources:
-            - name: repoStyle
+            - name: repoRoot
         execution:
           onStart:
-            - pushd $res_repoStyle_resourcePath
+            - pushd $res_repoRoot_resourcePath
             - ./pipelines/init-npmrc.sh $int_kashyaprahul94_npm_RT_NPM_REGISTRY $int_kashyaprahul94_npm_RT_NPM_TOKEN $NPM_USER_NAME $NPM_USER_EMAIL .
             - add_run_files ./.npmrc state_npmrc
 
-      - name: style_build
+      - name: root_build
         type: Bash
         configuration:
           inputResources:
-            - name: repoStyle
+            - name: repoRoot
           inputSteps:
-            - name: style_init
+            - name: root_init
         execution:
           onStart:
-            - pushd $res_repoStyle_resourcePath/packages/$PACKAGE_NAME
+            - pushd $res_repoRoot_resourcePath
             - restore_run_files state_npmrc ./.npmrc
+            - ls -al
+            - cp -r ./.npmrc ./packages/style ./packages/storybook ./packages/app
+            - cp -r ./.npmrc ./packages/style
+            - ls -al ./packages/style
           onExecute:
-            - yarn --update-checksums
-            - yarn compile
+            # - yarn --update-checksums
+            # - yarn compile
+            - echo "will try to release npm versions here"

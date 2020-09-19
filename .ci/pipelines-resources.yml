@@ -5,7 +5,8 @@ resources:
       path: kashyaprahul94/portfolio
       gitProvider: kashyaprahul94_github
       branches:
-        include: master
+        # include: master
+        include: ^{{gitBranch}}$
 
   - name: repoCI
     type: GitRepo
@@ -46,11 +47,3 @@ resources:
         include: ^{{gitBranch}}$
       files:
         include: \bpackages\/app\/.+\b
-  
-  - name: dockerImageCI
-    type: Image
-    configuration:
-      registry: kashyaprahul94_docker
-      sourceRepository: docker
-      imageName: kashyaprahul94-docker.jfrog.io/portfolio-ci
-      imageTag: stable
