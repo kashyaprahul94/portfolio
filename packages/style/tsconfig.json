@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "noImplicitAny": false,
     "declaration": true,
     "allowJs": false,
     "sourceMap": true,
