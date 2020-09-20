@@ -1,20 +1,23 @@
 #!/bin/bash -e
 
 if [ $# -ne 1 ]; then
-  echo "ERROR!!! need the branch name to work"
+  echo "ERROR!!! need the branch name to generate release script"
   exit 1
 fi
 
 readonly BRANCH="$1"
 
 main() {
+  local yarn_publish_cmd="yarn publish --verbose --message 'Bump to - %s [skip ci]'"
+  local release_version="--prerelease"
+
   if [ $BRANCH = "master" ]; then 
-    echo "I shall release patch version";
-    yarn publish --verbose --patch --message "Bump to - %s [skip ci]";
-  else
-    echo "I shall release prerelease version";
-    yarn publish --verbose --prerelease --message "Bump to - %s [skip ci]";
+    release_version="--patch"
   fi;
+
+  yarn_publish_cmd="$yarn_publish_cmd $release_version"
+
+  printf "$yarn_publish_cmd"
 }
 
 main

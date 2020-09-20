@@ -13,7 +13,7 @@ Features -
 
 This repo comprises of following packages - 
 
-* Core - Core package contains common assets.
+* CI - A docker image for CIs to build the whole portfolio packages
 * Style - UI Component package.
 * Storybook - Complete storybook package using `style` package.
 * App - Next JS based portfolio application

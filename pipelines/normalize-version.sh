@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 if [ $# -ne 1 ]; then
-  echo "ERROR!!! need an input string to normalize"
+  echo "ERROR!!! need the branch name to generate release tag"
   exit 1
 fi
 
@@ -12,7 +12,9 @@ main() {
   readonly local NORMALIZED_RELEASE=$(echo "$RELEASE" | tr / _ | tr -d \[:space:\] | tr -cs \[:alnum:\] -);
   local RELEASE_TAG=$NORMALIZED_RELEASE; 
   
-  if [ $NORMALIZED_RELEASE = "master" ]; then RELEASE_TAG="stable"; fi;
+  if [ $NORMALIZED_RELEASE = "master" ]; then 
+    RELEASE_TAG="stable"; 
+  fi
 
   printf "$RELEASE_TAG"
 }
