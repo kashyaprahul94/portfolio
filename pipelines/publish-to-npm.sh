@@ -1,23 +1,20 @@
-#!/usr/bin/env bash
+#!/bin/bash -e
 
-BRANCH=$LOCAL_BRANCH;
+if [ $# -ne 1 ]; then
+  echo "ERROR!!! need the branch name to work"
+  exit 1
+fi
 
-echo "@$GITHUB_USERNAME:registry=https://$NPM_REGISTRY/" >> ./.npmrc;
-echo "//$NPM_REGISTRY/:_authToken=$NPM_TOKEN" >> ./.npmrc;
+readonly BRANCH="$1"
 
+main() {
+  if [ $BRANCH = "master" ]; then 
+    echo "I shall release patch version";
+    yarn publish --verbose --patch --message "Bump to - %s [skip ci]";
+  else
+    echo "I shall release prerelease version";
+    yarn publish --verbose --prerelease --message "Bump to - %s [skip ci]";
+  fi;
+}
 
-sudo git remote rm origin;
-sudo git remote add origin "https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/$GITHUB_USERNAME/$REPOSITORY_NAME.git";
-sudo git fetch;   
-
-sudo git config --global user.email "kashyaprahul94@gmail.com";
-sudo git config --global user.name "Rahul Kashyap";
-
-
-if [ $BRANCH = "master" ]; then 
-  echo "I shall release patch version";
-  sudo yarn lerna publish patch --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s [skip ci]";
-else
-  echo "I shall release prerelease version";
-  sudo yarn lerna publish prerelease --preid next --exact --force-publish --yes --registry "https://$NPM_REGISTRY" --message "Bump to - %s [skip ci]";
-fi;
+main

@@ -11,6 +11,7 @@ pipelines:
             sourceRepository: "docker"
       environmentVariables:
         readOnly:
+          GIT_BRANCH: "{{gitBranch}}"
           PACKAGE_NAME: "style"
           NPM_USER_NAME: "service_user"
           NPM_USER_EMAIL: "kashyaprahul94@gmail.com"
@@ -26,10 +27,26 @@ pipelines:
         execution:
           onStart:
             - pushd $res_repoStyle_resourcePath
-            - ./pipelines/init-npmrc.sh $int_kashyaprahul94_npm_RT_NPM_REGISTRY $int_kashyaprahul94_npm_RT_NPM_TOKEN $NPM_USER_NAME $NPM_USER_EMAIL .
+            - ./pipelines/init-npmrc.sh $int_kashyaprahul94_npm_RT_NPM_REGISTRY $int_kashyaprahul94_npm_RT_NPM_AUTH $int_kashyaprahul94_npm_RT_NPM_AUTH_EMAIL .
             - add_run_files ./.npmrc state_npmrc
 
-      - name: style_build
+      - name: style_build_and_publish
+        type: Bash
+        configuration:
+          inputResources:
+            - name: repoStyle
+          inputSteps:
+            - name: style_init
+        execution:
+          onStart:
+            - pushd $res_repoStyle_resourcePath/packages/$PACKAGE_NAME
+            - restore_run_files state_npmrc ./.npmrc
+          onExecute:
+            - yarn install --update-checksums
+            - yarn compile
+            - $( ./pipelines/publish-to-npm.sh $GIT_BRANCH )
+
+      - name: style_publish
         type: Bash
         configuration:
           inputResources:
