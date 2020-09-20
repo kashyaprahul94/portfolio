@@ -4,5 +4,7 @@
 
 .eslintcache
 .npmrc
+.yarnrc
+
 *.env
 .env
