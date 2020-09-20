@@ -65,5 +65,5 @@ pipelines:
             - ls -al
           onExecute:
             - if [[ $res_repoStyle_shaData == *"[skip ci]"* ]]; then echo "Skipping to publish the packages to avoid circular pipelines"; else echo "Will be using the release command ---> $RELEASE_SCRIPT" && eval $RELEASE_SCRIPT; fi
-            - git status
+            - git push -u origin $GIT_BRANCH
             - popd
