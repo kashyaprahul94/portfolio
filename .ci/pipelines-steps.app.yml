@@ -1,4 +1,5 @@
 pipelines:
+
   - name: portfolio_app
     configuration:
       environmentVariables:
