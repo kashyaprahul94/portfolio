@@ -1,0 +1,5 @@
+@kashyaprahul94:registry=https://npm.pkg.github.com
+//kashyaprahul94.jfrog.io/artifactory/api/npm/npm/:_password=XXXX
+//kashyaprahul94.jfrog.io/artifactory/api/npm/npm/:username=SOME_USER
+//kashyaprahul94.jfrog.io/artifactory/api/npm/npm/:email=kashyaprahul94@gmail.com
+//kashyaprahul94.jfrog.io/artifactory/api/npm/npm/:always-auth=true
