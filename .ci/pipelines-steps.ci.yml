@@ -1,5 +1,4 @@
 pipelines:
-
   - name: portfolio_ci
     configuration:
       environmentVariables:

@@ -1,5 +1,4 @@
 resources:
-
   - name: repoCI
     type: GitRepo
     configuration:

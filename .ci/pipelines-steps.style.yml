@@ -1,5 +1,4 @@
 pipelines:
-
   - name: portfolio_style
     configuration:
       runtime:
@@ -13,6 +12,8 @@ pipelines:
       environmentVariables:
         readOnly:
           GIT_BRANCH: "{{gitBranch}}"
+          GIT_USERNAME: "kashyaprahul94"
+          GIT_REPO_NAME: "kashyaprahul94/portfolio"
           PACKAGE_NAME: "style"
           NPM_USER_NAME: "service_user"
           NPM_USER_EMAIL: "kashyaprahul94@gmail.com"
@@ -53,6 +54,8 @@ pipelines:
       - name: style_publish
         type: Bash
         configuration:
+          integrations:
+            - name: kashyaprahul94_github
           inputResources:
             - name: repoStyle
           inputSteps:
@@ -64,6 +67,13 @@ pipelines:
             - restore_run_files state_style_build ./
             - ls -al
           onExecute:
-            - if [[ $res_repoStyle_shaData == *"[skip ci]"* ]]; then echo "Skipping to publish the packages to avoid circular pipelines"; else echo "Will be using the release command ---> $RELEASE_SCRIPT" && eval $RELEASE_SCRIPT; fi
-            - git push -u origin $GIT_BRANCH
+            - if [[ $res_repoStyle_shaData == *"[skip ci]"* ]]; then echo "Skipping to publish the packages to avoid circular pipelines"; return 0; fi
+            - echo "Will be using the release command ---> $RELEASE_SCRIPT"
+            - git remote set-url origin "https://$GIT_USERNAME:$int_kashyaprahul94_github_token@github.com/$GIT_REPO_NAME.git"
+            - git fetch
+            - git checkout $GIT_BRANCH
+            # - eval $RELEASE_SCRIPT
+            - yarn version --prerelease
+            - git --no-pager log --decorate=short --pretty=oneline -n1
+            - git push
             - popd
