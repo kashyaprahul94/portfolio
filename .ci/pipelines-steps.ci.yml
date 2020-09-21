@@ -3,9 +3,13 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          git_branch: "{{gitBranch}}"
+          GIT_BRANCH: "{{gitBranch}}"
+          DOCKER_REGISTRY: "kashyaprahul94-docker.jfrog.io"
+          DOCKER_IMAGE_NAME_: "portfolio-ci"
+          DOCKER_FULL_IMAGE_NAME: "$DOCKER_REGISTRY/$DOCKER_IMAGE_NAME_"
+
     steps:
-      - name: ci_entry
+      - name: ci_init
         type: Bash
         configuration:
           inputResources:
@@ -14,8 +18,8 @@ pipelines:
           onStart:
             - printenv
             - pushd $res_repoCI_resourcePath
-            - add_run_variables RELEASE_TAG=$( ./pipelines/normalize-version.sh ${git_branch} )
-            - echo "Release tag is --> ${RELEASE_TAG}"
+            - add_run_variables RELEASE_TAG=$( ./pipelines/normalize-version.sh $GIT_BRANCH )
+            - echo "Release tag will be --> $RELEASE_TAG."
             - popd
 
       - name: ci_docker_build
@@ -26,16 +30,17 @@ pipelines:
           inputResources:
             - name: repoCI
           inputSteps:
-            - name: ci_entry
+            - name: ci_init
           affinityGroup: group_docker_build_push
 
           dockerFileLocation: packages/ci
           dockerFileName: Dockerfile
-          dockerImageName: kashyaprahul94-docker.jfrog.io/portfolio-ci
-          dockerImageTag: ${RELEASE_TAG}
+          dockerImageName: "$DOCKER_FULL_IMAGE_NAME"
+          dockerImageTag: $RELEASE_TAG
         execution:
           onSuccess:
-            - echo "Docker image was built with '$RELEASE_TAG' tag"
+            - echo "Docker image is built successfully."
+            - echo "Image ---> $DOCKER_FULL_IMAGE_NAME:$RELEASE_TAG"
 
       - name: ci_docker_push_to_jfrog
         type: DockerPush
@@ -51,4 +56,5 @@ pipelines:
           onStart:
             - docker images
           onSuccess:
-            - echo "Docker image is pushed to JFrog Docker Registry"
+            - echo "Docker image is pushed to JFrog Docker Registry successfully."
+            - echo "Image ---> $DOCKER_FULL_IMAGE_NAME:$RELEASE_TAG"

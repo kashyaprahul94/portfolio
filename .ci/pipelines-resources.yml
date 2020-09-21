@@ -1,12 +1,4 @@
 resources:
-  - name: repoRoot
-    type: GitRepo
-    configuration:
-      path: kashyaprahul94/portfolio
-      gitProvider: kashyaprahul94_github
-      branches:
-        include: master
-
   - name: repoCI
     type: GitRepo
     configuration:

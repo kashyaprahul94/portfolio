@@ -1,21 +1,83 @@
 pipelines:
   - name: portfolio_style
     configuration:
+      runtime:
+        type: image
+        image:
+          custom:
+            name: "kashyaprahul94-docker.jfrog.io/portfolio-ci"
+            tag: "feature-jfrog-pipelines-001"
+            registry: "kashyaprahul94_docker"
+            sourceRepository: "docker"
       environmentVariables:
         readOnly:
-          git_branch: "{{gitBranch}}"
+          GIT_BRANCH: "{{gitBranch}}"
+          GIT_USERNAME: "kashyaprahul94"
+          GIT_REPO_NAME: "kashyaprahul94/portfolio"
+          GIT_REPO_USER_NAME: "Rahul Kashyap"
+          GIT_REPO_USER_EMAIL: "kashyaprahul94@gmail.com"
+          PACKAGE_NAME: "style"
+          NPM_USER_NAME: "service_user"
+          NPM_USER_EMAIL: "kashyaprahul94@gmail.com"
+
     steps:
+      - name: style_init
+        type: Bash
+        configuration:
+          integrations:
+            - name: kashyaprahul94_npm
+          inputResources:
+            - name: repoStyle
+        execution:
+          onStart:
+            - pushd $res_repoStyle_resourcePath
+            - ./pipelines/init-npmrc.sh $int_kashyaprahul94_npm_RT_NPM_REGISTRY $int_kashyaprahul94_npm_RT_NPM_AUTH $int_kashyaprahul94_npm_RT_NPM_AUTH_EMAIL .
+            - add_run_files .npmrc state_npmrc
+            - popd
+
       - name: style_build
         type: Bash
         configuration:
           inputResources:
             - name: repoStyle
+          inputSteps:
+            - name: style_init
         execution:
           onStart:
-            - npm i -g yarn@1.22.5 --force
+            - pushd $res_repoStyle_resourcePath/packages/$PACKAGE_NAME
+            - restore_run_files state_npmrc .npmrc
           onExecute:
-            - pushd $res_repoStyle_resourcePath
-            - yarn --update-checksums
-            - yarn build
+            - yarn install --update-checksums
+            - yarn compile
             - ls -al
+            - add_run_files lib .npmrc state_style_build
+            - popd
+
+      - name: style_publish
+        type: Bash
+        configuration:
+          integrations:
+            - name: kashyaprahul94_github
+          inputResources:
+            - name: repoStyle
+          inputSteps:
+            - name: style_build
+        execution:
+          onStart:
+            - export RELEASE_SCRIPT=$( $res_repoStyle_resourcePath/pipelines/publish-to-npm.sh $GIT_BRANCH )
+            - pushd $res_repoStyle_resourcePath/packages/$PACKAGE_NAME
+            - restore_run_files state_style_build ./
+            - ls -al
+          onExecute:
+            - if [[ $res_repoStyle_shaData == *"[skip ci]"* ]]; then echo "Skipping to publish the packages to avoid circular pipelines"; return 0; fi
+            - echo "Will be using the release command ---> $RELEASE_SCRIPT"
+            - git remote set-url origin "https://$GIT_USERNAME:$int_kashyaprahul94_github_token@github.com/$GIT_REPO_NAME.git"
+            - git fetch
+            - git checkout $GIT_BRANCH
+            - git pull
+            - git config user.name "$GIT_REPO_USER_NAME";
+            - git config user.email "$GIT_REPO_USER_EMAIL";
+            - eval $RELEASE_SCRIPT
+            - git --no-pager log --decorate=short --pretty=oneline -n1
+            - git push
             - popd
