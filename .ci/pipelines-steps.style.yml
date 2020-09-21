@@ -6,7 +6,7 @@ pipelines:
         image:
           custom:
             name: "kashyaprahul94-docker.jfrog.io/portfolio-ci"
-            tag: "feature-jfrog-pipelines-001"
+            tag: "stable"
             registry: "kashyaprahul94_docker"
             sourceRepository: "docker"
       environmentVariables:
