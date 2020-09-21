@@ -38,9 +38,10 @@ pipelines:
           dockerImageName: "$DOCKER_FULL_IMAGE_NAME"
           dockerImageTag: $RELEASE_TAG
         execution:
-          onSuccess:
-            - echo "Docker image is built successfully."
+          onStart:
             - echo "Image ---> $DOCKER_FULL_IMAGE_NAME:$RELEASE_TAG"
+          onSuccess:
+            - echo "Docker image is successfully built."
 
       - name: ci_docker_push_to_jfrog
         type: DockerPush
@@ -55,6 +56,6 @@ pipelines:
         execution:
           onStart:
             - docker images
-          onSuccess:
-            - echo "Docker image is pushed to JFrog Docker Registry successfully."
             - echo "Image ---> $DOCKER_FULL_IMAGE_NAME:$RELEASE_TAG"
+          onSuccess:
+            - echo "Docker image is successfully pushed to JFrog Docker Registry."
