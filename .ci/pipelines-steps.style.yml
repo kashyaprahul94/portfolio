@@ -14,6 +14,8 @@ pipelines:
           GIT_BRANCH: "{{gitBranch}}"
           GIT_USERNAME: "kashyaprahul94"
           GIT_REPO_NAME: "kashyaprahul94/portfolio"
+          GIT_REPO_USER_NAME: "Rahul Kashyap"
+          GIT_REPO_USER_EMAIL: "kashyaprahul94@gmail.com"
           PACKAGE_NAME: "style"
           NPM_USER_NAME: "service_user"
           NPM_USER_EMAIL: "kashyaprahul94@gmail.com"
@@ -73,8 +75,8 @@ pipelines:
             - git fetch
             - git checkout $GIT_BRANCH
             - git pull
-            - git config --global user.name "$GIT_REPO_USER_NAME";
-            - git config --global user.email "$GIT_REPO_USER_EMAIL";
+            - git config user.name "$GIT_REPO_USER_NAME";
+            - git config user.email "$GIT_REPO_USER_EMAIL";
             - eval $RELEASE_SCRIPT
             - git --no-pager log --decorate=short --pretty=oneline -n1
             - git push
