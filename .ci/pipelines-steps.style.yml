@@ -72,8 +72,10 @@ pipelines:
             - git remote set-url origin "https://$GIT_USERNAME:$int_kashyaprahul94_github_token@github.com/$GIT_REPO_NAME.git"
             - git fetch
             - git checkout $GIT_BRANCH
-            # - eval $RELEASE_SCRIPT
-            - yarn version --prerelease
+            - git pull
+            - git config --global user.name "$GIT_REPO_USER_NAME";
+            - git config --global user.email "$GIT_REPO_USER_EMAIL";
+            - eval $RELEASE_SCRIPT
             - git --no-pager log --decorate=short --pretty=oneline -n1
             - git push
             - popd
