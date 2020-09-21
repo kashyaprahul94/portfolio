@@ -19,7 +19,7 @@ pipelines:
             - printenv
             - pushd $res_repoCI_resourcePath
             - add_run_variables RELEASE_TAG=$( ./pipelines/normalize-version.sh $GIT_BRANCH )
-            - echo "Release tag will be --> $RELEASE_TAG."
+            - echo "Release tag will be --> $RELEASE_TAG"
             - popd
 
       - name: ci_docker_build
@@ -35,8 +35,8 @@ pipelines:
 
           dockerFileLocation: packages/ci
           dockerFileName: Dockerfile
-          dockerImageName: "$DOCKER_FULL_IMAGE_NAME"
-          dockerImageTag: $RELEASE_TAG
+          dockerImageName: ${DOCKER_FULL_IMAGE_NAME}
+          dockerImageTag: ${RELEASE_TAG}
         execution:
           onStart:
             - echo "Image ---> $DOCKER_FULL_IMAGE_NAME:$RELEASE_TAG"
