@@ -34,18 +34,19 @@ pipelines:
             - name: kashyaprahul94_artifactory
           inputResources:
             - name: repoApp
+            - name: imageCI
           inputSteps:
             - name: app_init
           affinityGroup: group_docker_build_push
 
-          dockerFileLocation: packages/ci
+          dockerFileLocation: packages/app
           dockerFileName: Dockerfile
           dockerImageName: ${DOCKER_FULL_IMAGE_NAME}
           dockerImageTag: ${RELEASE_TAG}
         execution:
           onStart:
             - echo "Image ---> $DOCKER_FULL_IMAGE_NAME:$RELEASE_TAG"
-            - pushd $res_repoStyle_resourcePath/packages/$PACKAGE_NAME
+            - pushd $res_repoApp_resourcePath/packages/$PACKAGE_NAME
             - restore_run_files state_npmrc .npmrc
             - ls -al
             - cat .npmrc
@@ -60,7 +61,7 @@ pipelines:
           inputSteps:
             - name: app_docker_build
           outputResources:
-            - name: imageCI
+            - name: imageApp
           affinityGroup: group_docker_build_push
 
           targetRepository: docker
