@@ -20,9 +20,9 @@
     "test:unit": "jest --coverage"
   },
   "dependencies": {
-    "@emotion/core": "10.0.20",
-    "@emotion/styled": "10.0.17",
-    "@kashyaprahul94/portfolio-style": "1.1.13",
+    "@emotion/core": "10.0.27",
+    "@emotion/styled": "10.0.27",
+    "@kashyaprahul94/portfolio-style": "1.2.1",
     "@next/bundle-analyzer": "9.0.5",
     "express": "4.17.0",
     "next": "9.0.0",

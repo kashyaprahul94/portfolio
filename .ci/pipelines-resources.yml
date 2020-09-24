@@ -55,7 +55,8 @@ resources:
       registry: kashyaprahul94_docker
       sourceRepository: docker
       imageName: kashyaprahul94-docker.jfrog.io/portfolio-ci
-      imageTag: ""
+      imageTag: stable
+      autoPull: true
   
   - name: imageApp
     type: Image
@@ -63,4 +64,4 @@ resources:
       registry: kashyaprahul94_docker
       sourceRepository: docker
       imageName: kashyaprahul94-docker.jfrog.io/portfolio-app
-      imageTag: ""
+      imageTag: stable
