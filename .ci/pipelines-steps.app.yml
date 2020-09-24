@@ -21,9 +21,9 @@ pipelines:
           onStart:
             - printenv
             - pushd $res_repoApp_resourcePath
-            - add_run_variables RELEASE_TAG=$( ./pipelines/normalize-version.sh $GIT_BRANCH )
+            - add_run_variables RELEASE_TAG=$( ./.ci/scripts/normalize-version.sh $GIT_BRANCH )
             - echo "Release tag will be --> $RELEASE_TAG"
-            - ./pipelines/init-npmrc.sh $int_kashyaprahul94_npm_RT_NPM_REGISTRY $int_kashyaprahul94_npm_RT_NPM_AUTH $int_kashyaprahul94_npm_RT_NPM_AUTH_EMAIL .
+            - ./.ci/scripts/init-npmrc.sh $int_kashyaprahul94_npm_RT_NPM_REGISTRY $int_kashyaprahul94_npm_RT_NPM_AUTH $int_kashyaprahul94_npm_RT_NPM_AUTH_EMAIL .
             - add_run_files .npmrc state_npmrc
             - popd
 

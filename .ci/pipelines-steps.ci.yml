@@ -18,7 +18,7 @@ pipelines:
           onStart:
             - printenv
             - pushd $res_repoCI_resourcePath
-            - add_run_variables RELEASE_TAG=$( ./pipelines/normalize-version.sh $GIT_BRANCH )
+            - add_run_variables RELEASE_TAG=$( ./.ci/scripts/normalize-version.sh $GIT_BRANCH )
             - echo "Release tag will be --> $RELEASE_TAG"
             - popd
 
