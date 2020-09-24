@@ -48,8 +48,6 @@ pipelines:
             - echo "Image ---> $DOCKER_FULL_IMAGE_NAME:$RELEASE_TAG"
             - pushd $res_repoApp_resourcePath/packages/$PACKAGE_NAME
             - restore_run_files state_npmrc .npmrc
-            - ls -al
-            - cat .npmrc
           onSuccess:
             - echo "Docker image is successfully built."
 
