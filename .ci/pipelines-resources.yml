@@ -1,4 +1,9 @@
 resources:
+
+# -----------------------------
+# Git Repos
+# -----------------------------
+
   - name: repoCI
     type: GitRepo
     configuration:
@@ -38,3 +43,24 @@ resources:
         include: ^{{gitBranch}}$
       files:
         include: \bpackages\/app\/.+\b
+
+
+# -----------------------------
+# Docker images
+# -----------------------------
+
+  - name: imageCI
+    type: Image
+    configuration:
+      registry: kashyaprahul94_docker
+      sourceRepository: docker
+      imageName: kashyaprahul94-docker.jfrog.io/portfolio-ci
+      imageTag: ""
+  
+  - name: imageApp
+    type: Image
+    configuration:
+      registry: kashyaprahul94_docker
+      sourceRepository: docker
+      imageName: kashyaprahul94-docker.jfrog.io/portfolio-app
+      imageTag: ""

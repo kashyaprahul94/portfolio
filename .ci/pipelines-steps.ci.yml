@@ -50,6 +50,8 @@ pipelines:
             - name: kashyaprahul94_artifactory
           inputSteps:
             - name: ci_docker_build
+          outputResources:
+            - name: imageCI
           affinityGroup: group_docker_build_push
 
           targetRepository: docker
@@ -58,4 +60,5 @@ pipelines:
             - docker images
             - echo "Image ---> $DOCKER_FULL_IMAGE_NAME:$RELEASE_TAG"
           onSuccess:
+            - write_output imageCI "imageTag=${RELEASE_TAG}"
             - echo "Docker image is successfully pushed to JFrog Docker Registry."
