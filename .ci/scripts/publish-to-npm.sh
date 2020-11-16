@@ -8,7 +8,7 @@ fi
 readonly BRANCH="$1"
 
 main() {
-  local yarn_publish_cmd="yarn publish --verbose --message 'Release [skip ci]'"
+  local yarn_publish_cmd="yarn publish --verbose --message 'Release [skip ci] [skipRun]'"
   local release_version="--prerelease"
 
   if [ $BRANCH = "master" ]; then 
