@@ -22,14 +22,15 @@ const otherSkills: ReadonlyArray<IOtherSkill> = [
   "RabbitMQ",
   "Redis",
   "MongoDB",
-  "OAuth 2",
-  "Hashicorp Vault",
   "Elasticsearch",
-  "CI/CD",
+  "OAuth 2.0",
   "CloudFoundry",
-  "Cloud Hyperscalers",
-  "Distributed Systems",
+  "CI/CD",
   "Internet of Things",
+  "Distributed Systems",
+  "Design Patterns",
+  "E-Commerce",
+  "Marketing",
 ];
 
 const areaOfExpertise: ReadonlyArray<IAreaOfExpertise> = [
