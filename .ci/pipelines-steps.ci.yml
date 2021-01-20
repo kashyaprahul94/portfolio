@@ -1,6 +1,8 @@
 pipelines:
   - name: portfolio_ci
     configuration:
+      runtime:
+        type: host
       environmentVariables:
         readOnly:
           GIT_BRANCH: "{{gitBranch}}"
